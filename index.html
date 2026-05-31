@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>World Cup 2026 · Live Calendar</title>
+<style>
+:root{color-scheme:light}
+body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#10202e;background:#eef1f5}
+.hero{background:linear-gradient(120deg,#6a2cf5,#0aa6c9);color:#fff;padding:54px 22px 46px;text-align:center}
+.hero h1{margin:0 0 6px;font-size:30px;font-weight:850;letter-spacing:-.02em}
+.hero p{margin:0;opacity:.92}
+.wrap{max-width:680px;margin:-28px auto 60px;padding:0 18px}
+.card{background:#fff;border:1px solid #e4e9ef;border-radius:18px;box-shadow:0 6px 26px rgba(16,32,46,.08);padding:24px 22px;margin-bottom:18px}
+h2{font-size:18px;margin:0 0 10px}
+.btn{display:inline-block;background:#6a2cf5;color:#fff;font-weight:700;padding:12px 20px;border-radius:12px;text-decoration:none;margin:6px 8px 6px 0}
+.btn.alt{background:#10202e}
+code{background:#f3f5f8;border:1px solid #e4e9ef;border-radius:6px;padding:2px 7px;font-size:14px;word-break:break-all}
+ol{padding-left:20px}
+.muted{color:#5c6b7a;font-size:14px}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>🏆 World Cup 2026 — Live Calendar</h1>
+<p>All 104 matches · auto-updating · knockout teams fill in as results come.</p>
+</div>
+<div class="wrap">
+<div class="card">
+<h2>📅 Subscribe (auto-updating)</h2>
+<p>Add this to your calendar as a <b>subscription</b> (not a one-time import) so it refreshes itself:</p>
+<p><code id="feed"></code></p>
+<a class="btn" id="webcal" href="#">Subscribe on iPhone / Apple</a>
+<a class="btn alt" id="gcal" target="_blank" href="#">Add to Google Calendar</a>
+<p class="muted"><b>iPhone:</b> tapping the button opens Settings → add subscribed calendar. <b>Google:</b> opens "add by URL".<br>
+Knockout matches show "Winner Group C" until results decide them, then update to the real teams automatically.</p>
+</div>
+<div class="card">
+<h2>📊 Interactive dashboard</h2>
+<p>Standings you fill in, a live-projecting bracket, head-to-head for all 48 teams, and shareable predictions.</p>
+<a class="btn" href="./dashboard.html">Open the dashboard →</a>
+<p class="muted">If that link 404s, the dashboard file (<code>index.html</code> from the kit) hasn't been uploaded yet — see the repo README.</p>
+</div>
+</div>
+<script>
+var base=location.href.replace(/\/[^\/]*$/,'/');
+var ics=base+'worldcup.ics';
+document.getElementById('feed').textContent=ics;
+document.getElementById('webcal').href='webcal://'+ics.replace(/^https?:\/\//,'');
+document.getElementById('gcal').href='https://calendar.google.com/calendar/r?cid='+encodeURIComponent(ics);
+</script>
+</body>
+</html>
