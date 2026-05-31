@@ -1,0 +1,720 @@
+{
+ "updated": "2026-05-31 20:40 UTC",
+ "results": {},
+ "standings": {
+  "A": [
+   {
+    "t": "Czech Republic",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Mexico",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "South Africa",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "South Korea",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   }
+  ],
+  "B": [
+   {
+    "t": "Bosnia and Herzegovina",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Canada",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Qatar",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Switzerland",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   }
+  ],
+  "C": [
+   {
+    "t": "Brazil",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Haiti",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Morocco",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Scotland",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   }
+  ],
+  "D": [
+   {
+    "t": "Australia",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Paraguay",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Turkey",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "United States",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   }
+  ],
+  "E": [
+   {
+    "t": "Curaçao",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Ecuador",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Germany",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Ivory Coast",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   }
+  ],
+  "F": [
+   {
+    "t": "Japan",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Netherlands",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Sweden",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Tunisia",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   }
+  ],
+  "G": [
+   {
+    "t": "Belgium",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Egypt",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Iran",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "New Zealand",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   }
+  ],
+  "H": [
+   {
+    "t": "Cape Verde",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Saudi Arabia",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Spain",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Uruguay",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   }
+  ],
+  "I": [
+   {
+    "t": "France",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Iraq",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Norway",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Senegal",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   }
+  ],
+  "J": [
+   {
+    "t": "Algeria",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Argentina",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Austria",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Jordan",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   }
+  ],
+  "K": [
+   {
+    "t": "Colombia",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "DR Congo",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Portugal",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Uzbekistan",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   }
+  ],
+  "L": [
+   {
+    "t": "Croatia",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "England",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Ghana",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "Panama",
+    "P": 0,
+    "W": 0,
+    "D": 0,
+    "L": 0,
+    "GF": 0,
+    "GA": 0,
+    "GD": 0,
+    "Pts": 0
+   }
+  ]
+ },
+ "bracket": {
+  "73": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "74": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "75": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "76": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "77": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "78": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "79": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "80": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "81": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "82": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "83": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "84": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "85": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "86": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "87": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "88": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "89": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "90": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "91": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "92": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "93": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "94": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "95": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "96": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "97": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "98": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "99": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "100": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "101": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "102": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "103": {
+   "home": null,
+   "away": null,
+   "winner": null
+  },
+  "104": {
+   "home": null,
+   "away": null,
+   "winner": null
+  }
+ }
+}
