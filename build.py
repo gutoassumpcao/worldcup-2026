@@ -199,9 +199,9 @@ def fold(line):
     out.append(cur.decode()); return "\r\n".join(out)
 
 stamp=fmt(datetime.datetime.now(datetime.timezone.utc))
-L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//WorldCup2026 Live//EN","CALSCALE:GREGORIAN",
+L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Guto Assumpção//World Cup 2026 Live//EN","CALSCALE:GREGORIAN",
    "METHOD:PUBLISH","X-WR-CALNAME:FIFA World Cup 2026 (Live)",
-   "X-WR-CALDESC:Auto-updating. Knockout teams fill in as results come.",
+   fold("X-WR-CALDESC:Auto-updating. Knockout teams fill in as results come. Created by Guto Assumpção (@GutoAssumpcao) · instagram.com/GutoAssumpcao"),
    "REFRESH-INTERVAL;VALUE=DURATION:PT6H","X-PUBLISHED-TTL:PT6H"]
 for m in FIXTURES:
     grp=m["round"].startswith("Group")
