@@ -3,1366 +3,1387 @@ VERSION:2.0
 PRODID:-//Guto Assumpção//World Cup 2026 Live//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:FIFA World Cup 2026 (Live)
-X-WR-CALDESC:Auto-updating. Knockout teams fill in as results come. Creat
- ed by Guto Assumpção (@GutoAssumpcao) · instagram.com/GutoAssumpcao
+X-WR-CALNAME:Copa do Mundo FIFA 2026 (ao vivo)
+X-WR-CALDESC:Calendário e bolão da Copa do Mundo 2026. Os times do mata
+ -mata se preenchem conforme os resultados saem. Criado por Guto Assumpç
+ ão (@GutoAssumpcao) · instagram.com/GutoAssumpcao
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:wc2026-m1@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260611T190000Z
 DTEND:20260611T210000Z
-SUMMARY:🇲🇽 Mexico vs South Africa 🇿🇦 · Group A
-LOCATION:Estadio Azteca\, Mexico City
-DESCRIPTION:Match 1 · Group A · kick-off 13:00 local (Mexico City). Ven
- ue: Estadio Azteca.  Head-to-head: 4 played — Mexico 2\, draws 1\, Sou
- th Africa 1. Last: Mexico 1–1 South Africa (draw) (2010).
+SUMMARY:🇲🇽 México x África do Sul 🇿🇦 · Grupo A
+LOCATION:Estadio Azteca\, Cidade do México
+DESCRIPTION:Jogo 1 · Grupo A · começa 13:00 (horário local de Cidade 
+ do México). Estádio: Estadio Azteca.  Confrontos diretos: 4 jogos — 
+ México 2\, empates 1\, África do Sul 1. Último: Mexico 1–1 South Af
+ rica (draw) (2010).
 CATEGORIES:Group A
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m2@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260612T020000Z
 DTEND:20260612T040000Z
-SUMMARY:🇰🇷 South Korea vs Czech Republic 🇨🇿 · Group A
+SUMMARY:🇰🇷 Coreia do Sul x Tchéquia 🇨🇿 · Grupo A
 LOCATION:Estadio Akron\, Guadalajara
-DESCRIPTION:Match 2 · Group A · kick-off 20:00 local (Guadalajara). Ven
- ue: Estadio Akron.  Head-to-head: 1 played — South Korea 1\, draws 0\,
-  Czech Republic 0. Last: South Korea 2–1 Czech Republic (2016).
+DESCRIPTION:Jogo 2 · Grupo A · começa 20:00 (horário local de Guadala
+ jara). Estádio: Estadio Akron.  Confrontos diretos: 1 jogos — Coreia 
+ do Sul 1\, empates 0\, Tchéquia 0. Último: South Korea 2–1 Czech Rep
+ ublic (2016).
 CATEGORIES:Group A
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m3@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260612T190000Z
 DTEND:20260612T210000Z
-SUMMARY:🇨🇦 Canada vs Bosnia and Herzegovina 🇧🇦 · Group B
+SUMMARY:🇨🇦 Canadá x Bósnia e Herzegovina 🇧🇦 · Grupo B
 LOCATION:BMO Field\, Toronto
-DESCRIPTION:Match 3 · Group B · kick-off 15:00 local (Toronto). Venue: 
- BMO Field.  Head-to-head: Canada and Bosnia and Herzegovina have never m
- et — a first-ever meeting.
+DESCRIPTION:Jogo 3 · Grupo B · começa 15:00 (horário local de Toronto
+ ). Estádio: BMO Field.  Confrontos diretos: Canadá e Bósnia e Herzego
+ vina nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group B
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m4@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260613T010000Z
 DTEND:20260613T030000Z
-SUMMARY:🇺🇸 United States vs Paraguay 🇵🇾 · Group D
+SUMMARY:🇺🇸 Estados Unidos x Paraguai 🇵🇾 · Grupo D
 LOCATION:SoFi Stadium\, Los Angeles
-DESCRIPTION:Match 4 · Group D · kick-off 18:00 local (Los Angeles). Ven
- ue: SoFi Stadium.  Head-to-head: 9 played — United States 5\, draws 2\
- , Paraguay 2. Last: United States 2–1 Paraguay (2025).
+DESCRIPTION:Jogo 4 · Grupo D · começa 18:00 (horário local de Los Ang
+ eles). Estádio: SoFi Stadium.  Confrontos diretos: 9 jogos — Estados 
+ Unidos 5\, empates 2\, Paraguai 2. Último: United States 2–1 Paraguay
+  (2025).
 CATEGORIES:Group D
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m5@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260613T190000Z
 DTEND:20260613T210000Z
-SUMMARY:🇶🇦 Qatar vs Switzerland 🇨🇭 · Group B
-LOCATION:Levi's Stadium\, San Francisco Bay Area
-DESCRIPTION:Match 5 · Group B · kick-off 12:00 local (San Francisco Bay
-  Area). Venue: Levi's Stadium.  Head-to-head: 1 played — Qatar 1\, dra
- ws 0\, Switzerland 0. Last: Qatar 1–0 Switzerland.
+SUMMARY:🇶🇦 Catar x Suíça 🇨🇭 · Grupo B
+LOCATION:Levi's Stadium\, Baía de São Francisco
+DESCRIPTION:Jogo 5 · Grupo B · começa 12:00 (horário local de Baía d
+ e São Francisco). Estádio: Levi's Stadium.  Confrontos diretos: 1 jogo
+ s — Catar 1\, empates 0\, Suíça 0. Último: Qatar 1–0 Switzerland.
 CATEGORIES:Group B
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m6@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260613T220000Z
 DTEND:20260614T000000Z
-SUMMARY:🇧🇷 Brazil vs Morocco 🇲🇦 · Group C
-LOCATION:MetLife Stadium\, New York New Jersey
-DESCRIPTION:Match 6 · Group C · kick-off 18:00 local (New York New Jers
- ey). Venue: MetLife Stadium.  Head-to-head: 3 played — Brazil 2\, draw
- s 0\, Morocco 1. Last: Morocco 2–1 Brazil (2023).
+SUMMARY:🇧🇷 Brasil x Marrocos 🇲🇦 · Grupo C
+LOCATION:MetLife Stadium\, Nova York / Nova Jersey
+DESCRIPTION:Jogo 6 · Grupo C · começa 18:00 (horário local de Nova Yo
+ rk / Nova Jersey). Estádio: MetLife Stadium.  Confrontos diretos: 3 jog
+ os — Brasil 2\, empates 0\, Marrocos 1. Último: Morocco 2–1 Brazil 
+ (2023).
 CATEGORIES:Group C
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m7@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260614T010000Z
 DTEND:20260614T030000Z
-SUMMARY:🇭🇹 Haiti vs Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 · Group 
- C
+SUMMARY:🇭🇹 Haiti x Escócia 🏴󠁧󠁢󠁳󠁣󠁴󠁿 · Grupo C
 LOCATION:Gillette Stadium\, Boston
-DESCRIPTION:Match 7 · Group C · kick-off 21:00 local (Boston). Venue: G
- illette Stadium.  Head-to-head: Haiti and Scotland have never met — a 
- first-ever meeting.
+DESCRIPTION:Jogo 7 · Grupo C · começa 21:00 (horário local de Boston)
+ . Estádio: Gillette Stadium.  Confrontos diretos: Haiti e Escócia nunc
+ a se enfrentaram — primeiro encontro.
 CATEGORIES:Group C
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m8@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260614T040000Z
 DTEND:20260614T060000Z
-SUMMARY:🇦🇺 Australia vs Turkey 🇹🇷 · Group D
+SUMMARY:🇦🇺 Austrália x Turquia 🇹🇷 · Grupo D
 LOCATION:BC Place\, Vancouver
-DESCRIPTION:Match 8 · Group D · kick-off 21:00 local (Vancouver). Venue
- : BC Place.  Head-to-head: 2 played — Australia 0\, draws 0\, Turkey 2
- . Last: Turkey 1–0 Australia (2004).
+DESCRIPTION:Jogo 8 · Grupo D · começa 21:00 (horário local de Vancouv
+ er). Estádio: BC Place.  Confrontos diretos: 2 jogos — Austrália 0\,
+  empates 0\, Turquia 2. Último: Turkey 1–0 Australia (2004).
 CATEGORIES:Group D
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m9@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260614T170000Z
 DTEND:20260614T190000Z
-SUMMARY:🇩🇪 Germany vs Curaçao 🇨🇼 · Group E
+SUMMARY:🇩🇪 Alemanha x Curaçao 🇨🇼 · Grupo E
 LOCATION:NRG Stadium\, Houston
-DESCRIPTION:Match 9 · Group E · kick-off 12:00 local (Houston). Venue: 
- NRG Stadium.  Head-to-head: Germany and Curaçao have never met — a fi
- rst-ever meeting.
+DESCRIPTION:Jogo 9 · Grupo E · começa 12:00 (horário local de Houston
+ ). Estádio: NRG Stadium.  Confrontos diretos: Alemanha e Curaçao nunca
+  se enfrentaram — primeiro encontro.
 CATEGORIES:Group E
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m10@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260614T200000Z
 DTEND:20260614T220000Z
-SUMMARY:🇳🇱 Netherlands vs Japan 🇯🇵 · Group F
+SUMMARY:🇳🇱 Holanda x Japão 🇯🇵 · Grupo F
 LOCATION:AT&T Stadium\, Dallas
-DESCRIPTION:Match 10 · Group F · kick-off 15:00 local (Dallas). Venue: 
- AT&T Stadium.  Head-to-head: 3 played — Netherlands 2\, draws 1\, Japa
- n 0.
+DESCRIPTION:Jogo 10 · Grupo F · começa 15:00 (horário local de Dallas
+ ). Estádio: AT&T Stadium.  Confrontos diretos: 3 jogos — Holanda 2\, 
+ empates 1\, Japão 0.
 CATEGORIES:Group F
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m11@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260614T230000Z
 DTEND:20260615T010000Z
-SUMMARY:🇨🇮 Ivory Coast vs Ecuador 🇪🇨 · Group E
-LOCATION:Lincoln Financial Field\, Philadelphia
-DESCRIPTION:Match 11 · Group E · kick-off 19:00 local (Philadelphia). V
- enue: Lincoln Financial Field.  Head-to-head: Ivory Coast and Ecuador ha
- ve never met — a first-ever meeting.
+SUMMARY:🇨🇮 Costa do Marfim x Equador 🇪🇨 · Grupo E
+LOCATION:Lincoln Financial Field\, Filadélfia
+DESCRIPTION:Jogo 11 · Grupo E · começa 19:00 (horário local de Filad
+ élfia). Estádio: Lincoln Financial Field.  Confrontos diretos: Costa d
+ o Marfim e Equador nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group E
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m12@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260615T020000Z
 DTEND:20260615T040000Z
-SUMMARY:🇸🇪 Sweden vs Tunisia 🇹🇳 · Group F
+SUMMARY:🇸🇪 Suécia x Tunísia 🇹🇳 · Grupo F
 LOCATION:Estadio BBVA\, Monterrey
-DESCRIPTION:Match 12 · Group F · kick-off 20:00 local (Monterrey). Venu
- e: Estadio BBVA.  Head-to-head: 4 played — Sweden 2\, draws 1\, Tunisi
- a 1.
+DESCRIPTION:Jogo 12 · Grupo F · começa 20:00 (horário local de Monter
+ rey). Estádio: Estadio BBVA.  Confrontos diretos: 4 jogos — Suécia 2
+ \, empates 1\, Tunísia 1.
 CATEGORIES:Group F
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m13@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260615T160000Z
 DTEND:20260615T180000Z
-SUMMARY:🇪🇸 Spain vs Cape Verde 🇨🇻 · Group H
+SUMMARY:🇪🇸 Espanha x Cabo Verde 🇨🇻 · Grupo H
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match 13 · Group H · kick-off 12:00 local (Atlanta). Venue:
-  Mercedes-Benz Stadium.  Head-to-head: Spain and Cape Verde have never m
- et — a first-ever meeting.
+DESCRIPTION:Jogo 13 · Grupo H · começa 12:00 (horário local de Atlant
+ a). Estádio: Mercedes-Benz Stadium.  Confrontos diretos: Espanha e Cabo
+  Verde nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group H
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m14@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260615T190000Z
 DTEND:20260615T210000Z
-SUMMARY:🇧🇪 Belgium vs Egypt 🇪🇬 · Group G
+SUMMARY:🇧🇪 Bélgica x Egito 🇪🇬 · Grupo G
 LOCATION:Lumen Field\, Seattle
-DESCRIPTION:Match 14 · Group G · kick-off 12:00 local (Seattle). Venue:
-  Lumen Field.  Head-to-head: 4 played — Belgium 1\, draws 0\, Egypt 3.
-  Last: Egypt 2–1 Belgium (2022).
+DESCRIPTION:Jogo 14 · Grupo G · começa 12:00 (horário local de Seattl
+ e). Estádio: Lumen Field.  Confrontos diretos: 4 jogos — Bélgica 1\,
+  empates 0\, Egito 3. Último: Egypt 2–1 Belgium (2022).
 CATEGORIES:Group G
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m15@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260615T220000Z
 DTEND:20260616T000000Z
-SUMMARY:🇸🇦 Saudi Arabia vs Uruguay 🇺🇾 · Group H
+SUMMARY:🇸🇦 Arábia Saudita x Uruguai 🇺🇾 · Grupo H
 LOCATION:Hard Rock Stadium\, Miami
-DESCRIPTION:Match 15 · Group H · kick-off 18:00 local (Miami). Venue: H
- ard Rock Stadium.  Head-to-head: 3 played — Saudi Arabia 1\, draws 1\,
-  Uruguay 1. Last: Uruguay 1–0 Saudi Arabia (2018).
+DESCRIPTION:Jogo 15 · Grupo H · começa 18:00 (horário local de Miami)
+ . Estádio: Hard Rock Stadium.  Confrontos diretos: 3 jogos — Arábia 
+ Saudita 1\, empates 1\, Uruguai 1. Último: Uruguay 1–0 Saudi Arabia (
+ 2018).
 CATEGORIES:Group H
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m16@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260616T010000Z
 DTEND:20260616T030000Z
-SUMMARY:🇮🇷 Iran vs New Zealand 🇳🇿 · Group G
+SUMMARY:🇮🇷 Irã x Nova Zelândia 🇳🇿 · Grupo G
 LOCATION:SoFi Stadium\, Los Angeles
-DESCRIPTION:Match 16 · Group G · kick-off 18:00 local (Los Angeles). Ve
- nue: SoFi Stadium.  Head-to-head: Iran and New Zealand have never met 
- — a first-ever meeting.
+DESCRIPTION:Jogo 16 · Grupo G · começa 18:00 (horário local de Los An
+ geles). Estádio: SoFi Stadium.  Confrontos diretos: Irã e Nova Zelând
+ ia nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group G
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m17@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260616T190000Z
 DTEND:20260616T210000Z
-SUMMARY:🇫🇷 France vs Senegal 🇸🇳 · Group I
-LOCATION:MetLife Stadium\, New York New Jersey
-DESCRIPTION:Match 17 · Group I · kick-off 15:00 local (New York New Jer
- sey). Venue: MetLife Stadium.  Head-to-head: 1 played — France 0\, dra
- ws 0\, Senegal 1. Last: Senegal 1–0 France (2002).
+SUMMARY:🇫🇷 França x Senegal 🇸🇳 · Grupo I
+LOCATION:MetLife Stadium\, Nova York / Nova Jersey
+DESCRIPTION:Jogo 17 · Grupo I · começa 15:00 (horário local de Nova Y
+ ork / Nova Jersey). Estádio: MetLife Stadium.  Confrontos diretos: 1 jo
+ gos — França 0\, empates 0\, Senegal 1. Último: Senegal 1–0 France
+  (2002).
 CATEGORIES:Group I
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m18@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260616T220000Z
 DTEND:20260617T000000Z
-SUMMARY:🇮🇶 Iraq vs Norway 🇳🇴 · Group I
+SUMMARY:🇮🇶 Iraque x Noruega 🇳🇴 · Grupo I
 LOCATION:Gillette Stadium\, Boston
-DESCRIPTION:Match 18 · Group I · kick-off 18:00 local (Boston). Venue: 
- Gillette Stadium.  Head-to-head: Iraq and Norway have never met — a fi
- rst-ever meeting.
+DESCRIPTION:Jogo 18 · Grupo I · começa 18:00 (horário local de Boston
+ ). Estádio: Gillette Stadium.  Confrontos diretos: Iraque e Noruega nun
+ ca se enfrentaram — primeiro encontro.
 CATEGORIES:Group I
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m19@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260617T010000Z
 DTEND:20260617T030000Z
-SUMMARY:🇦🇷 Argentina vs Algeria 🇩🇿 · Group J
+SUMMARY:🇦🇷 Argentina x Argélia 🇩🇿 · Grupo J
 LOCATION:Arrowhead Stadium\, Kansas City
-DESCRIPTION:Match 19 · Group J · kick-off 20:00 local (Kansas City). Ve
- nue: Arrowhead Stadium.  Head-to-head: 1 played — Argentina 1\, draws 
- 0\, Algeria 0. Last: Argentina 4–3 Algeria (2007).
+DESCRIPTION:Jogo 19 · Grupo J · começa 20:00 (horário local de Kansas
+  City). Estádio: Arrowhead Stadium.  Confrontos diretos: 1 jogos — Ar
+ gentina 1\, empates 0\, Argélia 0. Último: Argentina 4–3 Algeria (20
+ 07).
 CATEGORIES:Group J
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m20@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260617T040000Z
 DTEND:20260617T060000Z
-SUMMARY:🇦🇹 Austria vs Jordan 🇯🇴 · Group J
-LOCATION:Levi's Stadium\, San Francisco Bay Area
-DESCRIPTION:Match 20 · Group J · kick-off 21:00 local (San Francisco Ba
- y Area). Venue: Levi's Stadium.  Head-to-head: Austria and Jordan have n
- ever met — a first-ever meeting.
+SUMMARY:🇦🇹 Áustria x Jordânia 🇯🇴 · Grupo J
+LOCATION:Levi's Stadium\, Baía de São Francisco
+DESCRIPTION:Jogo 20 · Grupo J · começa 21:00 (horário local de Baía 
+ de São Francisco). Estádio: Levi's Stadium.  Confrontos diretos: Áust
+ ria e Jordânia nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group J
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m21@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260617T170000Z
 DTEND:20260617T190000Z
-SUMMARY:🇵🇹 Portugal vs DR Congo 🇨🇩 · Group K
+SUMMARY:🇵🇹 Portugal x RD Congo 🇨🇩 · Grupo K
 LOCATION:NRG Stadium\, Houston
-DESCRIPTION:Match 21 · Group K · kick-off 12:00 local (Houston). Venue:
-  NRG Stadium.  Head-to-head: Portugal and DR Congo have never met — a 
- first-ever meeting.
+DESCRIPTION:Jogo 21 · Grupo K · começa 12:00 (horário local de Housto
+ n). Estádio: NRG Stadium.  Confrontos diretos: Portugal e RD Congo nunc
+ a se enfrentaram — primeiro encontro.
 CATEGORIES:Group K
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m22@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260617T200000Z
 DTEND:20260617T220000Z
-SUMMARY:🏴󠁧󠁢󠁥󠁮󠁧󠁿 England vs Croatia 🇭🇷 · Group
-  L
+SUMMARY:🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra x Croácia 🇭🇷 · Gr
+ upo L
 LOCATION:AT&T Stadium\, Dallas
-DESCRIPTION:Match 22 · Group L · kick-off 15:00 local (Dallas). Venue: 
- AT&T Stadium.  Head-to-head: 9 played — England 5\, draws 1\, Croatia 
- 3. Last: England 1–0 Croatia (2021).
+DESCRIPTION:Jogo 22 · Grupo L · começa 15:00 (horário local de Dallas
+ ). Estádio: AT&T Stadium.  Confrontos diretos: 9 jogos — Inglaterra 5
+ \, empates 1\, Croácia 3. Último: England 1–0 Croatia (2021).
 CATEGORIES:Group L
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m23@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260617T230000Z
 DTEND:20260618T010000Z
-SUMMARY:🇬🇭 Ghana vs Panama 🇵🇦 · Group L
+SUMMARY:🇬🇭 Gana x Panamá 🇵🇦 · Grupo L
 LOCATION:BMO Field\, Toronto
-DESCRIPTION:Match 23 · Group L · kick-off 19:00 local (Toronto). Venue:
-  BMO Field.  Head-to-head: Ghana and Panama have never met — a first-e
- ver meeting.
+DESCRIPTION:Jogo 23 · Grupo L · começa 19:00 (horário local de Toront
+ o). Estádio: BMO Field.  Confrontos diretos: Gana e Panamá nunca se en
+ frentaram — primeiro encontro.
 CATEGORIES:Group L
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m24@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260618T020000Z
 DTEND:20260618T040000Z
-SUMMARY:🇺🇿 Uzbekistan vs Colombia 🇨🇴 · Group K
-LOCATION:Estadio Azteca\, Mexico City
-DESCRIPTION:Match 24 · Group K · kick-off 20:00 local (Mexico City). Ve
- nue: Estadio Azteca.  Head-to-head: Uzbekistan and Colombia have never m
- et — a first-ever meeting.
+SUMMARY:🇺🇿 Uzbequistão x Colômbia 🇨🇴 · Grupo K
+LOCATION:Estadio Azteca\, Cidade do México
+DESCRIPTION:Jogo 24 · Grupo K · começa 20:00 (horário local de Cidade
+  do México). Estádio: Estadio Azteca.  Confrontos diretos: Uzbequistã
+ o e Colômbia nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group K
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m25@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260618T160000Z
 DTEND:20260618T180000Z
-SUMMARY:🇨🇿 Czech Republic vs South Africa 🇿🇦 · Group A
+SUMMARY:🇨🇿 Tchéquia x África do Sul 🇿🇦 · Grupo A
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match 25 · Group A · kick-off 12:00 local (Atlanta). Venue:
-  Mercedes-Benz Stadium.  Head-to-head: Czech Republic and South Africa h
- ave never met — a first-ever meeting.
+DESCRIPTION:Jogo 25 · Grupo A · começa 12:00 (horário local de Atlant
+ a). Estádio: Mercedes-Benz Stadium.  Confrontos diretos: Tchéquia e Á
+ frica do Sul nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group A
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m26@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260618T190000Z
 DTEND:20260618T210000Z
-SUMMARY:🇨🇭 Switzerland vs Bosnia and Herzegovina 🇧🇦 · Group 
- B
+SUMMARY:🇨🇭 Suíça x Bósnia e Herzegovina 🇧🇦 · Grupo B
 LOCATION:SoFi Stadium\, Los Angeles
-DESCRIPTION:Match 26 · Group B · kick-off 12:00 local (Los Angeles). Ve
- nue: SoFi Stadium.  Head-to-head: 1 played — Switzerland 0\, draws 0\,
-  Bosnia and Herzegovina 1. Last: Bosnia and Herzegovina 2–0 Switzerlan
- d.
+DESCRIPTION:Jogo 26 · Grupo B · começa 12:00 (horário local de Los An
+ geles). Estádio: SoFi Stadium.  Confrontos diretos: 1 jogos — Suíça
+  0\, empates 0\, Bósnia e Herzegovina 1. Último: Bosnia and Herzegovin
+ a 2–0 Switzerland.
 CATEGORIES:Group B
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m27@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260618T220000Z
 DTEND:20260619T000000Z
-SUMMARY:🇨🇦 Canada vs Qatar 🇶🇦 · Group B
+SUMMARY:🇨🇦 Canadá x Catar 🇶🇦 · Grupo B
 LOCATION:BC Place\, Vancouver
-DESCRIPTION:Match 27 · Group B · kick-off 15:00 local (Vancouver). Venu
- e: BC Place.  Head-to-head: 1 played — Canada 1\, draws 0\, Qatar 0. L
- ast: Canada 2–0 Qatar (2022).
+DESCRIPTION:Jogo 27 · Grupo B · começa 15:00 (horário local de Vancou
+ ver). Estádio: BC Place.  Confrontos diretos: 1 jogos — Canadá 1\, e
+ mpates 0\, Catar 0. Último: Canada 2–0 Qatar (2022).
 CATEGORIES:Group B
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m28@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260619T010000Z
 DTEND:20260619T030000Z
-SUMMARY:🇲🇽 Mexico vs South Korea 🇰🇷 · Group A
+SUMMARY:🇲🇽 México x Coreia do Sul 🇰🇷 · Grupo A
 LOCATION:Estadio Akron\, Guadalajara
-DESCRIPTION:Match 28 · Group A · kick-off 19:00 local (Guadalajara). Ve
- nue: Estadio Akron.  Head-to-head: 15 played — Mexico 8\, draws 3\, So
- uth Korea 4. Last: Mexico 2–2 South Korea (draw) (2025).
+DESCRIPTION:Jogo 28 · Grupo A · começa 19:00 (horário local de Guadal
+ ajara). Estádio: Estadio Akron.  Confrontos diretos: 15 jogos — Méxi
+ co 8\, empates 3\, Coreia do Sul 4. Último: Mexico 2–2 South Korea (d
+ raw) (2025).
 CATEGORIES:Group A
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m29@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260619T190000Z
 DTEND:20260619T210000Z
-SUMMARY:🇺🇸 United States vs Australia 🇦🇺 · Group D
+SUMMARY:🇺🇸 Estados Unidos x Austrália 🇦🇺 · Grupo D
 LOCATION:Lumen Field\, Seattle
-DESCRIPTION:Match 29 · Group D · kick-off 12:00 local (Seattle). Venue:
-  Lumen Field.  Head-to-head: 4 played — United States 2\, draws 1\, Au
- stralia 1. Last: United States 2–1 Australia (2025).
+DESCRIPTION:Jogo 29 · Grupo D · começa 12:00 (horário local de Seattl
+ e). Estádio: Lumen Field.  Confrontos diretos: 4 jogos — Estados Unid
+ os 2\, empates 1\, Austrália 1. Último: United States 2–1 Australia 
+ (2025).
 CATEGORIES:Group D
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m30@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260619T220000Z
 DTEND:20260620T000000Z
-SUMMARY:🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland vs Morocco 🇲🇦 · Grou
- p C
+SUMMARY:🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escócia x Marrocos 🇲🇦 · Grup
+ o C
 LOCATION:Gillette Stadium\, Boston
-DESCRIPTION:Match 30 · Group C · kick-off 18:00 local (Boston). Venue: 
- Gillette Stadium.  Head-to-head: 1 played — Scotland 0\, draws 0\, Mor
- occo 1. Last: Morocco 3–0 Scotland.
+DESCRIPTION:Jogo 30 · Grupo C · começa 18:00 (horário local de Boston
+ ). Estádio: Gillette Stadium.  Confrontos diretos: 1 jogos — Escócia
+  0\, empates 0\, Marrocos 1. Último: Morocco 3–0 Scotland.
 CATEGORIES:Group C
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m31@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260620T003000Z
 DTEND:20260620T023000Z
-SUMMARY:🇧🇷 Brazil vs Haiti 🇭🇹 · Group C
-LOCATION:Lincoln Financial Field\, Philadelphia
-DESCRIPTION:Match 31 · Group C · kick-off 20:30 local (Philadelphia). V
- enue: Lincoln Financial Field.  Head-to-head: 2 played — Brazil 2\, dr
- aws 0\, Haiti 0. Last: Brazil 7–1 Haiti (2016).
+SUMMARY:🇧🇷 Brasil x Haiti 🇭🇹 · Grupo C
+LOCATION:Lincoln Financial Field\, Filadélfia
+DESCRIPTION:Jogo 31 · Grupo C · começa 20:30 (horário local de Filad
+ élfia). Estádio: Lincoln Financial Field.  Confrontos diretos: 2 jogos
+  — Brasil 2\, empates 0\, Haiti 0. Último: Brazil 7–1 Haiti (2016).
 CATEGORIES:Group C
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m32@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260620T030000Z
 DTEND:20260620T050000Z
-SUMMARY:🇹🇷 Turkey vs Paraguay 🇵🇾 · Group D
-LOCATION:Levi's Stadium\, San Francisco Bay Area
-DESCRIPTION:Match 32 · Group D · kick-off 20:00 local (San Francisco Ba
- y Area). Venue: Levi's Stadium.  Head-to-head: 1 played — Turkey 0\, d
- raws 1\, Paraguay 0. Last: Turkey 0–0 Paraguay (draw) (1995).
+SUMMARY:🇹🇷 Turquia x Paraguai 🇵🇾 · Grupo D
+LOCATION:Levi's Stadium\, Baía de São Francisco
+DESCRIPTION:Jogo 32 · Grupo D · começa 20:00 (horário local de Baía 
+ de São Francisco). Estádio: Levi's Stadium.  Confrontos diretos: 1 jog
+ os — Turquia 0\, empates 1\, Paraguai 0. Último: Turkey 0–0 Paragua
+ y (draw) (1995).
 CATEGORIES:Group D
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m33@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260620T170000Z
 DTEND:20260620T190000Z
-SUMMARY:🇳🇱 Netherlands vs Sweden 🇸🇪 · Group F
+SUMMARY:🇳🇱 Holanda x Suécia 🇸🇪 · Grupo F
 LOCATION:NRG Stadium\, Houston
-DESCRIPTION:Match 33 · Group F · kick-off 12:00 local (Houston). Venue:
-  NRG Stadium.  Head-to-head: 25 played — Netherlands 11\, draws 6\, Sw
- eden 8.
+DESCRIPTION:Jogo 33 · Grupo F · começa 12:00 (horário local de Housto
+ n). Estádio: NRG Stadium.  Confrontos diretos: 25 jogos — Holanda 11\
+ , empates 6\, Suécia 8.
 CATEGORIES:Group F
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m34@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260620T200000Z
 DTEND:20260620T220000Z
-SUMMARY:🇩🇪 Germany vs Ivory Coast 🇨🇮 · Group E
+SUMMARY:🇩🇪 Alemanha x Costa do Marfim 🇨🇮 · Grupo E
 LOCATION:BMO Field\, Toronto
-DESCRIPTION:Match 34 · Group E · kick-off 16:00 local (Toronto). Venue:
-  BMO Field.  Head-to-head: 1 played — Germany 0\, draws 1\, Ivory Coas
- t 0. Last: Germany 2–2 Ivory Coast (draw) (2009).
+DESCRIPTION:Jogo 34 · Grupo E · começa 16:00 (horário local de Toront
+ o). Estádio: BMO Field.  Confrontos diretos: 1 jogos — Alemanha 0\, e
+ mpates 1\, Costa do Marfim 0. Último: Germany 2–2 Ivory Coast (draw) 
+ (2009).
 CATEGORIES:Group E
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m35@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260621T000000Z
 DTEND:20260621T020000Z
-SUMMARY:🇪🇨 Ecuador vs Curaçao 🇨🇼 · Group E
+SUMMARY:🇪🇨 Equador x Curaçao 🇨🇼 · Grupo E
 LOCATION:Arrowhead Stadium\, Kansas City
-DESCRIPTION:Match 35 · Group E · kick-off 19:00 local (Kansas City). Ve
- nue: Arrowhead Stadium.  Head-to-head: Ecuador and Curaçao have never m
- et — a first-ever meeting.
+DESCRIPTION:Jogo 35 · Grupo E · começa 19:00 (horário local de Kansas
+  City). Estádio: Arrowhead Stadium.  Confrontos diretos: Equador e Cura
+ çao nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group E
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m36@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260621T040000Z
 DTEND:20260621T060000Z
-SUMMARY:🇹🇳 Tunisia vs Japan 🇯🇵 · Group F
+SUMMARY:🇹🇳 Tunísia x Japão 🇯🇵 · Grupo F
 LOCATION:Estadio BBVA\, Monterrey
-DESCRIPTION:Match 36 · Group F · kick-off 22:00 local (Monterrey). Venu
- e: Estadio BBVA.  Head-to-head: 6 played — Tunisia 1\, draws 0\, Japan
-  5.
+DESCRIPTION:Jogo 36 · Grupo F · começa 22:00 (horário local de Monter
+ rey). Estádio: Estadio BBVA.  Confrontos diretos: 6 jogos — Tunísia 
+ 1\, empates 0\, Japão 5.
 CATEGORIES:Group F
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m37@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260621T160000Z
 DTEND:20260621T180000Z
-SUMMARY:🇪🇸 Spain vs Saudi Arabia 🇸🇦 · Group H
+SUMMARY:🇪🇸 Espanha x Arábia Saudita 🇸🇦 · Grupo H
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match 37 · Group H · kick-off 12:00 local (Atlanta). Venue:
-  Mercedes-Benz Stadium.  Head-to-head: 3 played — Spain 3\, draws 0\, 
- Saudi Arabia 0. Last: Spain won (2012).
+DESCRIPTION:Jogo 37 · Grupo H · começa 12:00 (horário local de Atlant
+ a). Estádio: Mercedes-Benz Stadium.  Confrontos diretos: 3 jogos — Es
+ panha 3\, empates 0\, Arábia Saudita 0. Último: Spain won (2012).
 CATEGORIES:Group H
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m38@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260621T190000Z
 DTEND:20260621T210000Z
-SUMMARY:🇧🇪 Belgium vs Iran 🇮🇷 · Group G
+SUMMARY:🇧🇪 Bélgica x Irã 🇮🇷 · Grupo G
 LOCATION:SoFi Stadium\, Los Angeles
-DESCRIPTION:Match 38 · Group G · kick-off 12:00 local (Los Angeles). Ve
- nue: SoFi Stadium.  Head-to-head: Belgium and Iran have never met — a 
- first-ever meeting.
+DESCRIPTION:Jogo 38 · Grupo G · começa 12:00 (horário local de Los An
+ geles). Estádio: SoFi Stadium.  Confrontos diretos: Bélgica e Irã nun
+ ca se enfrentaram — primeiro encontro.
 CATEGORIES:Group G
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m39@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260621T220000Z
 DTEND:20260622T000000Z
-SUMMARY:🇺🇾 Uruguay vs Cape Verde 🇨🇻 · Group H
+SUMMARY:🇺🇾 Uruguai x Cabo Verde 🇨🇻 · Grupo H
 LOCATION:Hard Rock Stadium\, Miami
-DESCRIPTION:Match 39 · Group H · kick-off 18:00 local (Miami). Venue: H
- ard Rock Stadium.  Head-to-head: Uruguay and Cape Verde have never met 
- — a first-ever meeting.
+DESCRIPTION:Jogo 39 · Grupo H · começa 18:00 (horário local de Miami)
+ . Estádio: Hard Rock Stadium.  Confrontos diretos: Uruguai e Cabo Verde
+  nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group H
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m40@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260622T010000Z
 DTEND:20260622T030000Z
-SUMMARY:🇳🇿 New Zealand vs Egypt 🇪🇬 · Group G
+SUMMARY:🇳🇿 Nova Zelândia x Egito 🇪🇬 · Grupo G
 LOCATION:BC Place\, Vancouver
-DESCRIPTION:Match 40 · Group G · kick-off 18:00 local (Vancouver). Venu
- e: BC Place.  Head-to-head: 3 played — New Zealand 0\, draws 1\, Egypt
-  2. Last: Egypt 1–0 New Zealand (2024).
+DESCRIPTION:Jogo 40 · Grupo G · começa 18:00 (horário local de Vancou
+ ver). Estádio: BC Place.  Confrontos diretos: 3 jogos — Nova Zelândi
+ a 0\, empates 1\, Egito 2. Último: Egypt 1–0 New Zealand (2024).
 CATEGORIES:Group G
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m41@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260622T170000Z
 DTEND:20260622T190000Z
-SUMMARY:🇦🇷 Argentina vs Austria 🇦🇹 · Group J
+SUMMARY:🇦🇷 Argentina x Áustria 🇦🇹 · Grupo J
 LOCATION:AT&T Stadium\, Dallas
-DESCRIPTION:Match 41 · Group J · kick-off 12:00 local (Dallas). Venue: 
- AT&T Stadium.  Head-to-head: 2 played — Argentina 1\, draws 1\, Austri
- a 0. Last: Argentina 5–1 Austria (1980).
+DESCRIPTION:Jogo 41 · Grupo J · começa 12:00 (horário local de Dallas
+ ). Estádio: AT&T Stadium.  Confrontos diretos: 2 jogos — Argentina 1\
+ , empates 1\, Áustria 0. Último: Argentina 5–1 Austria (1980).
 CATEGORIES:Group J
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m42@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260622T210000Z
 DTEND:20260622T230000Z
-SUMMARY:🇫🇷 France vs Iraq 🇮🇶 · Group I
-LOCATION:Lincoln Financial Field\, Philadelphia
-DESCRIPTION:Match 42 · Group I · kick-off 17:00 local (Philadelphia). V
- enue: Lincoln Financial Field.  Head-to-head: France and Iraq have never
-  met — a first-ever meeting.
+SUMMARY:🇫🇷 França x Iraque 🇮🇶 · Grupo I
+LOCATION:Lincoln Financial Field\, Filadélfia
+DESCRIPTION:Jogo 42 · Grupo I · começa 17:00 (horário local de Filad
+ élfia). Estádio: Lincoln Financial Field.  Confrontos diretos: França
+  e Iraque nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group I
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m43@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260623T000000Z
 DTEND:20260623T020000Z
-SUMMARY:🇳🇴 Norway vs Senegal 🇸🇳 · Group I
+SUMMARY:🇳🇴 Noruega x Senegal 🇸🇳 · Grupo I
 LOCATION:BMO Field\, Toronto
-DESCRIPTION:Match 43 · Group I · kick-off 20:00 local (Toronto). Venue:
-  BMO Field.  Head-to-head: 1 played — Norway 0\, draws 0\, Senegal 1. 
- Last: Senegal 2–1 Norway (2006).
+DESCRIPTION:Jogo 43 · Grupo I · começa 20:00 (horário local de Toront
+ o). Estádio: BMO Field.  Confrontos diretos: 1 jogos — Noruega 0\, em
+ pates 0\, Senegal 1. Último: Senegal 2–1 Norway (2006).
 CATEGORIES:Group I
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m44@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260623T030000Z
 DTEND:20260623T050000Z
-SUMMARY:🇯🇴 Jordan vs Algeria 🇩🇿 · Group J
-LOCATION:Levi's Stadium\, San Francisco Bay Area
-DESCRIPTION:Match 44 · Group J · kick-off 20:00 local (San Francisco Ba
- y Area). Venue: Levi's Stadium.  Head-to-head: 1 played — Jordan 0\, d
- raws 1\, Algeria 0. Last: Jordan 1–1 Algeria (draw) (2004).
+SUMMARY:🇯🇴 Jordânia x Argélia 🇩🇿 · Grupo J
+LOCATION:Levi's Stadium\, Baía de São Francisco
+DESCRIPTION:Jogo 44 · Grupo J · começa 20:00 (horário local de Baía 
+ de São Francisco). Estádio: Levi's Stadium.  Confrontos diretos: 1 jog
+ os — Jordânia 0\, empates 1\, Argélia 0. Último: Jordan 1–1 Alger
+ ia (draw) (2004).
 CATEGORIES:Group J
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m45@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260623T170000Z
 DTEND:20260623T190000Z
-SUMMARY:🇵🇹 Portugal vs Uzbekistan 🇺🇿 · Group K
+SUMMARY:🇵🇹 Portugal x Uzbequistão 🇺🇿 · Grupo K
 LOCATION:NRG Stadium\, Houston
-DESCRIPTION:Match 45 · Group K · kick-off 12:00 local (Houston). Venue:
-  NRG Stadium.  Head-to-head: Portugal and Uzbekistan have never met — 
- a first-ever meeting.
+DESCRIPTION:Jogo 45 · Grupo K · começa 12:00 (horário local de Housto
+ n). Estádio: NRG Stadium.  Confrontos diretos: Portugal e Uzbequistão 
+ nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group K
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m46@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260623T200000Z
 DTEND:20260623T220000Z
-SUMMARY:🏴󠁧󠁢󠁥󠁮󠁧󠁿 England vs Ghana 🇬🇭 · Group L
+SUMMARY:🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra x Gana 🇬🇭 · Grupo 
+ L
 LOCATION:Gillette Stadium\, Boston
-DESCRIPTION:Match 46 · Group L · kick-off 16:00 local (Boston). Venue: 
- Gillette Stadium.  Head-to-head: 1 played — England 0\, draws 1\, Ghan
- a 0. Last: England 1–1 Ghana (draw) (2011).
+DESCRIPTION:Jogo 46 · Grupo L · começa 16:00 (horário local de Boston
+ ). Estádio: Gillette Stadium.  Confrontos diretos: 1 jogos — Inglater
+ ra 0\, empates 1\, Gana 0. Último: England 1–1 Ghana (draw) (2011).
 CATEGORIES:Group L
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m47@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260623T230000Z
 DTEND:20260624T010000Z
-SUMMARY:🇵🇦 Panama vs Croatia 🇭🇷 · Group L
+SUMMARY:🇵🇦 Panamá x Croácia 🇭🇷 · Grupo L
 LOCATION:Gillette Stadium\, Boston
-DESCRIPTION:Match 47 · Group L · kick-off 19:00 local (Boston). Venue: 
- Gillette Stadium.  Head-to-head: Panama and Croatia have never met — a
-  first-ever meeting.
+DESCRIPTION:Jogo 47 · Grupo L · começa 19:00 (horário local de Boston
+ ). Estádio: Gillette Stadium.  Confrontos diretos: Panamá e Croácia n
+ unca se enfrentaram — primeiro encontro.
 CATEGORIES:Group L
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m48@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260624T020000Z
 DTEND:20260624T040000Z
-SUMMARY:🇨🇴 Colombia vs DR Congo 🇨🇩 · Group K
+SUMMARY:🇨🇴 Colômbia x RD Congo 🇨🇩 · Grupo K
 LOCATION:Estadio Akron\, Guadalajara
-DESCRIPTION:Match 48 · Group K · kick-off 20:00 local (Guadalajara). Ve
- nue: Estadio Akron.  Head-to-head: Colombia and DR Congo have never met 
- — a first-ever meeting.
+DESCRIPTION:Jogo 48 · Grupo K · começa 20:00 (horário local de Guadal
+ ajara). Estádio: Estadio Akron.  Confrontos diretos: Colômbia e RD Con
+ go nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group K
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m49@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260624T190000Z
 DTEND:20260624T210000Z
-SUMMARY:🇨🇭 Switzerland vs Canada 🇨🇦 · Group B
+SUMMARY:🇨🇭 Suíça x Canadá 🇨🇦 · Grupo B
 LOCATION:BC Place\, Vancouver
-DESCRIPTION:Match 49 · Group B · kick-off 12:00 local (Vancouver). Venu
- e: BC Place.  Head-to-head: 1 played — Switzerland 0\, draws 0\, Canad
- a 1. Last: Canada 3–1 Switzerland (2002).
+DESCRIPTION:Jogo 49 · Grupo B · começa 12:00 (horário local de Vancou
+ ver). Estádio: BC Place.  Confrontos diretos: 1 jogos — Suíça 0\, e
+ mpates 0\, Canadá 1. Último: Canada 3–1 Switzerland (2002).
 CATEGORIES:Group B
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m50@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260624T190000Z
 DTEND:20260624T210000Z
-SUMMARY:🇧🇦 Bosnia and Herzegovina vs Qatar 🇶🇦 · Group B
+SUMMARY:🇧🇦 Bósnia e Herzegovina x Catar 🇶🇦 · Grupo B
 LOCATION:Lumen Field\, Seattle
-DESCRIPTION:Match 50 · Group B · kick-off 12:00 local (Seattle). Venue:
-  Lumen Field.  Head-to-head: 3 played — Bosnia and Herzegovina 0\, dra
- ws 1\, Qatar 2. Last: Bosnia 1–1 Qatar (draw) (2010).
+DESCRIPTION:Jogo 50 · Grupo B · começa 12:00 (horário local de Seattl
+ e). Estádio: Lumen Field.  Confrontos diretos: 3 jogos — Bósnia e He
+ rzegovina 0\, empates 1\, Catar 2. Último: Bosnia 1–1 Qatar (draw) (2
+ 010).
 CATEGORIES:Group B
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m51@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260624T220000Z
 DTEND:20260625T000000Z
-SUMMARY:🇲🇦 Morocco vs Haiti 🇭🇹 · Group C
+SUMMARY:🇲🇦 Marrocos x Haiti 🇭🇹 · Grupo C
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match 51 · Group C · kick-off 18:00 local (Atlanta). Venue:
-  Mercedes-Benz Stadium.  Head-to-head: Morocco and Haiti have never met 
- — a first-ever meeting.
+DESCRIPTION:Jogo 51 · Grupo C · começa 18:00 (horário local de Atlant
+ a). Estádio: Mercedes-Benz Stadium.  Confrontos diretos: Marrocos e Hai
+ ti nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group C
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m52@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260624T220000Z
 DTEND:20260625T000000Z
-SUMMARY:🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland vs Brazil 🇧🇷 · Group
-  C
+SUMMARY:🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escócia x Brasil 🇧🇷 · Grupo 
+ C
 LOCATION:Hard Rock Stadium\, Miami
-DESCRIPTION:Match 52 · Group C · kick-off 18:00 local (Miami). Venue: H
- ard Rock Stadium.  Head-to-head: 10 played — Scotland 0\, draws 2\, Br
- azil 8.
+DESCRIPTION:Jogo 52 · Grupo C · começa 18:00 (horário local de Miami)
+ . Estádio: Hard Rock Stadium.  Confrontos diretos: 10 jogos — Escóci
+ a 0\, empates 2\, Brasil 8.
 CATEGORIES:Group C
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m53@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260625T010000Z
 DTEND:20260625T030000Z
-SUMMARY:🇿🇦 South Africa vs South Korea 🇰🇷 · Group A
+SUMMARY:🇿🇦 África do Sul x Coreia do Sul 🇰🇷 · Grupo A
 LOCATION:Estadio BBVA\, Monterrey
-DESCRIPTION:Match 53 · Group A · kick-off 19:00 local (Monterrey). Venu
- e: Estadio BBVA.  Head-to-head: 3 played. Last: South Korea 2–1 South 
- Africa (2016).
+DESCRIPTION:Jogo 53 · Grupo A · começa 19:00 (horário local de Monter
+ rey). Estádio: Estadio BBVA.  Confrontos diretos: 3 jogos. Último: Sou
+ th Korea 2–1 South Africa (2016).
 CATEGORIES:Group A
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m54@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260625T010000Z
 DTEND:20260625T030000Z
-SUMMARY:🇨🇿 Czech Republic vs Mexico 🇲🇽 · Group A
-LOCATION:Estadio Azteca\, Mexico City
-DESCRIPTION:Match 54 · Group A · kick-off 19:00 local (Mexico City). Ve
- nue: Estadio Azteca.  Head-to-head: 1 played — Czech Republic 1\, draw
- s 0\, Mexico 0. Last: Czech Republic 2–1 Mexico (2000).
+SUMMARY:🇨🇿 Tchéquia x México 🇲🇽 · Grupo A
+LOCATION:Estadio Azteca\, Cidade do México
+DESCRIPTION:Jogo 54 · Grupo A · começa 19:00 (horário local de Cidade
+  do México). Estádio: Estadio Azteca.  Confrontos diretos: 1 jogos —
+  Tchéquia 1\, empates 0\, México 0. Último: Czech Republic 2–1 Mexi
+ co (2000).
 CATEGORIES:Group A
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m55@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260625T200000Z
 DTEND:20260625T220000Z
-SUMMARY:🇨🇼 Curaçao vs Ivory Coast 🇨🇮 · Group E
-LOCATION:Lincoln Financial Field\, Philadelphia
-DESCRIPTION:Match 55 · Group E · kick-off 16:00 local (Philadelphia). V
- enue: Lincoln Financial Field.  Head-to-head: Curaçao and Ivory Coast h
- ave never met — a first-ever meeting.
+SUMMARY:🇨🇼 Curaçao x Costa do Marfim 🇨🇮 · Grupo E
+LOCATION:Lincoln Financial Field\, Filadélfia
+DESCRIPTION:Jogo 55 · Grupo E · começa 16:00 (horário local de Filad
+ élfia). Estádio: Lincoln Financial Field.  Confrontos diretos: Curaça
+ o e Costa do Marfim nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group E
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m56@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260625T200000Z
 DTEND:20260625T220000Z
-SUMMARY:🇪🇨 Ecuador vs Germany 🇩🇪 · Group E
-LOCATION:MetLife Stadium\, New York New Jersey
-DESCRIPTION:Match 56 · Group E · kick-off 16:00 local (New York New Jer
- sey). Venue: MetLife Stadium.  Head-to-head: 2 played — Ecuador 0\, dr
- aws 0\, Germany 2. Last: Germany 4–2 Ecuador (2013).
+SUMMARY:🇪🇨 Equador x Alemanha 🇩🇪 · Grupo E
+LOCATION:MetLife Stadium\, Nova York / Nova Jersey
+DESCRIPTION:Jogo 56 · Grupo E · começa 16:00 (horário local de Nova Y
+ ork / Nova Jersey). Estádio: MetLife Stadium.  Confrontos diretos: 2 jo
+ gos — Equador 0\, empates 0\, Alemanha 2. Último: Germany 4–2 Ecuad
+ or (2013).
 CATEGORIES:Group E
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m57@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260625T230000Z
 DTEND:20260626T010000Z
-SUMMARY:🇹🇳 Tunisia vs Netherlands 🇳🇱 · Group F
+SUMMARY:🇹🇳 Tunísia x Holanda 🇳🇱 · Grupo F
 LOCATION:Arrowhead Stadium\, Kansas City
-DESCRIPTION:Match 57 · Group F · kick-off 18:00 local (Kansas City). Ve
- nue: Arrowhead Stadium.  Head-to-head: 3 played — Tunisia 0\, draws 2\
- , Netherlands 1.
+DESCRIPTION:Jogo 57 · Grupo F · começa 18:00 (horário local de Kansas
+  City). Estádio: Arrowhead Stadium.  Confrontos diretos: 3 jogos — Tu
+ nísia 0\, empates 2\, Holanda 1.
 CATEGORIES:Group F
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m58@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260625T230000Z
 DTEND:20260626T010000Z
-SUMMARY:🇯🇵 Japan vs Sweden 🇸🇪 · Group F
+SUMMARY:🇯🇵 Japão x Suécia 🇸🇪 · Grupo F
 LOCATION:AT&T Stadium\, Dallas
-DESCRIPTION:Match 58 · Group F · kick-off 18:00 local (Dallas). Venue: 
- AT&T Stadium.  Head-to-head: 5 played — Japan 1\, draws 3\, Sweden 1.
+DESCRIPTION:Jogo 58 · Grupo F · começa 18:00 (horário local de Dallas
+ ). Estádio: AT&T Stadium.  Confrontos diretos: 5 jogos — Japão 1\, e
+ mpates 3\, Suécia 1.
 CATEGORIES:Group F
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m59@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260626T020000Z
 DTEND:20260626T040000Z
-SUMMARY:🇹🇷 Turkey vs United States 🇺🇸 · Group D
+SUMMARY:🇹🇷 Turquia x Estados Unidos 🇺🇸 · Grupo D
 LOCATION:SoFi Stadium\, Los Angeles
-DESCRIPTION:Match 59 · Group D · kick-off 19:00 local (Los Angeles). Ve
- nue: SoFi Stadium.  Head-to-head: 5 played — Turkey 2\, draws 1\, Unit
- ed States 2. Last: Turkey 2–1 United States (2025).
+DESCRIPTION:Jogo 59 · Grupo D · começa 19:00 (horário local de Los An
+ geles). Estádio: SoFi Stadium.  Confrontos diretos: 5 jogos — Turquia
+  2\, empates 1\, Estados Unidos 2. Último: Turkey 2–1 United States (
+ 2025).
 CATEGORIES:Group D
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m60@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260626T020000Z
 DTEND:20260626T040000Z
-SUMMARY:🇵🇾 Paraguay vs Australia 🇦🇺 · Group D
-LOCATION:Levi's Stadium\, San Francisco Bay Area
-DESCRIPTION:Match 60 · Group D · kick-off 19:00 local (San Francisco Ba
- y Area). Venue: Levi's Stadium.  Head-to-head: 5 played — Paraguay 0\,
-  draws 3\, Australia 2. Last: Australia 1–0 Paraguay (2010).
+SUMMARY:🇵🇾 Paraguai x Austrália 🇦🇺 · Grupo D
+LOCATION:Levi's Stadium\, Baía de São Francisco
+DESCRIPTION:Jogo 60 · Grupo D · começa 19:00 (horário local de Baía 
+ de São Francisco). Estádio: Levi's Stadium.  Confrontos diretos: 5 jog
+ os — Paraguai 0\, empates 3\, Austrália 2. Último: Australia 1–0 P
+ araguay (2010).
 CATEGORIES:Group D
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m61@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260626T190000Z
 DTEND:20260626T210000Z
-SUMMARY:🇳🇴 Norway vs France 🇫🇷 · Group I
+SUMMARY:🇳🇴 Noruega x França 🇫🇷 · Grupo I
 LOCATION:Gillette Stadium\, Boston
-DESCRIPTION:Match 61 · Group I · kick-off 15:00 local (Boston). Venue: 
- Gillette Stadium.  Head-to-head: 13 played — Norway 4\, draws 4\, Fran
- ce 5. Last: France 4–0 Norway (2014).
+DESCRIPTION:Jogo 61 · Grupo I · começa 15:00 (horário local de Boston
+ ). Estádio: Gillette Stadium.  Confrontos diretos: 13 jogos — Noruega
+  4\, empates 4\, França 5. Último: France 4–0 Norway (2014).
 CATEGORIES:Group I
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m62@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260626T190000Z
 DTEND:20260626T210000Z
-SUMMARY:🇸🇳 Senegal vs Iraq 🇮🇶 · Group I
+SUMMARY:🇸🇳 Senegal x Iraque 🇮🇶 · Grupo I
 LOCATION:BMO Field\, Toronto
-DESCRIPTION:Match 62 · Group I · kick-off 15:00 local (Toronto). Venue:
-  BMO Field.  Head-to-head: Senegal and Iraq have never met — a first-e
- ver meeting.
+DESCRIPTION:Jogo 62 · Grupo I · começa 15:00 (horário local de Toront
+ o). Estádio: BMO Field.  Confrontos diretos: Senegal e Iraque nunca se 
+ enfrentaram — primeiro encontro.
 CATEGORIES:Group I
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m63@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260627T000000Z
 DTEND:20260627T020000Z
-SUMMARY:🇨🇻 Cape Verde vs Saudi Arabia 🇸🇦 · Group H
+SUMMARY:🇨🇻 Cabo Verde x Arábia Saudita 🇸🇦 · Grupo H
 LOCATION:NRG Stadium\, Houston
-DESCRIPTION:Match 63 · Group H · kick-off 19:00 local (Houston). Venue:
-  NRG Stadium.  Head-to-head: Cape Verde and Saudi Arabia have never met 
- — a first-ever meeting.
+DESCRIPTION:Jogo 63 · Grupo H · começa 19:00 (horário local de Housto
+ n). Estádio: NRG Stadium.  Confrontos diretos: Cabo Verde e Arábia Sau
+ dita nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group H
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m64@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260627T000000Z
 DTEND:20260627T020000Z
-SUMMARY:🇺🇾 Uruguay vs Spain 🇪🇸 · Group H
+SUMMARY:🇺🇾 Uruguai x Espanha 🇪🇸 · Grupo H
 LOCATION:Estadio Akron\, Guadalajara
-DESCRIPTION:Match 64 · Group H · kick-off 18:00 local (Guadalajara). Ve
- nue: Estadio Akron.  Head-to-head: 10 played — Uruguay 0\, draws 5\, S
- pain 5. Last: Spain 2–1 Uruguay (2013).
+DESCRIPTION:Jogo 64 · Grupo H · começa 18:00 (horário local de Guadal
+ ajara). Estádio: Estadio Akron.  Confrontos diretos: 10 jogos — Urugu
+ ai 0\, empates 5\, Espanha 5. Último: Spain 2–1 Uruguay (2013).
 CATEGORIES:Group H
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m65@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260627T030000Z
 DTEND:20260627T050000Z
-SUMMARY:🇳🇿 New Zealand vs Belgium 🇧🇪 · Group G
+SUMMARY:🇳🇿 Nova Zelândia x Bélgica 🇧🇪 · Grupo G
 LOCATION:BC Place\, Vancouver
-DESCRIPTION:Match 65 · Group G · kick-off 20:00 local (Vancouver). Venu
- e: BC Place.  Head-to-head: New Zealand and Belgium have never met — a
-  first-ever meeting.
+DESCRIPTION:Jogo 65 · Grupo G · começa 20:00 (horário local de Vancou
+ ver). Estádio: BC Place.  Confrontos diretos: Nova Zelândia e Bélgica
+  nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group G
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m66@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260627T030000Z
 DTEND:20260627T050000Z
-SUMMARY:🇪🇬 Egypt vs Iran 🇮🇷 · Group G
+SUMMARY:🇪🇬 Egito x Irã 🇮🇷 · Grupo G
 LOCATION:Lumen Field\, Seattle
-DESCRIPTION:Match 66 · Group G · kick-off 20:00 local (Seattle). Venue:
-  Lumen Field.  Head-to-head: 1 played — Egypt 0\, draws 1\, Iran 0. La
- st: Egypt 1–1 Iran (draw) (2000).
+DESCRIPTION:Jogo 66 · Grupo G · começa 20:00 (horário local de Seattl
+ e). Estádio: Lumen Field.  Confrontos diretos: 1 jogos — Egito 0\, em
+ pates 1\, Irã 0. Último: Egypt 1–1 Iran (draw) (2000).
 CATEGORIES:Group G
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m67@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260627T210000Z
 DTEND:20260627T230000Z
-SUMMARY:🇵🇦 Panama vs England 🏴󠁧󠁢󠁥󠁮󠁧󠁿 · Group 
- L
-LOCATION:MetLife Stadium\, New York New Jersey
-DESCRIPTION:Match 67 · Group L · kick-off 17:00 local (New York New Jer
- sey). Venue: MetLife Stadium.  Head-to-head: 1 played — Panama 0\, dra
- ws 0\, England 1. Last: England 6–1 Panama (2018).
+SUMMARY:🇵🇦 Panamá x Inglaterra 🏴󠁧󠁢󠁥󠁮󠁧󠁿 · Gru
+ po L
+LOCATION:MetLife Stadium\, Nova York / Nova Jersey
+DESCRIPTION:Jogo 67 · Grupo L · começa 17:00 (horário local de Nova Y
+ ork / Nova Jersey). Estádio: MetLife Stadium.  Confrontos diretos: 1 jo
+ gos — Panamá 0\, empates 0\, Inglaterra 1. Último: England 6–1 Pan
+ ama (2018).
 CATEGORIES:Group L
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m68@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260627T210000Z
 DTEND:20260627T230000Z
-SUMMARY:🇭🇷 Croatia vs Ghana 🇬🇭 · Group L
-LOCATION:Lincoln Financial Field\, Philadelphia
-DESCRIPTION:Match 68 · Group L · kick-off 17:00 local (Philadelphia). V
- enue: Lincoln Financial Field.  Head-to-head: Croatia and Ghana have nev
- er met — a first-ever meeting.
+SUMMARY:🇭🇷 Croácia x Gana 🇬🇭 · Grupo L
+LOCATION:Lincoln Financial Field\, Filadélfia
+DESCRIPTION:Jogo 68 · Grupo L · começa 17:00 (horário local de Filad
+ élfia). Estádio: Lincoln Financial Field.  Confrontos diretos: Croáci
+ a e Gana nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group L
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m69@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260627T233000Z
 DTEND:20260628T013000Z
-SUMMARY:🇨🇴 Colombia vs Portugal 🇵🇹 · Group K
+SUMMARY:🇨🇴 Colômbia x Portugal 🇵🇹 · Grupo K
 LOCATION:Hard Rock Stadium\, Miami
-DESCRIPTION:Match 69 · Group K · kick-off 19:30 local (Miami). Venue: H
- ard Rock Stadium.  Head-to-head: Colombia and Portugal have never met 
- — a first-ever meeting.
+DESCRIPTION:Jogo 69 · Grupo K · começa 19:30 (horário local de Miami)
+ . Estádio: Hard Rock Stadium.  Confrontos diretos: Colômbia e Portugal
+  nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group K
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m70@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260627T233000Z
 DTEND:20260628T013000Z
-SUMMARY:🇨🇩 DR Congo vs Uzbekistan 🇺🇿 · Group K
+SUMMARY:🇨🇩 RD Congo x Uzbequistão 🇺🇿 · Grupo K
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match 70 · Group K · kick-off 19:30 local (Atlanta). Venue:
-  Mercedes-Benz Stadium.  Head-to-head: DR Congo and Uzbekistan have neve
- r met — a first-ever meeting.
+DESCRIPTION:Jogo 70 · Grupo K · começa 19:30 (horário local de Atlant
+ a). Estádio: Mercedes-Benz Stadium.  Confrontos diretos: RD Congo e Uzb
+ equistão nunca se enfrentaram — primeiro encontro.
 CATEGORIES:Group K
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m71@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260628T020000Z
 DTEND:20260628T040000Z
-SUMMARY:🇩🇿 Algeria vs Austria 🇦🇹 · Group J
+SUMMARY:🇩🇿 Argélia x Áustria 🇦🇹 · Grupo J
 LOCATION:Arrowhead Stadium\, Kansas City
-DESCRIPTION:Match 71 · Group J · kick-off 21:00 local (Kansas City). Ve
- nue: Arrowhead Stadium.  Head-to-head: 1 played — Algeria 0\, draws 0\
- , Austria 1. Last: Austria 2–0 Algeria (1982).
+DESCRIPTION:Jogo 71 · Grupo J · começa 21:00 (horário local de Kansas
+  City). Estádio: Arrowhead Stadium.  Confrontos diretos: 1 jogos — Ar
+ gélia 0\, empates 0\, Áustria 1. Último: Austria 2–0 Algeria (1982)
+ .
 CATEGORIES:Group J
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m72@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260628T020000Z
 DTEND:20260628T040000Z
-SUMMARY:🇯🇴 Jordan vs Argentina 🇦🇷 · Group J
+SUMMARY:🇯🇴 Jordânia x Argentina 🇦🇷 · Grupo J
 LOCATION:AT&T Stadium\, Dallas
-DESCRIPTION:Match 72 · Group J · kick-off 21:00 local (Dallas). Venue: 
- AT&T Stadium.  Head-to-head: Jordan and Argentina have never met — a f
- irst-ever meeting.
+DESCRIPTION:Jogo 72 · Grupo J · começa 21:00 (horário local de Dallas
+ ). Estádio: AT&T Stadium.  Confrontos diretos: Jordânia e Argentina nu
+ nca se enfrentaram — primeiro encontro.
 CATEGORIES:Group J
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m73@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260628T190000Z
 DTEND:20260628T210000Z
-SUMMARY:R32: Runner-up A vs Runner-up B
+SUMMARY:Rodada de 32: 2º Grupo A x 2º Grupo B
 LOCATION:SoFi Stadium\, Los Angeles
-DESCRIPTION:Match 73 · Round of 32 · kick-off 12:00 local (Los Angeles)
- . Venue: SoFi Stadium.  Teams confirm as earlier rounds finish — the f
- eed updates automatically.
+DESCRIPTION:Jogo 73 · Rodada de 32 · começa 12:00 (horário local de L
+ os Angeles). Estádio: SoFi Stadium.  As seleções se confirmam conform
+ e as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 32
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m74@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260629T203000Z
 DTEND:20260629T223000Z
-SUMMARY:R32: Winner E vs 3rd A/B/C/D/F
+SUMMARY:Rodada de 32: 1º Grupo E x 3º A/B/C/D/F
 LOCATION:Gillette Stadium\, Boston
-DESCRIPTION:Match 74 · Round of 32 · kick-off 16:30 local (Boston). Ven
- ue: Gillette Stadium.  Teams confirm as earlier rounds finish — the fe
- ed updates automatically.
+DESCRIPTION:Jogo 74 · Rodada de 32 · começa 16:30 (horário local de B
+ oston). Estádio: Gillette Stadium.  As seleções se confirmam conforme
+  as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 32
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m75@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260630T010000Z
 DTEND:20260630T030000Z
-SUMMARY:R32: Winner F vs Runner-up C
+SUMMARY:Rodada de 32: 1º Grupo F x 2º Grupo C
 LOCATION:Estadio BBVA\, Monterrey
-DESCRIPTION:Match 75 · Round of 32 · kick-off 19:00 local (Monterrey). 
- Venue: Estadio BBVA.  Teams confirm as earlier rounds finish — the fee
- d updates automatically.
+DESCRIPTION:Jogo 75 · Rodada de 32 · começa 19:00 (horário local de M
+ onterrey). Estádio: Estadio BBVA.  As seleções se confirmam conforme 
+ as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 32
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m76@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260629T170000Z
 DTEND:20260629T190000Z
-SUMMARY:R32: Winner C vs Runner-up F
+SUMMARY:Rodada de 32: 1º Grupo C x 2º Grupo F
 LOCATION:NRG Stadium\, Houston
-DESCRIPTION:Match 76 · Round of 32 · kick-off 12:00 local (Houston). Ve
- nue: NRG Stadium.  Teams confirm as earlier rounds finish — the feed u
- pdates automatically.
+DESCRIPTION:Jogo 76 · Rodada de 32 · começa 12:00 (horário local de H
+ ouston). Estádio: NRG Stadium.  As seleções se confirmam conforme as 
+ fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 32
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m77@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260630T210000Z
 DTEND:20260630T230000Z
-SUMMARY:R32: Winner I vs 3rd C/D/F/G/H
-LOCATION:MetLife Stadium\, New York New Jersey
-DESCRIPTION:Match 77 · Round of 32 · kick-off 17:00 local (New York New
-  Jersey). Venue: MetLife Stadium.  Teams confirm as earlier rounds finis
- h — the feed updates automatically.
+SUMMARY:Rodada de 32: 1º Grupo I x 3º C/D/F/G/H
+LOCATION:MetLife Stadium\, Nova York / Nova Jersey
+DESCRIPTION:Jogo 77 · Rodada de 32 · começa 17:00 (horário local de N
+ ova York / Nova Jersey). Estádio: MetLife Stadium.  As seleções se co
+ nfirmam conforme as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 32
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m78@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260630T170000Z
 DTEND:20260630T190000Z
-SUMMARY:R32: Runner-up E vs Runner-up I
+SUMMARY:Rodada de 32: 2º Grupo E x 2º Grupo I
 LOCATION:AT&T Stadium\, Dallas
-DESCRIPTION:Match 78 · Round of 32 · kick-off 12:00 local (Dallas). Ven
- ue: AT&T Stadium.  Teams confirm as earlier rounds finish — the feed u
- pdates automatically.
+DESCRIPTION:Jogo 78 · Rodada de 32 · começa 12:00 (horário local de D
+ allas). Estádio: AT&T Stadium.  As seleções se confirmam conforme as 
+ fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 32
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m79@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260701T010000Z
 DTEND:20260701T030000Z
-SUMMARY:R32: Winner A vs 3rd C/E/F/H/I
-LOCATION:Estadio Azteca\, Mexico City
-DESCRIPTION:Match 79 · Round of 32 · kick-off 19:00 local (Mexico City)
- . Venue: Estadio Azteca.  Teams confirm as earlier rounds finish — the
-  feed updates automatically.
+SUMMARY:Rodada de 32: 1º Grupo A x 3º C/E/F/H/I
+LOCATION:Estadio Azteca\, Cidade do México
+DESCRIPTION:Jogo 79 · Rodada de 32 · começa 19:00 (horário local de C
+ idade do México). Estádio: Estadio Azteca.  As seleções se confirmam
+  conforme as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 32
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m80@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260701T160000Z
 DTEND:20260701T180000Z
-SUMMARY:R32: Winner L vs 3rd E/H/I/J/K
+SUMMARY:Rodada de 32: 1º Grupo L x 3º E/H/I/J/K
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match 80 · Round of 32 · kick-off 12:00 local (Atlanta). Ve
- nue: Mercedes-Benz Stadium.  Teams confirm as earlier rounds finish — 
- the feed updates automatically.
+DESCRIPTION:Jogo 80 · Rodada de 32 · começa 12:00 (horário local de A
+ tlanta). Estádio: Mercedes-Benz Stadium.  As seleções se confirmam co
+ nforme as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 32
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m81@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260702T000000Z
 DTEND:20260702T020000Z
-SUMMARY:R32: Winner D vs 3rd B/E/F/I/J
-LOCATION:Levi's Stadium\, San Francisco Bay Area
-DESCRIPTION:Match 81 · Round of 32 · kick-off 17:00 local (San Francisc
- o Bay Area). Venue: Levi's Stadium.  Teams confirm as earlier rounds fin
- ish — the feed updates automatically.
+SUMMARY:Rodada de 32: 1º Grupo D x 3º B/E/F/I/J
+LOCATION:Levi's Stadium\, Baía de São Francisco
+DESCRIPTION:Jogo 81 · Rodada de 32 · começa 17:00 (horário local de B
+ aía de São Francisco). Estádio: Levi's Stadium.  As seleções se con
+ firmam conforme as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 32
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m82@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260701T200000Z
 DTEND:20260701T220000Z
-SUMMARY:R32: Winner G vs 3rd A/E/H/I/J
+SUMMARY:Rodada de 32: 1º Grupo G x 3º A/E/H/I/J
 LOCATION:Lumen Field\, Seattle
-DESCRIPTION:Match 82 · Round of 32 · kick-off 13:00 local (Seattle). Ve
- nue: Lumen Field.  Teams confirm as earlier rounds finish — the feed u
- pdates automatically.
+DESCRIPTION:Jogo 82 · Rodada de 32 · começa 13:00 (horário local de S
+ eattle). Estádio: Lumen Field.  As seleções se confirmam conforme as 
+ fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 32
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m83@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260702T230000Z
 DTEND:20260703T010000Z
-SUMMARY:R32: Runner-up K vs Runner-up L
+SUMMARY:Rodada de 32: 2º Grupo K x 2º Grupo L
 LOCATION:BMO Field\, Toronto
-DESCRIPTION:Match 83 · Round of 32 · kick-off 19:00 local (Toronto). Ve
- nue: BMO Field.  Teams confirm as earlier rounds finish — the feed upd
- ates automatically.
+DESCRIPTION:Jogo 83 · Rodada de 32 · começa 19:00 (horário local de T
+ oronto). Estádio: BMO Field.  As seleções se confirmam conforme as fa
+ ses terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 32
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m84@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260702T190000Z
 DTEND:20260702T210000Z
-SUMMARY:R32: Winner H vs Runner-up J
+SUMMARY:Rodada de 32: 1º Grupo H x 2º Grupo J
 LOCATION:SoFi Stadium\, Los Angeles
-DESCRIPTION:Match 84 · Round of 32 · kick-off 12:00 local (Los Angeles)
- . Venue: SoFi Stadium.  Teams confirm as earlier rounds finish — the f
- eed updates automatically.
+DESCRIPTION:Jogo 84 · Rodada de 32 · começa 12:00 (horário local de L
+ os Angeles). Estádio: SoFi Stadium.  As seleções se confirmam conform
+ e as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 32
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m85@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260703T030000Z
 DTEND:20260703T050000Z
-SUMMARY:R32: Winner B vs 3rd E/F/G/I/J
+SUMMARY:Rodada de 32: 1º Grupo B x 3º E/F/G/I/J
 LOCATION:BC Place\, Vancouver
-DESCRIPTION:Match 85 · Round of 32 · kick-off 20:00 local (Vancouver). 
- Venue: BC Place.  Teams confirm as earlier rounds finish — the feed up
- dates automatically.
+DESCRIPTION:Jogo 85 · Rodada de 32 · começa 20:00 (horário local de V
+ ancouver). Estádio: BC Place.  As seleções se confirmam conforme as f
+ ases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 32
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m86@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260703T220000Z
 DTEND:20260704T000000Z
-SUMMARY:R32: Winner J vs Runner-up H
+SUMMARY:Rodada de 32: 1º Grupo J x 2º Grupo H
 LOCATION:Hard Rock Stadium\, Miami
-DESCRIPTION:Match 86 · Round of 32 · kick-off 18:00 local (Miami). Venu
- e: Hard Rock Stadium.  Teams confirm as earlier rounds finish — the fe
- ed updates automatically.
+DESCRIPTION:Jogo 86 · Rodada de 32 · começa 18:00 (horário local de M
+ iami). Estádio: Hard Rock Stadium.  As seleções se confirmam conforme
+  as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 32
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m87@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260704T013000Z
 DTEND:20260704T033000Z
-SUMMARY:R32: Winner K vs 3rd D/E/I/J/L
+SUMMARY:Rodada de 32: 1º Grupo K x 3º D/E/I/J/L
 LOCATION:Arrowhead Stadium\, Kansas City
-DESCRIPTION:Match 87 · Round of 32 · kick-off 20:30 local (Kansas City)
- . Venue: Arrowhead Stadium.  Teams confirm as earlier rounds finish — 
- the feed updates automatically.
+DESCRIPTION:Jogo 87 · Rodada de 32 · começa 20:30 (horário local de K
+ ansas City). Estádio: Arrowhead Stadium.  As seleções se confirmam co
+ nforme as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 32
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m88@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260703T180000Z
 DTEND:20260703T200000Z
-SUMMARY:R32: Runner-up D vs Runner-up G
+SUMMARY:Rodada de 32: 2º Grupo D x 2º Grupo G
 LOCATION:AT&T Stadium\, Dallas
-DESCRIPTION:Match 88 · Round of 32 · kick-off 13:00 local (Dallas). Ven
- ue: AT&T Stadium.  Teams confirm as earlier rounds finish — the feed u
- pdates automatically.
+DESCRIPTION:Jogo 88 · Rodada de 32 · começa 13:00 (horário local de D
+ allas). Estádio: AT&T Stadium.  As seleções se confirmam conforme as 
+ fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 32
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m89@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260704T210000Z
 DTEND:20260704T230000Z
-SUMMARY:R16: Winner M74 vs Winner M77
-LOCATION:Lincoln Financial Field\, Philadelphia
-DESCRIPTION:Match 89 · Round of 16 · kick-off 17:00 local (Philadelphia
- ). Venue: Lincoln Financial Field.  Teams confirm as earlier rounds fini
- sh — the feed updates automatically.
+SUMMARY:Oitavas de final: Vencedor jogo 74 x Vencedor jogo 77
+LOCATION:Lincoln Financial Field\, Filadélfia
+DESCRIPTION:Jogo 89 · Oitavas de final · começa 17:00 (horário local 
+ de Filadélfia). Estádio: Lincoln Financial Field.  As seleções se co
+ nfirmam conforme as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 16
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m90@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260704T170000Z
 DTEND:20260704T190000Z
-SUMMARY:R16: Winner M73 vs Winner M75
+SUMMARY:Oitavas de final: Vencedor jogo 73 x Vencedor jogo 75
 LOCATION:NRG Stadium\, Houston
-DESCRIPTION:Match 90 · Round of 16 · kick-off 12:00 local (Houston). Ve
- nue: NRG Stadium.  Teams confirm as earlier rounds finish — the feed u
- pdates automatically.
+DESCRIPTION:Jogo 90 · Oitavas de final · começa 12:00 (horário local 
+ de Houston). Estádio: NRG Stadium.  As seleções se confirmam conforme
+  as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 16
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m91@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260705T200000Z
 DTEND:20260705T220000Z
-SUMMARY:R16: Winner M76 vs Winner M78
-LOCATION:MetLife Stadium\, New York New Jersey
-DESCRIPTION:Match 91 · Round of 16 · kick-off 16:00 local (New York New
-  Jersey). Venue: MetLife Stadium.  Teams confirm as earlier rounds finis
- h — the feed updates automatically.
+SUMMARY:Oitavas de final: Vencedor jogo 76 x Vencedor jogo 78
+LOCATION:MetLife Stadium\, Nova York / Nova Jersey
+DESCRIPTION:Jogo 91 · Oitavas de final · começa 16:00 (horário local 
+ de Nova York / Nova Jersey). Estádio: MetLife Stadium.  As seleções s
+ e confirmam conforme as fases terminam — o calendário atualiza sozinh
+ o.
 CATEGORIES:Round of 16
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m92@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260706T000000Z
 DTEND:20260706T020000Z
-SUMMARY:R16: Winner M79 vs Winner M80
-LOCATION:Estadio Azteca\, Mexico City
-DESCRIPTION:Match 92 · Round of 16 · kick-off 18:00 local (Mexico City)
- . Venue: Estadio Azteca.  Teams confirm as earlier rounds finish — the
-  feed updates automatically.
+SUMMARY:Oitavas de final: Vencedor jogo 79 x Vencedor jogo 80
+LOCATION:Estadio Azteca\, Cidade do México
+DESCRIPTION:Jogo 92 · Oitavas de final · começa 18:00 (horário local 
+ de Cidade do México). Estádio: Estadio Azteca.  As seleções se confi
+ rmam conforme as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 16
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m93@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260706T190000Z
 DTEND:20260706T210000Z
-SUMMARY:R16: Winner M83 vs Winner M84
+SUMMARY:Oitavas de final: Vencedor jogo 83 x Vencedor jogo 84
 LOCATION:AT&T Stadium\, Dallas
-DESCRIPTION:Match 93 · Round of 16 · kick-off 14:00 local (Dallas). Ven
- ue: AT&T Stadium.  Teams confirm as earlier rounds finish — the feed u
- pdates automatically.
+DESCRIPTION:Jogo 93 · Oitavas de final · começa 14:00 (horário local 
+ de Dallas). Estádio: AT&T Stadium.  As seleções se confirmam conforme
+  as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 16
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m94@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260707T000000Z
 DTEND:20260707T020000Z
-SUMMARY:R16: Winner M81 vs Winner M82
+SUMMARY:Oitavas de final: Vencedor jogo 81 x Vencedor jogo 82
 LOCATION:Lumen Field\, Seattle
-DESCRIPTION:Match 94 · Round of 16 · kick-off 17:00 local (Seattle). Ve
- nue: Lumen Field.  Teams confirm as earlier rounds finish — the feed u
- pdates automatically.
+DESCRIPTION:Jogo 94 · Oitavas de final · começa 17:00 (horário local 
+ de Seattle). Estádio: Lumen Field.  As seleções se confirmam conforme
+  as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 16
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m95@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260707T160000Z
 DTEND:20260707T180000Z
-SUMMARY:R16: Winner M86 vs Winner M88
+SUMMARY:Oitavas de final: Vencedor jogo 86 x Vencedor jogo 88
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match 95 · Round of 16 · kick-off 12:00 local (Atlanta). Ve
- nue: Mercedes-Benz Stadium.  Teams confirm as earlier rounds finish — 
- the feed updates automatically.
+DESCRIPTION:Jogo 95 · Oitavas de final · começa 12:00 (horário local 
+ de Atlanta). Estádio: Mercedes-Benz Stadium.  As seleções se confirma
+ m conforme as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 16
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m96@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260707T200000Z
 DTEND:20260707T220000Z
-SUMMARY:R16: Winner M85 vs Winner M87
+SUMMARY:Oitavas de final: Vencedor jogo 85 x Vencedor jogo 87
 LOCATION:BC Place\, Vancouver
-DESCRIPTION:Match 96 · Round of 16 · kick-off 13:00 local (Vancouver). 
- Venue: BC Place.  Teams confirm as earlier rounds finish — the feed up
- dates automatically.
+DESCRIPTION:Jogo 96 · Oitavas de final · começa 13:00 (horário local 
+ de Vancouver). Estádio: BC Place.  As seleções se confirmam conforme 
+ as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Round of 16
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m97@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260709T200000Z
 DTEND:20260709T220000Z
-SUMMARY:QF: Winner M89 vs Winner M90
+SUMMARY:Quartas de final: Vencedor jogo 89 x Vencedor jogo 90
 LOCATION:Gillette Stadium\, Boston
-DESCRIPTION:Match 97 · Quarter-final · kick-off 16:00 local (Boston). V
- enue: Gillette Stadium.  Teams confirm as earlier rounds finish — the 
- feed updates automatically.
+DESCRIPTION:Jogo 97 · Quartas de final · começa 16:00 (horário local 
+ de Boston). Estádio: Gillette Stadium.  As seleções se confirmam conf
+ orme as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Quarter-final
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m98@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260710T190000Z
 DTEND:20260710T210000Z
-SUMMARY:QF: Winner M93 vs Winner M94
+SUMMARY:Quartas de final: Vencedor jogo 93 x Vencedor jogo 94
 LOCATION:SoFi Stadium\, Los Angeles
-DESCRIPTION:Match 98 · Quarter-final · kick-off 12:00 local (Los Angele
- s). Venue: SoFi Stadium.  Teams confirm as earlier rounds finish — the
-  feed updates automatically.
+DESCRIPTION:Jogo 98 · Quartas de final · começa 12:00 (horário local 
+ de Los Angeles). Estádio: SoFi Stadium.  As seleções se confirmam con
+ forme as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Quarter-final
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m99@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260711T210000Z
 DTEND:20260711T230000Z
-SUMMARY:QF: Winner M91 vs Winner M92
+SUMMARY:Quartas de final: Vencedor jogo 91 x Vencedor jogo 92
 LOCATION:Hard Rock Stadium\, Miami
-DESCRIPTION:Match 99 · Quarter-final · kick-off 17:00 local (Miami). Ve
- nue: Hard Rock Stadium.  Teams confirm as earlier rounds finish — the 
- feed updates automatically.
+DESCRIPTION:Jogo 99 · Quartas de final · começa 17:00 (horário local 
+ de Miami). Estádio: Hard Rock Stadium.  As seleções se confirmam conf
+ orme as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Quarter-final
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m100@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260712T010000Z
 DTEND:20260712T030000Z
-SUMMARY:QF: Winner M95 vs Winner M96
+SUMMARY:Quartas de final: Vencedor jogo 95 x Vencedor jogo 96
 LOCATION:Arrowhead Stadium\, Kansas City
-DESCRIPTION:Match 100 · Quarter-final · kick-off 20:00 local (Kansas Ci
- ty). Venue: Arrowhead Stadium.  Teams confirm as earlier rounds finish 
- — the feed updates automatically.
+DESCRIPTION:Jogo 100 · Quartas de final · começa 20:00 (horário local
+  de Kansas City). Estádio: Arrowhead Stadium.  As seleções se confirm
+ am conforme as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Quarter-final
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m101@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260714T190000Z
 DTEND:20260714T210000Z
-SUMMARY:SF: Winner M97 vs Winner M98
+SUMMARY:Semifinal: Vencedor jogo 97 x Vencedor jogo 98
 LOCATION:AT&T Stadium\, Dallas
-DESCRIPTION:Match 101 · Semi-final · kick-off 14:00 local (Dallas). Ven
- ue: AT&T Stadium.  Teams confirm as earlier rounds finish — the feed u
- pdates automatically.
+DESCRIPTION:Jogo 101 · Semifinal · começa 14:00 (horário local de Dal
+ las). Estádio: AT&T Stadium.  As seleções se confirmam conforme as fa
+ ses terminam — o calendário atualiza sozinho.
 CATEGORIES:Semi-final
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m102@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260715T190000Z
 DTEND:20260715T210000Z
-SUMMARY:SF: Winner M99 vs Winner M100
+SUMMARY:Semifinal: Vencedor jogo 99 x Vencedor jogo 100
 LOCATION:Mercedes-Benz Stadium\, Atlanta
-DESCRIPTION:Match 102 · Semi-final · kick-off 15:00 local (Atlanta). Ve
- nue: Mercedes-Benz Stadium.  Teams confirm as earlier rounds finish — 
- the feed updates automatically.
+DESCRIPTION:Jogo 102 · Semifinal · começa 15:00 (horário local de Atl
+ anta). Estádio: Mercedes-Benz Stadium.  As seleções se confirmam conf
+ orme as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Semi-final
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m103@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260718T210000Z
 DTEND:20260718T230000Z
-SUMMARY:Third place: Loser M101 vs Loser M102
+SUMMARY:Disputa de 3º lugar: Perdedor jogo 101 x Perdedor jogo 102
 LOCATION:Hard Rock Stadium\, Miami
-DESCRIPTION:Match 103 · Third place · kick-off 17:00 local (Miami). Ven
- ue: Hard Rock Stadium.  Teams confirm as earlier rounds finish — the f
- eed updates automatically.
+DESCRIPTION:Jogo 103 · Disputa de 3º lugar · começa 17:00 (horário l
+ ocal de Miami). Estádio: Hard Rock Stadium.  As seleções se confirmam
+  conforme as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Third place
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:wc2026-m104@worldcup
-DTSTAMP:20260531T235115Z
+DTSTAMP:20260601T015432Z
 DTSTART:20260719T190000Z
 DTEND:20260719T210000Z
-SUMMARY:Final: Winner M101 vs Winner M102
-LOCATION:MetLife Stadium\, New York New Jersey
-DESCRIPTION:Match 104 · Final · kick-off 15:00 local (New York New Jers
- ey). Venue: MetLife Stadium.  Teams confirm as earlier rounds finish —
-  the feed updates automatically.
+SUMMARY:Final: Vencedor jogo 101 x Vencedor jogo 102
+LOCATION:MetLife Stadium\, Nova York / Nova Jersey
+DESCRIPTION:Jogo 104 · Final · começa 15:00 (horário local de Nova Yo
+ rk / Nova Jersey). Estádio: MetLife Stadium.  As seleções se confirma
+ m conforme as fases terminam — o calendário atualiza sozinho.
 CATEGORIES:Final
 STATUS:CONFIRMED
 END:VEVENT
