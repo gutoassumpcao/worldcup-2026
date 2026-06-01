@@ -508,15 +508,20 @@ function renderTeam(){const t=$("#teamPick").value,p=$("#teamPanel");p.innerHTML
 }
 
 // ===== BOLÃO =====
+function bStandHTML(eng,L){
+  let h='<tr><th class="t">Seleção</th><th>P</th><th>SG</th><th>Pts</th></tr>';
+  eng.stand(L).forEach((s,i)=>{const cls=i===0?"q1":i===1?"q2":i===2?"q3":"";const lab=i===0?'<span class="qt q1t">1º</span>':i===1?'<span class="qt q2t">2º</span>':i===2?'<span class="qt q3t">3º</span>':'';
+    h+=`<tr class="${cls}"><td class="t">${lab}${flag(s.t)} ${nm(s.t)}</td><td>${s.P}</td><td>${s.GD>0?'+':''}${s.GD}</td><td><b>${s.Pts}</b></td></tr>`;});
+  return h;
+}
+function refreshBolaoStands(){const e=mkEng(PRED.r,PRED.k);GL.forEach(L=>{const t=document.getElementById("bstand-"+L);if(t)t.innerHTML=bStandHTML(e,L);});}
 function renderBolao(){
   $("#nome").value=NOME;if($("#nome2"))$("#nome2").value=NOME;
   // grupos (palpite)
   const grid=$("#bolaoGroups");grid.innerHTML="";const eng=mkEng(PRED.r,PRED.k);
   GL.forEach(L=>{const card=el("div","card gcard");const st=eng.stand(L);
     card.append(el("h3",null,`Grupo ${L}`));
-    const tbl=el("table","stand");tbl.innerHTML=`<tr><th class="t">Seleção</th><th>P</th><th>SG</th><th>Pts</th></tr>`;
-    st.forEach((s,i)=>{const cls=i===0?"q1":i===1?"q2":i===2?"q3":"";const lab=i===0?'<span class="qt q1t">1º</span>':i===1?'<span class="qt q2t">2º</span>':i===2?'<span class="qt q3t">3º</span>':'';
-      tbl.innerHTML+=`<tr class="${cls}"><td class="t">${lab}${flag(s.t)} ${nm(s.t)}</td><td>${s.P}</td><td>${s.GD>0?'+':''}${s.GD}</td><td><b>${s.Pts}</b></td></tr>`;});
+    const tbl=el("table","stand");tbl.id="bstand-"+L;tbl.innerHTML=bStandHTML(eng,L);
     card.append(tbl);
     const fx=el("div","fixtures");
     MATCHES.filter(m=>m.round==="Group "+L).forEach(m=>{const r=PRED.r[m.m]||{};
@@ -531,7 +536,7 @@ function renderBolao(){
     const m=inp.dataset.m,s=inp.dataset.s,v=inp.value;PRED.r[m]=PRED.r[m]||{};
     if(v==="")delete PRED.r[m][s];else PRED.r[m][s]=Math.max(0,Math.min(29,parseInt(v)||0));
     if(PRED.r[m]&&Object.keys(PRED.r[m]).length===0)delete PRED.r[m];
-    savePred();renderBolaoBracket();updateMyPts();}));
+    savePred();refreshBolaoStands();renderBolaoBracket();updateMyPts();}));
   renderBolaoBracket();updateMyPts();
 }
 function renderBolaoBracket(){
