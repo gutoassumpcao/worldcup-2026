@@ -23,6 +23,30 @@ a{color:var(--ru);text-decoration:none}
 .cd{background:rgba(255,255,255,.16);border-radius:12px;padding:8px 14px;text-align:center;min-width:60px}
 .cd b{display:block;font-size:22px;font-weight:800;line-height:1}.cd span{font-size:10px;text-transform:uppercase;letter-spacing:.06em;opacity:.9}
 .lb{font-size:12px;background:rgba(0,0,0,.18);padding:6px 12px;border-radius:999px;font-weight:600}
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calendário e Bolão da Copa do Mundo 2026</title>
+<style>
+:root{color-scheme:light;
+ --bg:#eef1f5;--card:#fff;--ink:#10202e;--muted:#5c6b7a;--line:#e4e9ef;
+ --accent:#6a2cf5;--grad1:#1f8a4c;--grad2:#0aa6c9;--win:#15a35b;--ru:#2a72d6;--third:#e0a000;--red:#e0464b;--gold:#f4b400;
+ --shadow:0 1px 2px rgba(16,32,46,.06),0 6px 22px rgba(16,32,46,.07);--radius:16px;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--ru);text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px 90px}
+.hero{background:linear-gradient(120deg,var(--grad1),var(--grad2));color:#fff;border-radius:0 0 26px 26px;padding:26px 22px 22px;margin:0 -16px 18px;box-shadow:var(--shadow)}
+.hero .kicker{font-size:12px;text-transform:uppercase;letter-spacing:.12em;opacity:.85;font-weight:700}
+.hero h1{margin:4px 0 2px;font-size:25px;letter-spacing:-.02em;font-weight:850}
+.hero .sub{opacity:.92;font-size:13.5px}
+.hero .credit{margin-top:9px;font-size:12.5px;font-weight:600;opacity:.97}
+.hero .credit a{color:#fff;border-bottom:1px solid rgba(255,255,255,.6)}
+.countbar{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;align-items:center}
+.cd{background:rgba(255,255,255,.16);border-radius:12px;padding:8px 14px;text-align:center;min-width:60px}
+.cd b{display:block;font-size:22px;font-weight:800;line-height:1}.cd span{font-size:10px;text-transform:uppercase;letter-spacing:.06em;opacity:.9}
+.lb{font-size:12px;background:rgba(0,0,0,.18);padding:6px 12px;border-radius:999px;font-weight:600}
 .tabs{position:sticky;top:0;z-index:30;background:var(--bg);display:flex;gap:6px;overflow-x:auto;padding:10px 0;border-bottom:1px solid var(--line);margin-bottom:16px}
 .tab{white-space:nowrap;border:1px solid var(--line);background:var(--card);padding:8px 14px;border-radius:999px;font-weight:650;font-size:13px;cursor:pointer;color:var(--muted)}
 .tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
@@ -191,8 +215,9 @@ footer .by{font-weight:800;color:var(--ink);font-size:14px;margin-bottom:8px}
     <div class="controls" style="margin-bottom:8px">
       <input type="text" id="nome" placeholder="Seu nome no bolão" maxlength="32" style="flex:1;min-width:180px">
       <button class="btn g" id="enviar">Enviar / atualizar meu palpite</button>
+      <button class="btn" id="novo" title="Limpa o formulário para outra pessoa jogar neste computador">➕ Novo palpite (outra pessoa)</button>
     </div>
-    <div class="hint" id="bolaoStatus" style="margin-bottom:12px"></div>
+    <div class="hint" id="bolaoStatus" style="margin-bottom:12px">Vários amigos podem jogar no mesmo computador: cada <b>nome</b> tem o seu próprio palpite no ranking. Para passar a vez, clique em <b>➕ Novo palpite (outra pessoa)</b>.</div>
 
     <details class="card" style="padding:12px 15px;margin-bottom:14px">
       <summary style="font-weight:800;cursor:pointer">📏 Como pontua (clique para ver as regras)</summary>
@@ -217,6 +242,16 @@ footer .by{font-weight:800;color:var(--ink);font-size:14px;margin-bottom:8px}
     <h3 style="margin:18px 2px 6px;font-size:15px">2 · Mata-mata — seu chaveamento</h3>
     <div class="hint" style="margin:0 2px 8px">Os confrontos se montam a partir dos seus palpites de grupo. Coloque o placar; quem fizer mais gols avança. Empate? Escolha quem passa nos pênaltis.</div>
     <div class="bwrap"><div class="bracket" id="bolaoBracket"></div></div>
+
+    <div class="card" id="enviarFim" style="padding:18px;margin-top:18px;text-align:center">
+      <div style="font-weight:800;margin-bottom:4px">Terminou? Envie seu palpite 👇</div>
+      <div class="hint" style="margin-bottom:10px">Confira o nome e clique em enviar. Dá para reenviar quantas vezes quiser antes de cada jogo.</div>
+      <div class="controls" style="justify-content:center">
+        <input type="text" id="nome2" placeholder="Seu nome no bolão" maxlength="32" style="flex:1;min-width:180px;max-width:280px">
+        <button class="btn g" id="enviar2">Enviar / atualizar meu palpite</button>
+      </div>
+      <div style="margin-top:10px"><button class="btn" id="novo2">➕ Outra pessoa vai jogar (limpar e recomeçar)</button></div>
+    </div>
   </section>
 
   <!-- RANKING -->
@@ -267,6 +302,9 @@ let PRED=JSON.parse(localStorage.getItem(PKEY)||"{}"); PRED.r=PRED.r||{}; PRED.k
 let NOME=localStorage.getItem(NKEY)||"";
 let UID=localStorage.getItem(UKEY); if(!UID){UID="u"+Math.random().toString(36).slice(2,10);localStorage.setItem(UKEY,UID);}
 function savePred(){localStorage.setItem(PKEY,JSON.stringify(PRED));}
+// id do palpite baseado no NOME -> várias pessoas podem jogar no mesmo computador
+function slug(s){return (s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,40);}
+function myId(){return slug(NOME)||UID;}
 
 // ---- dados reais (data.json no site publicado) ----
 let ACT={results:{},standings:{},bracket:{}};
@@ -495,7 +533,7 @@ function renderTeam(){const t=$("#teamPick").value,p=$("#teamPanel");p.innerHTML
 
 // ===== BOLÃO =====
 function renderBolao(){
-  $("#nome").value=NOME;
+  $("#nome").value=NOME;if($("#nome2"))$("#nome2").value=NOME;
   // grupos (palpite)
   const grid=$("#bolaoGroups");grid.innerHTML="";const eng=mkEng(PRED.r,PRED.k);
   GL.forEach(L=>{const card=el("div","card gcard");const st=eng.stand(L);
@@ -555,8 +593,9 @@ function renderRanking(){
   if(!rows.length){$("#rankHint").innerHTML=ONLINE?"Ninguém enviou palpite ainda. Seja o primeiro na aba <b>Bolão</b>! 🎯":"Modo local: o ranking online aparece quando o bolão estiver configurado (veja o guia). Por enquanto, mostramos só o seu palpite.";}
   else{$("#rankHint").innerHTML=(ONLINE?`🟢 Placar ao vivo · ${rows.length} participante(s).`:`Modo local · ${rows.length} participante(s).`)+(has?"":" A pontuação começa quando a Copa começar.");}
   const medals=["🥇","🥈","🥉"];
-  rows.forEach((r,i)=>{const tr=el("tr",r.uid===UID?"me":"");
-    tr.innerHTML=`<td class="pos">${i<3?'<span class="medal">'+medals[i]+'</span>':(i+1)}</td><td><b>${r.nome}</b>${r.uid===UID?' <span class="tag live">você</span>':''}</td><td class="pts">${r.pts}</td>`;
+  const me=NOME.trim()?myId():"--none--";
+  rows.forEach((r,i)=>{const tr=el("tr",r.uid===me?"me":"");
+    tr.innerHTML=`<td class="pos">${i<3?'<span class="medal">'+medals[i]+'</span>':(i+1)}</td><td><b>${r.nome}</b>${r.uid===me?' <span class="tag live">voc��</span>':''}</td><td class="pts">${r.pts}</td>`;
     tb.append(tr);});
   // modo local: permitir colar código de amigo
   const loc=$("#rankLocal");
@@ -570,11 +609,23 @@ function myCode(){return btoa(unescape(encodeURIComponent(JSON.stringify({uid:UI
 
 // ===== enviar palpite =====
 async function enviar(){
-  NOME=$("#nome").value.trim();localStorage.setItem(NKEY,NOME);
+  NOME=(($("#nome2")&&$("#nome2").value)||$("#nome").value||"").trim();
+  $("#nome").value=NOME;if($("#nome2"))$("#nome2").value=NOME;
+  localStorage.setItem(NKEY,NOME);
   if(!NOME){toast("Digite seu nome primeiro 🙂");return;}
-  const doc={uid:UID,nome:NOME,r:PRED.r,k:PRED.k,ts:Date.now()};
-  if(ONLINE&&DB){try{await DB.collection("palpites").doc(UID).set(doc);toast("Palpite enviado! 🎯 Você está no ranking.");}catch(e){toast("Erro ao enviar: "+e.message);}}
-  else{const arr=JSON.parse(localStorage.getItem("wc26_localplayers")||"[]").filter(p=>p.uid!==UID);PLAYERS=[doc,...arr];localStorage.setItem("wc26_localplayers",JSON.stringify(arr));renderRanking();toast("Salvo neste dispositivo. (Bolão online não configurado — veja o guia para o placar compartilhado.)");}
+  const id=myId();
+  const doc={uid:id,nome:NOME,r:PRED.r,k:PRED.k,ts:Date.now()};
+  if(ONLINE&&DB){try{await DB.collection("palpites").doc(id).set(doc);toast("Palpite de "+NOME+" enviado! 🎯 Confira o Ranking.");}catch(e){toast("Erro ao enviar: "+e.message);}}
+  else{const arr=JSON.parse(localStorage.getItem("wc26_localplayers")||"[]").filter(p=>p.uid!==id);PLAYERS=[doc,...arr];localStorage.setItem("wc26_localplayers",JSON.stringify(arr));renderRanking();toast("Salvo neste dispositivo. (Bolão online não configurado — veja o guia para o placar compartilhado.)");}
+}
+// limpar o formulário para a próxima pessoa (o palpite já enviado continua no ranking)
+function novoPalpite(){
+  if(!confirm("Começar um palpite novo para outra pessoa?\n\nIsto limpa o formulário. O palpite que você já enviou continua salvo no ranking.")) return;
+  NOME="";PRED.r={};PRED.k={};savePred();localStorage.setItem(NKEY,"");
+  $("#nome").value="";if($("#nome2"))$("#nome2").value="";
+  renderBolao();
+  window.scrollTo({top:0,behavior:"smooth"});$("#nome").focus();
+  toast("Pronto! Digite o nome do próximo jogador e crave os placares. 🎯");
 }
 
 // ===== abas =====
@@ -585,8 +636,10 @@ function setTab(t){document.querySelectorAll(".tab").forEach(x=>x.classList.togg
 $("#tabs").onclick=e=>{if(e.target.dataset.t)setTab(e.target.dataset.t);};
 ["q","fStage","fTeam","tz"].forEach(id=>$("#"+id).addEventListener("input",renderSchedule));
 $("#teamPick").onchange=renderTeam;$("#h2hA").onchange=renderH2H;$("#h2hB").onchange=renderH2H;
-$("#nome").addEventListener("input",()=>{NOME=$("#nome").value;localStorage.setItem(NKEY,NOME);});
-$("#enviar").onclick=enviar;
+$("#nome").addEventListener("input",()=>{NOME=$("#nome").value;if($("#nome2"))$("#nome2").value=NOME;localStorage.setItem(NKEY,NOME);});
+$("#nome2").addEventListener("input",()=>{NOME=$("#nome2").value;$("#nome").value=NOME;localStorage.setItem(NKEY,NOME);});
+$("#enviar").onclick=enviar;$("#enviar2").onclick=enviar;
+$("#novo").onclick=novoPalpite;$("#novo2").onclick=novoPalpite;
 
 function copy(t){navigator.clipboard.writeText(t).then(()=>toast("Copiado! ✓"),()=>toast("Copie manualmente: "+t.slice(0,40)+"…"));}
 let tt;function toast(m){const e=$("#toast");e.textContent=m;e.classList.add("show");clearTimeout(tt);tt=setTimeout(()=>e.classList.remove("show"),2200);}
