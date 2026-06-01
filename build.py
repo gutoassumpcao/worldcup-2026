@@ -41,7 +41,15 @@ FLAG = {
  "Portugal":"🇵🇹","DR Congo":"🇨🇩","Uzbekistan":"🇺🇿","Colombia":"🇨🇴","England":"🏴󠁧󠁢󠁥󠁮󠁗󠁿","Croatia":"🇭🇷",
  "Ghana":"🇬🇭","Panama":"🇵🇦",
 }
+FLAG["England"]="🏴󠁧󠁢󠁥󠁮󠁗󠁿"
 FLAG["England"]="🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+
+TEAM_PT={"Mexico":"México","South Africa":"África do Sul","South Korea":"Coreia do Sul","Czech Republic":"Tchéquia","Canada":"Canadá","Bosnia and Herzegovina":"Bósnia e Herzegovina","Qatar":"Catar","Switzerland":"Suíça","Brazil":"Brasil","Morocco":"Marrocos","Haiti":"Haiti","Scotland":"Escócia","United States":"Estados Unidos","Paraguay":"Paraguai","Australia":"Austrália","Turkey":"Turquia","Germany":"Alemanha","Curaçao":"Curaçao","Ivory Coast":"Costa do Marfim","Ecuador":"Equador","Netherlands":"Holanda","Japan":"Japão","Sweden":"Suécia","Tunisia":"Tunísia","Belgium":"Bélgica","Egypt":"Egito","Iran":"Irã","New Zealand":"Nova Zelândia","Spain":"Espanha","Cape Verde":"Cabo Verde","Saudi Arabia":"Arábia Saudita","Uruguay":"Uruguai","France":"França","Senegal":"Senegal","Iraq":"Iraque","Norway":"Noruega","Argentina":"Argentina","Algeria":"Argélia","Austria":"Áustria","Jordan":"Jordânia","Portugal":"Portugal","DR Congo":"RD Congo","Uzbekistan":"Uzbequistão","Colombia":"Colômbia","England":"Inglaterra","Croatia":"Croácia","Ghana":"Gana","Panama":"Panamá"}
+def nm(t): return TEAM_PT.get(t,t)
+ROUND_PT={"Round of 32":"Rodada de 32","Round of 16":"Oitavas de final","Quarter-final":"Quartas de final","Semi-final":"Semifinal","Third place":"Disputa de 3º lugar","Final":"Final"}
+def ptround(r): return ("Grupo "+r[6:]) if r.startswith("Group ") else ROUND_PT.get(r,r)
+CITY_PT={"Mexico City":"Cidade do México","New York New Jersey":"Nova York / Nova Jersey","San Francisco Bay Area":"Baía de São Francisco","Philadelphia":"Filadélfia"}
+def cty(c): return CITY_PT.get(c,c)
 
 # ---- head-to-head lookup ----
 def hk(a, b): return tuple(sorted([a, b]))
@@ -49,15 +57,16 @@ HM = {hk(r["a"], r["b"]): r for r in H2H}
 def h2h_desc(home, away):
     r = HM.get(hk(home, away))
     if not r: return ""
+    H, A = nm(home), nm(away)
     if r.get("p", 0) == 0:
-        return f"Head-to-head: {home} and {away} have never met — a first-ever meeting."
+        return f"Confrontos diretos: {H} e {A} nunca se enfrentaram — primeiro encontro."
     if r.get("aw") is None:
-        s = f"Head-to-head: {r['p']} played."
-        if r.get("res"): s += f" Last: {r['res']}" + (f" ({str(r['last'])[:4]})" if r.get("last") else "") + "."
+        s = f"Confrontos diretos: {r['p']} jogos."
+        if r.get("res"): s += f" Último: {r['res']}" + (f" ({str(r['last'])[:4]})" if r.get("last") else "") + "."
         return s
     hw, aw = (r["aw"], r["bw"]) if r["a"] == home else (r["bw"], r["aw"])
-    s = f"Head-to-head: {r['p']} played — {home} {hw}, draws {r['d']}, {away} {aw}."
-    if r.get("res"): s += f" Last: {r['res']}" + (f" ({str(r['last'])[:4]})" if r.get("last") else "") + "."
+    s = f"Confrontos diretos: {r['p']} jogos — {H} {hw}, empates {r['d']}, {A} {aw}."
+    if r.get("res"): s += f" Último: {r['res']}" + (f" ({str(r['last'])[:4]})" if r.get("last") else "") + "."
     return s
 
 # ---- parse results ----
@@ -168,7 +177,7 @@ def loser_of(mn):
 def resolve(label, matchnum):
     mo=re.match(r"^W Group ([A-L])$", label)
     if mo: s=standings(mo[1]); return s[0]["t"] if group_complete(mo[1]) else None
-    mo=re.match(r"^RU Group ([A-L])$", label)
+    mo=re.match(r"RU Group ([A-L])$", label)
     if mo: s=standings(mo[1]); return s[1]["t"] if group_complete(mo[1]) else None
     if label.startswith("3rd "):
         Lg=THIRDS.get(matchnum)
@@ -200,33 +209,33 @@ def fold(line):
 
 stamp=fmt(datetime.datetime.now(datetime.timezone.utc))
 L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Guto Assumpção//World Cup 2026 Live//EN","CALSCALE:GREGORIAN",
-   "METHOD:PUBLISH","X-WR-CALNAME:FIFA World Cup 2026 (Live)",
-   fold("X-WR-CALDESC:Auto-updating. Knockout teams fill in as results come. Created by Guto Assumpção (@GutoAssumpcao) · instagram.com/GutoAssumpcao"),
+   "METHOD:PUBLISH","X-WR-CALNAME:Copa do Mundo FIFA 2026 (ao vivo)",
+   fold("X-WR-CALDESC:Calendário e bolão da Copa do Mundo 2026. Os times do mata-mata se preenchem conforme os resultados saem. Criado por Guto Assumpção (@GutoAssumpcao) · instagram.com/GutoAssumpcao"),
    "REFRESH-INTERVAL;VALUE=DURATION:PT6H","X-PUBLISHED-TTL:PT6H"]
 for m in FIXTURES:
     grp=m["round"].startswith("Group")
     home,away=teams_of(m["m"]); home=home or m["home"]; away=away or m["away"]
     r=RES.get(m["m"])
     if grp:
-        sc=f" {r['h']}–{r['a']} " if r else " vs "
-        summary=f"{FLAG.get(home,'')} {home}{sc}{away} {FLAG.get(away,'')} · {m['round']}"
+        sc=f" {r['h']}–{r['a']} " if r else " x "
+        summary=f"{FLAG.get(home,'')} {nm(home)}{sc}{nm(away)} {FLAG.get(away,'')} · {ptround(m['round'])}"
     else:
-        rn=m["round"].replace("Round of 32","R32").replace("Round of 16","R16").replace("Quarter-final","QF").replace("Semi-final","SF")
-        kn=lambda x:x.replace("W Group ","Winner ").replace("RU Group ","Runner-up ").replace("W Match ","Winner M").replace("L Match ","Loser M")
-        hn=home if not home.startswith(("W ","RU ","3rd ","L ")) else kn(home)
-        an=away if not away.startswith(("W ","RU ","3rd ","L ")) else kn(away)
-        sc=f" {r['h']}–{r['a']} " if r else " vs "
+        rn=ptround(m["round"])
+        kn=lambda x:x.replace("W Group ","1º Grupo ").replace("RU Group ","2º Grupo ").replace("3rd ","3º ").replace("W Match ","Vencedor jogo ").replace("L Match ","Perdedor jogo ")
+        hn=nm(home) if not home.startswith(("W ","RU ","3rd ","L ")) else kn(home)
+        an=nm(away) if not away.startswith(("W ","RU ","3rd ","L ")) else kn(away)
+        sc=f" {r['h']}–{r['a']} " if r else " x "
         summary=f"{rn}: {hn}{sc}{an}"
     start=dt_utc(m); end=start+datetime.timedelta(hours=2)
-    desc=f"Match {m['m']} · {m['round']} · kick-off {m['time']} local ({m['city']}). Venue: {m['stadium']}."
+    desc=f"Jogo {m['m']} · {ptround(m['round'])} · começa {m['time']} (horário local de {cty(m['city'])}). Estádio: {m['stadium']}."
     if grp:
         h=h2h_desc(m["home"], m["away"])
         if h: desc += "  " + h
     elif not r:
-        desc += "  Teams confirm as earlier rounds finish — the feed updates automatically."
+        desc += "  As seleções se confirmam conforme as fases terminam — o calendário atualiza sozinho."
     L+=["BEGIN:VEVENT", f"UID:wc2026-m{m['m']}@worldcup", f"DTSTAMP:{stamp}",
         f"DTSTART:{fmt(start)}", f"DTEND:{fmt(end)}",
-        fold(f"SUMMARY:{esc(summary)}"), fold(f"LOCATION:{esc(m['stadium']+', '+m['city'])}"),
+        fold(f"SUMMARY:{esc(summary)}"), fold(f"LOCATION:{esc(m['stadium']+', '+cty(m['city']))}"),
         fold(f"DESCRIPTION:{esc(desc)}"),
         f"CATEGORIES:{esc(m['round'])}", "STATUS:CONFIRMED", "END:VEVENT"]
 L.append("END:VCALENDAR")
