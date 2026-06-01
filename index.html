@@ -595,7 +595,7 @@ function renderRanking(){
   const medals=["🥇","🥈","🥉"];
   const me=NOME.trim()?myId():"--none--";
   rows.forEach((r,i)=>{const tr=el("tr",r.uid===me?"me":"");
-    tr.innerHTML=`<td class="pos">${i<3?'<span class="medal">'+medals[i]+'</span>':(i+1)}</td><td><b>${r.nome}</b>${r.uid===me?' <span class="tag live">voc��</span>':''}</td><td class="pts">${r.pts}</td>`;
+    tr.innerHTML=`<td class="pos">${i<3?'<span class="medal">'+medals[i]+'</span>':(i+1)}</td><td><b>${r.nome}</b>${r.uid===me?' <span class="tag live">voc&ecirc;</span>':''}</td><td class="pts">${r.pts}</td>`;
     tb.append(tr);});
   // modo local: permitir colar código de amigo
   const loc=$("#rankLocal");
