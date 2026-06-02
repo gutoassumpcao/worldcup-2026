@@ -289,6 +289,9 @@ function savePred(){localStorage.setItem(PKEY,JSON.stringify(PRED));}
 // id do palpite baseado no NOME -> várias pessoas podem jogar no mesmo computador
 function slug(s){return (s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,40);}
 function myId(){return slug(NOME)||UID;}
+// trava do bolão: palpites viram read-only no pontapé inicial (México x África do Sul)
+const KICKOFF=new Date("2026-06-11T19:00:00Z");
+function isLocked(){return Date.now()>=KICKOFF.getTime();}
 
 // ---- dados reais (data.json no site publicado) ----
 let ACT={results:{},standings:{},bracket:{}};
@@ -546,6 +549,11 @@ function renderBolao(){
     if(PRED.r[m]&&Object.keys(PRED.r[m]).length===0)delete PRED.r[m];
     savePred();refreshBolaoStands();renderBolaoBracket();updateMyPts();}));
   renderBolaoBracket();updateMyPts();
+  if(isLocked()){
+    document.querySelectorAll("#bolaoGroups input,#bolaoBracket input,#bolaoBracket select").forEach(e=>e.disabled=true);
+    ["#enviar","#enviar2","#novo","#novo2"].forEach(s=>{const b=$(s);if(b){b.disabled=true;b.style.opacity=".5";b.style.cursor="not-allowed";}});
+    $("#bolaoStatus").innerHTML='🔒 <b>Bolão fechado</b> — os palpites foram travados no pontapé inicial (11/jun, 16h de Brasília). Agora é só torcer e acompanhar no 🏅 Ranking e em 📋 Meus jogos! (Você ainda pode <b>☁️ carregar seu palpite</b> para conferir.)';
+  }
 }
 function renderBolaoBracket(){
   const eng=mkEng(PRED.r,PRED.k);const v=$("#bolaoBracket");v.innerHTML="";
@@ -598,6 +606,7 @@ function myCode(){return btoa(unescape(encodeURIComponent(JSON.stringify({uid:UI
 
 // ===== enviar palpite =====
 async function enviar(){
+  if(isLocked()){toast("🔒 Bolão fechado — os palpites travaram no pontapé inicial da Copa.");return;}
   NOME=(($("#nome2")&&$("#nome2").value)||$("#nome").value||"").trim();
   $("#nome").value=NOME;if($("#nome2"))$("#nome2").value=NOME;
   localStorage.setItem(NKEY,NOME);
