@@ -1,32 +1,26 @@
 {
- "updated": "2026-06-11 20:18 UTC",
- "results": {},
+ "updated": "2026-06-11 21:22 UTC",
+ "results": {
+  "1": {
+   "h": 2,
+   "a": 0
+  }
+ },
  "standings": {
   "A": [
    {
-    "t": "Czech Republic",
-    "P": 0,
-    "W": 0,
-    "D": 0,
-    "L": 0,
-    "GF": 0,
-    "GA": 0,
-    "GD": 0,
-    "Pts": 0
-   },
-   {
     "t": "Mexico",
-    "P": 0,
-    "W": 0,
+    "P": 1,
+    "W": 1,
     "D": 0,
     "L": 0,
-    "GF": 0,
+    "GF": 2,
     "GA": 0,
-    "GD": 0,
-    "Pts": 0
+    "GD": 2,
+    "Pts": 3
    },
    {
-    "t": "South Africa",
+    "t": "Czech Republic",
     "P": 0,
     "W": 0,
     "D": 0,
@@ -45,6 +39,17 @@
     "GF": 0,
     "GA": 0,
     "GD": 0,
+    "Pts": 0
+   },
+   {
+    "t": "South Africa",
+    "P": 1,
+    "W": 0,
+    "D": 0,
+    "L": 1,
+    "GF": 0,
+    "GA": 2,
+    "GD": -2,
     "Pts": 0
    }
   ],
