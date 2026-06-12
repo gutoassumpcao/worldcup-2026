@@ -1,9 +1,13 @@
 {
- "updated": "2026-06-12 03:42 UTC",
+ "updated": "2026-06-12 08:23 UTC",
  "results": {
   "1": {
    "h": 2,
    "a": 0
+  },
+  "2": {
+   "h": 2,
+   "a": 1
   }
  },
  "standings": {
@@ -20,25 +24,25 @@
     "Pts": 3
    },
    {
-    "t": "Czech Republic",
-    "P": 0,
-    "W": 0,
+    "t": "South Korea",
+    "P": 1,
+    "W": 1,
     "D": 0,
     "L": 0,
-    "GF": 0,
-    "GA": 0,
-    "GD": 0,
-    "Pts": 0
+    "GF": 2,
+    "GA": 1,
+    "GD": 1,
+    "Pts": 3
    },
    {
-    "t": "South Korea",
-    "P": 0,
+    "t": "Czech Republic",
+    "P": 1,
     "W": 0,
     "D": 0,
-    "L": 0,
-    "GF": 0,
-    "GA": 0,
-    "GD": 0,
+    "L": 1,
+    "GF": 1,
+    "GA": 2,
+    "GD": -1,
     "Pts": 0
    },
    {
