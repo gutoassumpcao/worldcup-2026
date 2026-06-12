@@ -177,7 +177,7 @@ def loser_of(mn):
 def resolve(label, matchnum):
     mo=re.match(r"^W Group ([A-L])$", label)
     if mo: s=standings(mo[1]); return s[0]["t"] if group_complete(mo[1]) else None
-    mo=re.match(r"RU Group ([A-L])$", label)
+    mo=re.match(r"^RU Group ([A-L])$", label)
     if mo: s=standings(mo[1]); return s[1]["t"] if group_complete(mo[1]) else None
     if label.startswith("3rd "):
         Lg=THIRDS.get(matchnum)
@@ -246,7 +246,7 @@ bracket={}
 for m in FIXTURES:
     if not m["round"].startswith("Group"):
         h,a=teams_of(m["m"]); bracket[m["m"]]={"home":h,"away":a,"winner":winner_of(m["m"])}
-data={"updated":datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+data={"updated":datetime.datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d %H:%M ET (Miami)"),
       "results":RES, "standings":{L0:standings(L0) for L0 in GL}, "bracket":bracket}
 open(os.path.join(HERE,"data.json"),"w",encoding="utf-8").write(json.dumps(data,ensure_ascii=False,indent=1))
 print(f"Built worldcup.ics + data.json · {len(RES)} results · thirds: {len(THIRDS)}/8 slots")
