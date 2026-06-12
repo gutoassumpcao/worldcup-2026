@@ -89,6 +89,16 @@ table.stand td.t{text-align:left;font-weight:650}
 .wcy{font-weight:850;font-size:15px;color:var(--accent)}
 .wcsc{font-size:15px}.wcsc b{font-size:17px}
 .wcst{font-size:11px;color:var(--muted);text-align:right;max-width:130px}
+.pgwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:14px;background:#fff}
+.pgrid{border-collapse:collapse;width:100%;font-size:13px;min-width:520px}
+.pgrid th,.pgrid td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:center;white-space:nowrap}
+.pgrid thead th{background:#f6f8fb;font-size:11px;line-height:1.3;position:sticky;top:0;z-index:1}
+.pgrid th.pname,.pgrid td.pname{text-align:left;position:sticky;left:0;background:#fff;font-weight:700;box-shadow:1px 0 0 var(--line)}
+.pgrid thead th.pname{background:#f6f8fb;z-index:2}
+.pgrid tbody tr:last-child td{border-bottom:none}
+.pgrid tr.me td{background:#f3eeff}.pgrid tr.me td.pname{background:#efe7ff}
+.pgrid .pk{font-weight:800;font-size:15px}.pgrid .pk.empty{color:#c2ccd6;font-weight:600}
+.pgmh{font-weight:800}.pgmd{color:var(--muted);font-weight:600;margin-top:2px}
 .rivgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:16px}
 .riv{padding:13px 15px;cursor:pointer}.riv .h{font-weight:750;font-size:14px;margin-bottom:6px}
 .riv .mini{height:9px;border-radius:6px;overflow:hidden;display:flex;background:#eee;margin:6px 0}.riv .mini i{display:block}.riv small{color:var(--muted);font-size:11.5px}
@@ -135,6 +145,7 @@ footer .by{font-weight:800;color:var(--ink);font-size:14px;margin-bottom:8px}
     <div class="tab hot" data-t="bolao">🎯 Bolão</div>
     <div class="tab hot" data-t="ranking">🏅 Ranking</div>
     <div class="tab" data-t="meus">📋 Meus jogos</div>
+    <div class="tab" data-t="palpites">👀 Palpites</div>
   </div>
 
   <div class="banner" id="liveBanner"></div>
@@ -251,6 +262,11 @@ footer .by{font-weight:800;color:var(--ink);font-size:14px;margin-bottom:8px}
   <section class="section" id="meus">
     <div id="meusHead"></div>
     <div id="meusBody"></div>
+  </section>
+
+  <!-- PALPITES DA GALERA -->
+  <section class="section" id="palpites">
+    <div id="palpitesBody"></div>
   </section>
 
   <footer>
@@ -680,6 +696,18 @@ function renderMeus(){
   h+='<div class="hint" style="margin:12px 2px">No mata-mata você também pontua por acertar as seleções que avançam em cada fase (não só o placar) — o total já considera tudo isso. Regras na aba 🎯 Bolão.</div>';
   body.innerHTML=h;
 }
+function renderPalpites(){
+  const host=$("#palpitesBody");
+  const up=MATCHES.filter(m=>!ACT.results[m.m]).slice(0,5);
+  const players=PLAYERS.slice().sort((a,b)=>(a.nome||"").localeCompare(b.nome||""));
+  const mine=NOME.trim()?myId():"__none__";
+  if(!up.length){host.innerHTML='<div class="card" style="padding:18px">Todos os jogos já foram disputados. 🏁</div>';return;}
+  let h=`<div class="hint" style="margin-bottom:10px">👀 O que cada um cravou nos <b>próximos ${up.length} jogos</b> — atualiza ao vivo conforme a galera envia ou edita. ${players.length} participante(s).</div>`;
+  if(!players.length){host.innerHTML=h+'<div class="card" style="padding:18px">Ninguém enviou palpite ainda. Seja o primeiro na aba 🎯 Bolão!</div>';return;}
+  const head='<tr><th class="pname">Jogador</th>'+up.map(m=>{const tH=m.round.startsWith("Group")?`<div class="pgmh">${flag(m.home)} ${nm(m.home)}<br>${flag(m.away)} ${nm(m.away)}</div>`:`<div class="pgmh">${ptRound(m.round)}</div>`;const d=new Intl.DateTimeFormat('pt-BR',{day:'numeric',month:'short',timeZone:m.tz}).format(new Date(m.utc));return `<th>${tH}<div class="pgmd">${d}</div></th>`;}).join('')+'</tr>';
+  const rows=players.map(p=>{const isMe=p.uid===mine;const cells=up.map(m=>{const r=(p.r||{})[m.m];const has=r&&r.h!=null&&r.a!=null&&r.h!==""&&r.a!=="";return `<td><span class="pk${has?'':' empty'}">${has?r.h+'–'+r.a:'—'}</span></td>`;}).join('');return `<tr${isMe?' class="me"':''}><td class="pname">${p.nome||'(sem nome)'}${isMe?' <span class="tag live">você</span>':''}</td>${cells}</tr>`;}).join('');
+  host.innerHTML=h+`<div class="pgwrap"><table class="pgrid"><thead>${head}</thead><tbody>${rows}</tbody></table></div>`;
+}
 function loadCloudPalpite(force){
   if(!ONLINE||!DB){if(force)toast("Bolão online não configurado.");return;}
   const id=slug(NOME);if(!id){toast("Digite seu nome primeiro 🙂");return;}
@@ -696,7 +724,7 @@ function loadCloudPalpite(force){
 function setTab(t){document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x.dataset.t===t));
   document.querySelectorAll(".section").forEach(x=>x.classList.toggle("active",x.id===t));
   if(t==="groups")renderGroups();if(t==="bracket")renderBracket();if(t==="teams")renderTeam();
-  if(t==="h2h"){renderH2H();renderRiv();}if(t==="bolao")renderBolao();if(t==="ranking")renderRanking();if(t==="meus")renderMeus();}
+  if(t==="h2h"){renderH2H();renderRiv();}if(t==="bolao")renderBolao();if(t==="ranking")renderRanking();if(t==="meus")renderMeus();if(t==="palpites")renderPalpites();}
 $("#tabs").onclick=e=>{if(e.target.dataset.t)setTab(e.target.dataset.t);};
 ["q","fStage","fTeam","tz"].forEach(id=>$("#"+id).addEventListener("input",renderSchedule));
 $("#teamPick").onchange=renderTeam;$("#h2hA").onchange=renderH2H;$("#h2hB").onchange=renderH2H;
@@ -724,7 +752,7 @@ function countdown(){const k=new Date("2026-06-11T19:00:00Z"),now=new Date(),dif
 function initFirebase(){
   try{ if(window.firebase && window.BOLAO_CONFIG && window.BOLAO_CONFIG.apiKey){
     firebase.initializeApp(window.BOLAO_CONFIG); DB=firebase.firestore(); ONLINE=true;
-    DB.collection("palpites").onSnapshot(snap=>{PLAYERS=snap.docs.map(d=>d.data());if($("#ranking").classList.contains("active"))renderRanking();if($("#meus").classList.contains("active"))renderMeus();});
+    DB.collection("palpites").onSnapshot(snap=>{PLAYERS=snap.docs.map(d=>d.data());if($("#ranking").classList.contains("active"))renderRanking();if($("#meus").classList.contains("active"))renderMeus();if($("#palpites").classList.contains("active"))renderPalpites();});
   }}catch(e){ONLINE=false;}
   if(!ONLINE){PLAYERS=JSON.parse(localStorage.getItem("wc26_localplayers")||"[]");
     if(NOME||Object.keys(PRED.r).length)PLAYERS=[{uid:UID,nome:NOME,r:PRED.r,k:PRED.k},...PLAYERS.filter(p=>p.uid!==UID)];}
@@ -738,7 +766,7 @@ async function loadActual(){
   }catch(e){}
 }
 function refreshActiveViews(){const s=document.querySelector(".section.active").id;
-  renderSchedule();if(s==="groups")renderGroups();if(s==="bracket")renderBracket();if(s==="teams")renderTeam();if(s==="bolao")updateMyPts();if(s==="ranking")renderRanking();if(s==="meus")renderMeus();}
+  renderSchedule();if(s==="groups")renderGroups();if(s==="bracket")renderBracket();if(s==="teams")renderTeam();if(s==="bolao")updateMyPts();if(s==="ranking")renderRanking();if(s==="meus")renderMeus();if(s==="palpites")renderPalpites();}
 
 (function(){var ics="https://gutoassumpcao.github.io/worldcup-2026/worldcup.ics";
   $("#subUrl").textContent=ics;
