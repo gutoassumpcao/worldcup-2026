@@ -170,7 +170,7 @@ footer .by{font-weight:800;color:var(--ink);font-size:14px;margin-bottom:8px}
       <input type="search" id="q" placeholder="Buscar seleção, cidade, estádio…" style="flex:1;min-width:170px">
       <select id="fStage"><option value="">Todas as fases</option></select>
       <select id="fTeam"><option value="">Todas as seleções</option></select>
-      <select id="tz"><option value="local">Horário do estádio</option><option value="device">Meu horário</option></select>
+      <select id="tz"><option value="miami">Horário de Miami (ET)</option><option value="device">Meu fuso</option><option value="local">Horário do estádio</option></select>
     </div>
     <div class="hint" id="schedHint"></div>
     <div id="schedList"></div>
@@ -420,10 +420,10 @@ function scorePred(pred){ // pred={r,k}
 }
 
 // ===== util tempo =====
-function fmtTime(mt,mode){const d=new Date(mt.utc);const tz=mode==="device"?undefined:mt.tz;
+function fmtTime(mt,mode){const d=new Date(mt.utc);const tz=mode==="device"?undefined:(mode==="local"?mt.tz:"America/New_York");
   try{const t=new Intl.DateTimeFormat('pt-BR',{hour:'2-digit',minute:'2-digit',timeZone:tz}).format(d);
-    const z=mode==="device"?(Intl.DateTimeFormat().resolvedOptions().timeZone.split('/').pop()||'').replace('_',' '):city(mt.city);return{t,z};}catch(e){return{t:mt.time,z:city(mt.city)};}}
-function dayKey(mt,mode){const d=new Date(mt.utc);const tz=mode==="device"?undefined:mt.tz;
+    const z=mode==="device"?(Intl.DateTimeFormat().resolvedOptions().timeZone.split('/').pop()||'').replace('_',' '):(mode==="local"?city(mt.city):"Miami");return{t,z};}catch(e){return{t:mt.time,z:city(mt.city)};}}
+function dayKey(mt,mode){const d=new Date(mt.utc);const tz=mode==="device"?undefined:(mode==="local"?mt.tz:"America/New_York");
   return new Intl.DateTimeFormat('pt-BR',{weekday:'long',day:'numeric',month:'long',timeZone:tz}).format(d);}
 
 // ===== H2H =====
@@ -463,7 +463,7 @@ function renderSchedule(){
         :`⚔️ ${h.p} jogos · ${nm(mt.home)} ${h.hw??"?"}–${h.d??"?"}–${h.aw??"?"} ${nm(mt.away)}`+(h.res?` · último: ${h.res}`:``);
       const hl=el("div","h2hline",t);hl.onclick=()=>openH2H(mt.home,mt.away);dg._c.append(hl);}}
   });
-  $("#schedHint").innerHTML=`${shown} jogo${shown===1?"":"s"} · `+(mode==="device"?"no seu fuso":"horário local do estádio");
+  $("#schedHint").innerHTML=`${shown} jogo${shown===1?"":"s"} · `+(mode==="device"?"no seu fuso":mode==="local"?"horário local do estádio":"horário de Miami (ET)");
 }
 
 // ===== GRUPOS (real, read-only) =====
@@ -493,7 +493,7 @@ function renderBracket(){
         const win=t&&b.winner===t;const e=el("div","bteam"+(t?"":" ph")+(win?" win":""));
         e.innerHTML=`<span class="flag">${t?flag(t):"•"}</span><span class="nmx">${nmx}</span>`+(r&&t?`<b>${side==='h'?r.h:r.a}</b>`:"");return e;};
       bm.append(mk('h'));bm.append(mk('a'));
-      const ds=new Intl.DateTimeFormat('pt-BR',{day:'numeric',month:'short',timeZone:m.tz}).format(new Date(m.utc));
+      const ds=new Intl.DateTimeFormat('pt-BR',{day:'numeric',month:'short',timeZone:"America/New_York"}).format(new Date(m.utc));
       bm.append(el("div","bmeta",`<span>Jogo ${m.m}</span><span>${ds} · ${city(m.city)}</span>`));
       if(b.home&&b.away){const h=h2hFor(b.home,b.away);if(h){let t=h.p===0?`✨ 1º encontro`:`⚔️ ${h.p} jogos · ${h.hw??"?"}-${h.d??"?"}-${h.aw??"?"}`;const bh=el("div","bh2h",t);bh.onclick=()=>openH2H(b.home,b.away);bm.append(bh);}}
       col.append(bm);});
@@ -518,7 +518,7 @@ function renderH2H(){const a=$("#h2hA").value,b=$("#h2hB").value,p=$("#h2hPanel"
     const rows=r.wc.slice().sort((x,y)=>x.y-y.y).map(m=>`<div class="wcrow"><span class="wcy">${m.y}</span><span class="wcsc">${flag(a)} <b>${m.ga}–${m.gb}</b> ${flag(b)}</span><span class="wcst">${m.st}${m.note?" · "+m.note:""}</span></div>`).join("");
     body+=`<div class="wcbox"><div class="wchead">🏆 Em Copas do Mundo</div><div class="wcrec">${r.wc.length} ${r.wc.length>1?"jogos":"jogo"} · <b>${nm(a)}</b> ${w}V-${dd}E-${l}D · gols ${gf}–${gg}</div><div class="wclist">${rows}</div></div>`;}
   const meet=MATCHES.find(m=>m.round.startsWith("Group")&&((m.home===a&&m.away===b)||(m.home===b&&m.away===a)));
-  if(meet){const ds=new Intl.DateTimeFormat('pt-BR',{weekday:'short',day:'numeric',month:'short',timeZone:meet.tz}).format(new Date(meet.utc));
+  if(meet){const ds=new Intl.DateTimeFormat('pt-BR',{weekday:'short',day:'numeric',month:'short',timeZone:"America/New_York"}).format(new Date(meet.utc));
     body+=`<div class="meetnote">📅 Se enfrentam nesta Copa — ${ptRound(meet.round)}, ${ds}, ${meet.stadium}, ${city(meet.city)}.</div>`;}
   card.innerHTML=body;card.style.padding="20px 18px";p.innerHTML="";p.append(card);
 }
@@ -544,7 +544,7 @@ function renderTeam(){const t=$("#teamPick").value,p=$("#teamPanel");p.innerHTML
   if(L){const s=eng.stand(L),pos=s.findIndex(x=>x.t===t)+1;card.innerHTML+=`<div class="hint">Posição no grupo: <b>${pos}º</b> de 4 · ${s.find(x=>x.t===t).Pts} pts${eng.gdone(L)?"":" (parcial)"}</div>`;}
   const fl=el("div","fixtures");
   MATCHES.filter(m=>m.home===t||m.away===t).forEach(m=>{const grp=m.round.startsWith("Group");if(!grp){const b=ACT.bracket[m.m];if(!b||(b.home!==t&&b.away!==t))return;}
-    const opp=m.home===t?m.away:m.home;const ds=new Intl.DateTimeFormat('pt-BR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit',timeZone:m.tz}).format(new Date(m.utc));
+    const opp=m.home===t?m.away:m.home;const ds=new Intl.DateTimeFormat('pt-BR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit',timeZone:"America/New_York"}).format(new Date(m.utc));
     const r=ACT.results[m.m];const sc=r?` <b>${m.home===t?r.h:r.a}–${m.home===t?r.a:r.h}</b> `:" x ";
     fl.append(el("div","fx",`<span class="nm" style="text-align:left">${ptRound(m.round)} · ${ds} · ${city(m.city)}</span><span>${flag(t)}${sc}${nm(opp)} ${flag(opp)}</span>`));});
   card.append(fl);p.append(card);
@@ -612,7 +612,7 @@ function renderBolaoBracket(){
         sel.append(new Option("Quem passa? (pênaltis)",""));sel.append(new Option(nm(h),h));sel.append(new Option(nm(a),a));
         sel.value=PRED.k[m.m]||"";sel.onchange=()=>{if(sel.value)PRED.k[m.m]=sel.value;else delete PRED.k[m.m];savePred();renderBolaoBracket();updateMyPts();};
         meta.append(sel);bm.append(meta);}
-      else{const ds=new Intl.DateTimeFormat('pt-BR',{day:'numeric',month:'short',timeZone:m.tz}).format(new Date(m.utc));bm.append(el("div","bmeta",`<span>Jogo ${m.m}</span><span>${ds}</span>`));}
+      else{const ds=new Intl.DateTimeFormat('pt-BR',{day:'numeric',month:'short',timeZone:"America/New_York"}).format(new Date(m.utc));bm.append(el("div","bmeta",`<span>Jogo ${m.m}</span><span>${ds}</span>`));}
       col.append(bm);});
     v.append(col);});
 }
@@ -709,7 +709,7 @@ function renderMeus(){
   const up=next.slice(0,12);
   if(!up.length)h+='<div class="hint" style="margin:0 2px 10px">Todos os jogos já foram disputados. 🏁</div>';
   else{h+='<div class="card" style="padding:6px 4px"><table class="rk">';
-    up.forEach(m=>{const d=new Intl.DateTimeFormat('pt-BR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit',timeZone:m.tz}).format(new Date(m.utc));
+    up.forEach(m=>{const d=new Intl.DateTimeFormat('pt-BR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit',timeZone:"America/New_York"}).format(new Date(m.utc));
       h+=`<tr><td style="text-align:left">${meusTeams(m)}<div class="hint" style="font-size:12px">${ptRound(m.round)} · ${d}</div></td><td style="text-align:right;white-space:nowrap">seu palpite<br><b>${meusPick(m)}</b></td></tr>`;});
     h+='</table></div>';}
   h+='<h3 style="margin:16px 2px 6px;font-size:15px">✅ Já disputados</h3>';
@@ -743,7 +743,7 @@ function renderPalpites(){
   else if(!up.length){grid='<div class="card" style="padding:18px">Todos os jogos já foram disputados. 🏁</div>';}
   else{
     grid=`<h3 style="margin:14px 2px 8px;font-size:15px">👀 Próximos ${up.length} jogos — o que cada um cravou</h3><div class="hint" style="margin:0 2px 8px">Atualiza ao vivo conforme a galera envia ou edita. ${players.length} participante(s).</div>`;
-    const head='<tr><th class="pname">Jogador</th>'+up.map(m=>{const tH=m.round.startsWith("Group")?`<div class="pgmh">${flag(m.home)} ${nm(m.home)}<br>${flag(m.away)} ${nm(m.away)}</div>`:`<div class="pgmh">${ptRound(m.round)}</div>`;const d=new Intl.DateTimeFormat('pt-BR',{day:'numeric',month:'short',timeZone:m.tz}).format(new Date(m.utc));return `<th>${tH}<div class="pgmd">${d}</div></th>`;}).join('')+'</tr>';
+    const head='<tr><th class="pname">Jogador</th>'+up.map(m=>{const tH=m.round.startsWith("Group")?`<div class="pgmh">${flag(m.home)} ${nm(m.home)}<br>${flag(m.away)} ${nm(m.away)}</div>`:`<div class="pgmh">${ptRound(m.round)}</div>`;const d=new Intl.DateTimeFormat('pt-BR',{day:'numeric',month:'short',timeZone:"America/New_York"}).format(new Date(m.utc));return `<th>${tH}<div class="pgmd">${d}</div></th>`;}).join('')+'</tr>';
     const rows=players.map(p=>{const isMe=p.uid===mine;const cells=up.map(m=>{const r=(p.r||{})[m.m];const has=r&&r.h!=null&&r.a!=null&&r.h!==""&&r.a!=="";return `<td><span class="pk${has?'':' empty'}">${has?r.h+'–'+r.a:'—'}</span></td>`;}).join('');return `<tr${isMe?' class="me"':''}><td class="pname">${p.nome||'(sem nome)'}${isMe?' <span class="tag live">voc&ecirc;</span>':''}</td>${cells}</tr>`;}).join('');
     grid+=`<div class="pgwrap"><table class="pgrid"><thead>${head}</thead><tbody>${rows}</tbody></table></div>`;
   }
