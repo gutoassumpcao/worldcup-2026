@@ -51,7 +51,7 @@ except Exception as e:
     sys.exit(0)
 
 # index our fixtures by (home, away)
-idx = {(m["home"], m["away"]): m["m"] for m in FIXTURES}
+idx = {frozenset((m["home"], m["away"])): m for m in FIXTURES}
 results = {}
 p = os.path.join(HERE, "results.json")
 if os.path.exists(p):
@@ -59,6 +59,7 @@ if os.path.exists(p):
     except Exception: results = {}
 
 added = 0
+unmatched = []
 for m in payload.get("matches", []):
     if m.get("status") != "FINISHED":
         continue
@@ -68,11 +69,12 @@ for m in payload.get("matches", []):
     hg, ag = ft.get("home"), ft.get("away")
     if hg is None or ag is None:
         continue
-    num = idx.get((h, a))
-    if num is None:
-        continue  # name mismatch or knockout pairing not yet mapped to a fixture
-    results[str(num)] = f"{hg}-{ag}"
+    fx = idx.get(frozenset((h, a)))
+    if fx is None:
+        unmatched.append(f"{h} x {a}"); continue
+    results[str(fx["m"])] = f"{hg}-{ag}" if (h==fx["home"] and a==fx["away"]) else f"{ag}-{hg}"
     added += 1
 
 json.dump(results, open(p, "w"), ensure_ascii=False, indent=0)
+print("UNMATCHED finished:", unmatched)
 print(f"Merged {added} finished results into results.json (total {len(results)}).")
