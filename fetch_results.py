@@ -35,6 +35,7 @@ NAME_MAP = {
     "Czechia": "Czech Republic", "DR Congo": "DR Congo",
     "Congo DR": "DR Congo", "Cabo Verde": "Cape Verde",
     "IR Iran": "Iran", "Bosnia & Herzegovina": "Bosnia and Herzegovina",
+    "Bosnia-Herzegovina": "Bosnia and Herzegovina", "Cape Verde Islands": "Cape Verde",
 }
 def norm(n): return NAME_MAP.get(n, n)
 
