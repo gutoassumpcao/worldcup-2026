@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-18 16:23 ET (Miami)",
+ "updated": "2026-06-18 19:43 ET (Miami)",
  "results": {
   "1": {
    "h": 2,
@@ -100,6 +100,10 @@
   "25": {
    "h": 1,
    "a": 1
+  },
+  "26": {
+   "h": 4,
+   "a": 1
   }
  },
  "standings": {
@@ -151,15 +155,15 @@
   ],
   "B": [
    {
-    "t": "Bosnia and Herzegovina",
-    "P": 1,
-    "W": 0,
+    "t": "Switzerland",
+    "P": 2,
+    "W": 1,
     "D": 1,
     "L": 0,
-    "GF": 1,
-    "GA": 1,
-    "GD": 0,
-    "Pts": 1
+    "GF": 5,
+    "GA": 2,
+    "GD": 3,
+    "Pts": 4
    },
    {
     "t": "Canada",
@@ -184,14 +188,14 @@
     "Pts": 1
    },
    {
-    "t": "Switzerland",
-    "P": 1,
+    "t": "Bosnia and Herzegovina",
+    "P": 2,
     "W": 0,
     "D": 1,
-    "L": 0,
-    "GF": 1,
-    "GA": 1,
-    "GD": 0,
+    "L": 1,
+    "GF": 2,
+    "GA": 5,
+    "GD": -3,
     "Pts": 1
    }
   ],
