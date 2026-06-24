@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-24 15:43 ET (Miami)",
+ "updated": "2026-06-24 17:09 ET (Miami)",
  "results": {
   "1": {
    "h": 2,
@@ -192,6 +192,14 @@
   "48": {
    "h": 1,
    "a": 0
+  },
+  "49": {
+   "h": 2,
+   "a": 1
+  },
+  "50": {
+   "h": 3,
+   "a": 1
   }
  },
  "standings": {
@@ -243,47 +251,47 @@
   ],
   "B": [
    {
-    "t": "Canada",
-    "P": 2,
-    "W": 1,
+    "t": "Switzerland",
+    "P": 3,
+    "W": 2,
     "D": 1,
     "L": 0,
     "GF": 7,
-    "GA": 1,
-    "GD": 6,
-    "Pts": 4
+    "GA": 3,
+    "GD": 4,
+    "Pts": 7
    },
    {
-    "t": "Switzerland",
-    "P": 2,
+    "t": "Canada",
+    "P": 3,
     "W": 1,
     "D": 1,
-    "L": 0,
-    "GF": 5,
-    "GA": 2,
-    "GD": 3,
+    "L": 1,
+    "GF": 8,
+    "GA": 3,
+    "GD": 5,
     "Pts": 4
    },
    {
     "t": "Bosnia and Herzegovina",
-    "P": 2,
-    "W": 0,
+    "P": 3,
+    "W": 1,
     "D": 1,
     "L": 1,
-    "GF": 2,
-    "GA": 5,
-    "GD": -3,
-    "Pts": 1
+    "GF": 5,
+    "GA": 6,
+    "GD": -1,
+    "Pts": 4
    },
    {
     "t": "Qatar",
-    "P": 2,
+    "P": 3,
     "W": 0,
     "D": 1,
-    "L": 1,
-    "GF": 1,
-    "GA": 7,
-    "GD": -6,
+    "L": 2,
+    "GF": 2,
+    "GA": 10,
+    "GD": -8,
     "Pts": 1
    }
   ],
@@ -751,12 +759,12 @@
  "bracket": {
   "73": {
    "home": null,
-   "away": null,
+   "away": "Canada",
    "winner": null
   },
   "74": {
    "home": null,
-   "away": null,
+   "away": "Bosnia and Herzegovina",
    "winner": null
   },
   "75": {
@@ -810,7 +818,7 @@
    "winner": null
   },
   "85": {
-   "home": null,
+   "home": "Switzerland",
    "away": null,
    "winner": null
   },
