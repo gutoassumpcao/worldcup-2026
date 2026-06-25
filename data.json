@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-25 17:41 ET (Miami)",
+ "updated": "2026-06-25 19:16 ET (Miami)",
  "results": {
   "1": {
    "h": 2,
@@ -216,6 +216,14 @@
   "53": {
    "h": 1,
    "a": 0
+  },
+  "56": {
+   "h": 2,
+   "a": 1
+  },
+  "55": {
+   "h": 0,
+   "a": 2
   }
  },
  "standings": {
@@ -406,46 +414,46 @@
   "E": [
    {
     "t": "Germany",
-    "P": 2,
+    "P": 3,
     "W": 2,
     "D": 0,
-    "L": 0,
-    "GF": 9,
-    "GA": 2,
-    "GD": 7,
+    "L": 1,
+    "GF": 10,
+    "GA": 4,
+    "GD": 6,
     "Pts": 6
    },
    {
     "t": "Ivory Coast",
-    "P": 2,
-    "W": 1,
+    "P": 3,
+    "W": 2,
     "D": 0,
+    "L": 1,
+    "GF": 4,
+    "GA": 2,
+    "GD": 2,
+    "Pts": 6
+   },
+   {
+    "t": "Ecuador",
+    "P": 3,
+    "W": 1,
+    "D": 1,
     "L": 1,
     "GF": 2,
     "GA": 2,
     "GD": 0,
-    "Pts": 3
-   },
-   {
-    "t": "Ecuador",
-    "P": 2,
-    "W": 0,
-    "D": 1,
-    "L": 1,
-    "GF": 0,
-    "GA": 1,
-    "GD": -1,
-    "Pts": 1
+    "Pts": 4
    },
    {
     "t": "Curaçao",
-    "P": 2,
+    "P": 3,
     "W": 0,
     "D": 1,
-    "L": 1,
+    "L": 2,
     "GF": 1,
-    "GA": 7,
-    "GD": -6,
+    "GA": 9,
+    "GD": -8,
     "Pts": 1
    }
   ],
@@ -779,7 +787,7 @@
    "winner": null
   },
   "74": {
-   "home": null,
+   "home": "Germany",
    "away": "Bosnia and Herzegovina",
    "winner": null
   },
@@ -799,7 +807,7 @@
    "winner": null
   },
   "78": {
-   "home": null,
+   "home": "Ivory Coast",
    "away": null,
    "winner": null
   },
@@ -810,7 +818,7 @@
   },
   "80": {
    "home": null,
-   "away": null,
+   "away": "Ecuador",
    "winner": null
   },
   "81": {
