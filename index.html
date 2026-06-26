@@ -284,6 +284,7 @@ footer .by{font-weight:800;color:var(--ink);font-size:14px;margin-bottom:8px}
     <div class="card" style="padding:14px 16px;margin-bottom:14px;background:linear-gradient(120deg,#fff3e6,#ffffff);border-color:#f0d9b8">
       <div style="font-weight:850;font-size:16px">🏆 Bolão do Mata-mata <span class="tag live">novo</span></div>
       <div class="hint" style="margin-top:4px">Um bolão <b>à parte</b>, do <b>Round of 32 até a final</b> — monte <b>o seu chaveamento</b> e ajuste cada jogo até ele começar. Aberto a todo mundo, inclusive quem não jogou o bolão dos grupos. Não mexe no bolão atual: é uma competição separada, com <b>ranking próprio</b>.</div>
+      <button class="btn p" id="shareInvite" style="margin-top:10px">📲 Convidar a galera (WhatsApp)</button>
     </div>
     <div class="bpts">
       <div><div class="big" id="myPtsK">0</div><div class="lbl">seus pontos no mata-mata</div></div>
@@ -310,6 +311,7 @@ footer .by{font-weight:800;color:var(--ink);font-size:14px;margin-bottom:8px}
         <b>⭐ Aposta da rodada (x2):</b> em cada fase você elege <b>um</b> jogo pra valer <b>dobro</b> no placar — escolha até aquele jogo começar.<br><br>
         <b>🏅 Selos no ranking:</b> 👑 cravou o campeão · 🧠 acertou os 2 finalistas · 🎯 placares cravados · 🔥 sequência de vencedores certos.<br><br>
         Cada jogo <b>trava no apito inicial</b> dele. Monte o chaveamento inteiro agora se quiser e ajuste cada jogo até ele começar.
+        <div style="margin-top:10px"><button class="btn" id="shareRules">📲 Compartilhar as regras (WhatsApp)</button></div>
       </div>
     </details>
 
@@ -691,7 +693,7 @@ function renderRanking(){
     tr.innerHTML=`<td class="pos">${i<3?'<span class="medal">'+medals[i]+'</span>':(i+1)}${mv}</td><td><b>${r.nome}</b>${r.uid===me?' <span class="tag live">voc&ecirc;</span>':''}${bd}${gn}</td><td class="pts">${r.pts}</td>`;
     tb.append(tr);});
   $("#rankShare").innerHTML=rows.length?`<button class="btn" id="shareRank">📋 Copiar ranking pro WhatsApp</button>`:"";
-  const sb=$("#shareRank");if(sb)sb.onclick=()=>{const lab=last?` · após ${matchLabel(last)} ${ACT.results[last.m].h}–${ACT.results[last.m].a}`:"";const txt="📊 Bolão da Copa do Mundo — Ranking"+lab+"\n"+rows.map((r,i)=>`${i<3?medals[i]:(i+1)+"º"} ${r.nome} — ${r.pts} pts`).join("\n")+"\n👉 https://gutoassumpcao.github.io/worldcup-2026/";copy(txt);};
+  const sb=$("#shareRank");if(sb)sb.onclick=()=>{const lab=last?` · após ${matchLabel(last)} ${ACT.results[last.m].h}–${ACT.results[last.m].a}`:"";const txt="📊 Bolão da Copa do Mundo — Ranking"+lab+"\n"+rows.map((r,i)=>{const ach=pAch(PLAYERS.find(p=>p.uid===r.uid)||{});let b="";if(ach.exact>0)b+=" 🎯"+ach.exact;if(ach.streak>1)b+=" 🔥"+ach.streak;return `${i<3?medals[i]:(i+1)+"º"} ${r.nome} — ${r.pts} pts${b}`;}).join("\n")+"\n👉 https://gutoassumpcao.github.io/worldcup-2026/";copy(txt);};
   // modo local: permitir colar código de amigo
   const loc=$("#rankLocal");
   if(!ONLINE){loc.innerHTML=`<div class="card" style="padding:14px"><div class="hint" style="margin-bottom:8px">Sem bolão online configurado. Cole aqui o <b>código</b> de um amigo para incluí-lo no ranking deste dispositivo:</div>
@@ -803,6 +805,15 @@ function koAch(pred){const eng=koEng(pred),as=actStages();let exact=0;const seq=
   const champ=!!(ps.champ&&as.champ&&ps.champ===as.champ);
   return {exact,streak,finalists,champ};
 }
+// máximo de pontos que ainda dá pra ganhar (encolhe conforme a Copa anda) — clima de virada
+function koPotRemaining(){
+  const as=actStages();let pot=0;
+  MATCHES.forEach(m=>{if(m.round.startsWith("Group"))return;if(!ACT.results[m.m])pot+=10;}); // placar dos jogos que faltam
+  pot+=2*Math.max(0,16-as.R16.size)+4*Math.max(0,8-as.QF.size)+7*Math.max(0,4-as.SF.size)+12*Math.max(0,2-as.FIN.size);
+  if(!as.champ)pot+=25;
+  if(as.SF.size<4)pot+=10; if(!(as.champ&&as.vice))pot+=10; if(!ACT.results[104])pot+=15;
+  return pot;
+}
 function renderMatamata(){
   $("#nomeK").value=NOME;
   const body=$("#matamataBody");
@@ -890,12 +901,27 @@ function loadCloudPalpiteK(force){
     toast("Palpite de "+(data.nome||NOME)+" carregado da nuvem ☁️");
   }).catch(e=>{if(force)toast("Erro ao carregar: "+e.message);});
 }
+// apura o ÚLTIMO dia com jogos do mata-mata: jogos, quem mais pontuou no dia, e o ranking geral
+function koDiaPodium(){
+  const fin=MATCHES.filter(m=>!m.round.startsWith("Group")&&ACT.results[m.m]);
+  if(!fin.length)return null;
+  const dayOf=m=>new Intl.DateTimeFormat('pt-BR',{day:'numeric',month:'long',timeZone:"America/New_York"}).format(new Date(m.utc));
+  const sorted=fin.slice().sort((a,b)=>koKick(a)-koKick(b));
+  const lastDay=dayOf(sorted[sorted.length-1]);
+  const dayMatches=fin.filter(m=>dayOf(m)===lastDay).sort((a,b)=>koKick(a)-koKick(b));
+  const dayPtsOf=p=>{let s=0;const eng=koEng({r:p.r||{},k:p.k||{}});const J=p.j||{};
+    dayMatches.forEach(m=>{const rb=ACT.bracket[m.m];if(!rb||!rb.home||!rb.away)return;const [ph,pa]=eng.teamsOf(m.m);
+      if(ph===rb.home&&pa===rb.away){let g=koMatchPts((p.r||{})[m.m],ACT.results[m.m]);if(J[KO_COL_OF[m.m]]===m.m)g*=2;s+=g;}});return s;};
+  const dayRows=PLAYERSK.map(p=>({nome:p.nome||"(sem nome)",gain:dayPtsOf(p)})).sort((a,b)=>b.gain-a.gain);
+  const overall=PLAYERSK.map(p=>({nome:p.nome||"(sem nome)",pts:scoreKO({r:p.r||{},k:p.k||{},j:p.j||{}})})).sort((a,b)=>b.pts-a.pts);
+  return {lastDay,dayMatches,dayRows,overall};
+}
 function renderRankingK(){
   const tbl=$("#rankKTable");if(!tbl)return;const tb=tbl.querySelector("tbody");tb.innerHTML="";
   const rows=PLAYERSK.map(p=>({nome:p.nome||"(sem nome)",uid:p.uid,pts:scoreKO({r:p.r||{},k:p.k||{},j:p.j||{}}),p:p})).sort((a,b)=>b.pts-a.pts||(a.nome||"").localeCompare(b.nome||""));
   const started=MATCHES.some(m=>!m.round.startsWith("Group")&&ACT.results[m.m]);
   if(!rows.length){$("#rankKHint").innerHTML=ONLINE?"Ninguém entrou no bolão do mata-mata ainda. Seja o primeiro! 🏆":"Modo local: o ranking online aparece com o bolão configurado.";}
-  else{$("#rankKHint").innerHTML=(ONLINE?`🟢 Ao vivo · ${rows.length} participante(s).`:`Modo local · ${rows.length} participante(s).`)+(started?"":" A pontuação começa no Round of 32.");}
+  else{$("#rankKHint").innerHTML=(ONLINE?`🟢 Ao vivo · ${rows.length} participante(s).`:`Modo local · ${rows.length} participante(s).`)+` · 🎯 até <b>~${koPotRemaining()} pts</b> ainda em disputa`+(started?"":" (começa no Round of 32)");}
   const medals=["🥇","🥈","🥉"];const me=NOME.trim()?myId():"--none--";
   rows.forEach((r,i)=>{const tr=el("tr",r.uid===me?"me":"");
     const ac=koAch({r:(r.p.r)||{},k:(r.p.k)||{},j:(r.p.j)||{}});let bd="";
@@ -905,8 +931,21 @@ function renderRankingK(){
     if(ac.streak>1)bd+=`<span class="badge" title="vencedores certos seguidos">🔥${ac.streak}</span>`;
     tr.innerHTML=`<td class="pos">${i<3?'<span class="medal">'+medals[i]+'</span>':(i+1)}</td><td><b>${r.nome}</b>${r.uid===me?' <span class="tag live">voc&ecirc;</span>':''}${bd}</td><td class="pts">${r.pts}</td>`;
     tb.append(tr);});
-  $("#rankKShare").innerHTML=rows.length?`<button class="btn" id="shareRankK">📋 Copiar ranking pro WhatsApp</button>`:"";
-  const sb=$("#shareRankK");if(sb)sb.onclick=()=>{const txt="🏆 Bolão do Mata-mata — Ranking\n"+rows.map((r,i)=>`${i<3?medals[i]:(i+1)+"º"} ${r.nome} — ${r.pts} pts`).join("\n")+"\n👉 https://gutoassumpcao.github.io/worldcup-2026/";copy(txt);};
+  $("#rankKShare").innerHTML=rows.length?`<button class="btn" id="shareRankK">📋 Copiar ranking</button> <button class="btn" id="podiumK">🥁 Pódio do dia</button>`:"";
+  const sb=$("#shareRankK");if(sb)sb.onclick=()=>{const txt="🏆 Bolão do Mata-mata — Ranking\n"+rows.map((r,i)=>{const ac=koAch({r:(r.p.r)||{},k:(r.p.k)||{},j:(r.p.j)||{}});let b="";if(ac.champ)b+=" 👑";if(ac.finalists)b+=" 🧠";if(ac.exact>0)b+=" 🎯"+ac.exact;if(ac.streak>1)b+=" 🔥"+ac.streak;return `${i<3?medals[i]:(i+1)+"º"} ${r.nome} — ${r.pts} pts${b}`;}).join("\n")+`\n🎯 ${koPotRemaining()} pts ainda em disputa\n👉 https://gutoassumpcao.github.io/worldcup-2026/`;copy(txt);};
+  const pb=$("#podiumK");if(pb)pb.onclick=()=>{
+    const pd=koDiaPodium();if(!pd){toast("Ainda não teve jogo do mata-mata.");return;}
+    let t=`🥁 PÓDIO DO DIA — ${pd.lastDay}\n🏆 Bolão do Mata-mata\n\n📋 Jogos de hoje:\n`;
+    pd.dayMatches.forEach(m=>{const a=ACT.results[m.m];const b=ACT.bracket[m.m]||{};t+=`• ${flag(b.home)} ${nm(b.home)} ${a.h}–${a.a} ${nm(b.away)} ${flag(b.away)}\n`;});
+    const scorers=pd.dayRows.filter(r=>r.gain>0);
+    t+=`\n🔥 Quem mais pontuou hoje:\n`;
+    if(!scorers.length)t+=`Ninguém pontuou hoje 🥶\n`;
+    else scorers.forEach((r,i)=>{t+=`${i<3?medals[i]:(i+1)+"º"} ${r.nome} +${r.gain}\n`;});
+    t+=`\n📊 Ranking geral:\n`;
+    pd.overall.slice(0,5).forEach((r,i)=>{t+=`${i<3?medals[i]:(i+1)+"º"} ${r.nome} — ${r.pts} pts\n`;});
+    t+=`\n🎯 ${koPotRemaining()} pts ainda em disputa\n👉 https://gutoassumpcao.github.io/worldcup-2026/`;
+    copy(t);
+  };
 }
 
 // ===== abas =====
@@ -1006,6 +1045,34 @@ $("#recall").onclick=()=>loadCloudPalpite(true);
 $("#nome").addEventListener("change",()=>{if(typeof ONLINE!=="undefined"&&ONLINE&&!Object.keys(PRED.r).length)loadCloudPalpite(false);});
 $("#nome2").addEventListener("change",()=>{if(typeof ONLINE!=="undefined"&&ONLINE&&!Object.keys(PRED.r).length)loadCloudPalpite(false);});
 $("#enviarK").onclick=enviarK;$("#novoK").onclick=novoPalpiteK;$("#recallK").onclick=()=>loadCloudPalpiteK(true);
+const WC_LINK="https://gutoassumpcao.github.io/worldcup-2026/";
+$("#shareInvite").onclick=()=>copy(
+`🏆 *Bolão do Mata-mata da Copa 2026*
+
+Um bolão à parte, do Round of 32 até a final — monte o seu chaveamento e ajuste cada jogo até ele começar. Aberto a todo mundo, inclusive quem não jogou o bolão dos grupos!
+
+Crave os placares, dispute o ranking e vem pra zoeira. 🔥
+
+👉 ${WC_LINK}
+(abra a aba 🏆 Mata-mata)`);
+$("#shareRules").onclick=()=>copy(
+`📏 *Como pontua — Bolão do Mata-mata*
+
+*1) Placar de cada jogo* (quando você acerta as 2 seleções):
+exato 10 · vencedor+saldo 7 · vencedor+gols de um time 6 · só vencedor 5
+Consolação (mesmo errando o vencedor): +1 se acertar o total de gols · +1 se acertar os gols de um time
+
+*2) Cada seleção sua que avança de verdade:*
+Oitavas +2 · Quartas +4 · Semis +7 · Finalista +12 · Campeão +25
+
+*3) Bônus de craque:*
+4 semifinalistas +10 · campeão e vice +10 · placar exato da final +15
+
+⭐ *Aposta da rodada:* 1 jogo por fase vale dobro
+🏅 Selos: 👑 campeão · 🧠 finalistas · 🎯 cravadas · 🔥 sequência
+
+👉 ${WC_LINK}
+(abra a aba 🏆 Mata-mata)`);
 $("#nomeK").addEventListener("input",()=>syncNome($("#nomeK").value));
 $("#nomeK").addEventListener("change",()=>{if(typeof ONLINE!=="undefined"&&ONLINE&&!Object.keys(PREDK.r).length)loadCloudPalpiteK(false);});
 
