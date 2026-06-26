@@ -3,7 +3,7 @@ name: Update World Cup feed
 # Runs on a schedule, on manual click, and whenever you edit results.json.
 on:
   schedule:
-    - cron: "0 */2 * * *"        # a cada 2h — o GitHub agenda só em UTC (= horas pares no ET/Miami).
+    - cron: "*/5 * * * *"        # a cada 5 min — pega o placar logo apos cada jogo terminar.
   workflow_dispatch:              # lets you run it manually from the Actions tab
   push:
     paths:
@@ -11,6 +11,10 @@ on:
 
 permissions:
   contents: write                 # allow the action to commit the regenerated files
+
+concurrency:
+  group: wc-update                # nunca roda duas atualizacoes ao mesmo tempo
+  cancel-in-progress: false
 
 jobs:
   build:
