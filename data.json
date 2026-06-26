@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-25 21:01 ET (Miami)",
+ "updated": "2026-06-25 21:03 ET (Miami)",
  "results": {
   "1": {
    "h": 2,
@@ -228,6 +228,10 @@
   "57": {
    "h": 1,
    "a": 3
+  },
+  "58": {
+   "h": 1,
+   "a": 1
   }
  },
  "standings": {
@@ -475,25 +479,25 @@
    },
    {
     "t": "Japan",
-    "P": 2,
+    "P": 3,
     "W": 1,
-    "D": 1,
+    "D": 2,
     "L": 0,
-    "GF": 6,
-    "GA": 2,
+    "GF": 7,
+    "GA": 3,
     "GD": 4,
-    "Pts": 4
+    "Pts": 5
    },
    {
     "t": "Sweden",
-    "P": 2,
+    "P": 3,
     "W": 1,
-    "D": 0,
+    "D": 1,
     "L": 1,
-    "GF": 6,
-    "GA": 6,
+    "GF": 7,
+    "GA": 7,
     "GD": 0,
-    "Pts": 3
+    "Pts": 4
    },
    {
     "t": "Tunisia",
@@ -792,17 +796,17 @@
   },
   "74": {
    "home": "Germany",
-   "away": "Bosnia and Herzegovina",
+   "away": "Sweden",
    "winner": null
   },
   "75": {
-   "home": null,
+   "home": "Netherlands",
    "away": "Morocco",
    "winner": null
   },
   "76": {
    "home": "Brazil",
-   "away": null,
+   "away": "Japan",
    "winner": null
   },
   "77": {
@@ -827,7 +831,7 @@
   },
   "81": {
    "home": null,
-   "away": null,
+   "away": "Bosnia and Herzegovina",
    "winner": null
   },
   "82": {
