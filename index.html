@@ -283,7 +283,7 @@ footer .by{font-weight:800;color:var(--ink);font-size:14px;margin-bottom:8px}
   <section class="section" id="matamata">
     <div class="card" style="padding:14px 16px;margin-bottom:14px;background:linear-gradient(120deg,#fff3e6,#ffffff);border-color:#f0d9b8">
       <div style="font-weight:850;font-size:16px">🏆 Bolão do Mata-mata <span class="tag live">novo</span></div>
-      <div class="hint" style="margin-top:4px">Um bolão <b>à parte</b>, do <b>Round of 32 até a final</b> — você palpita <b>jogo a jogo</b>. Aberto a todo mundo, inclusive quem não jogou o bolão dos grupos. Não mexe no bolão atual: é uma competição separada, com <b>ranking próprio</b>.</div>
+      <div class="hint" style="margin-top:4px">Um bolão <b>à parte</b>, do <b>Round of 32 até a final</b> — monte <b>o seu chaveamento</b> e ajuste cada jogo até ele começar. Aberto a todo mundo, inclusive quem não jogou o bolão dos grupos. Não mexe no bolão atual: é uma competição separada, com <b>ranking próprio</b>.</div>
     </div>
     <div class="bpts">
       <div><div class="big" id="myPtsK">0</div><div class="lbl">seus pontos no mata-mata</div></div>
@@ -300,13 +300,16 @@ footer .by{font-weight:800;color:var(--ink);font-size:14px;margin-bottom:8px}
     <details class="card" style="padding:12px 15px;margin-bottom:14px">
       <summary style="font-weight:800;cursor:pointer">📏 Como pontua (clique para ver)</summary>
       <div class="rules" style="margin-top:8px">
-        Cada jogo do mata-mata vale pelo <b>placar</b> que você cravar:<br>
-        • Placar exato: <b>10 pts</b><br>
-        • Vencedor certo + saldo de gols certo: <b>7 pts</b><br>
-        • Vencedor certo + nº de gols de um dos times certo: <b>6 pts</b><br>
-        • Só o vencedor (ou empate no tempo normal) certo: <b>5 pts</b><br>
-        • Errou quem venceu: <b>0</b><br><br>
-        Cada jogo <b>trava no apito inicial</b>. Os confrontos vão aparecendo aqui assim que as seleções são definidas — você palpita fase por fase, do Round of 32 até a final. Use o placar que sair no resultado oficial.
+        <b>1) Placar de cada jogo</b> (vale quando você acertou as <b>duas seleções</b> daquele jogo; na Rodada de 32 sempre conta, pois os times são reais):<br>
+        • Placar exato: <b>10</b> · vencedor + saldo: <b>7</b> · vencedor + gols de um time: <b>6</b> · só o vencedor: <b>5</b><br>
+        • <b>Consolação</b> (somam, mesmo errando o vencedor): acertou o <b>total de gols</b> da partida <b>+1</b> · acertou os <b>gols de um dos times</b> <b>+1</b><br><br>
+        <b>2) Cada seleção que você levou e que avançou de verdade</b> (é onde o jogo vira no fim):<br>
+        • Oitavas <b>+2</b> · Quartas <b>+4</b> · Semis <b>+7</b> · Finalista <b>+12</b> · <b>Campeão +25</b><br><br>
+        <b>3) Bônus de craque:</b><br>
+        • Acertar os <b>4 semifinalistas</b>: +10 · acertar <b>campeão e vice</b>: +10 · <b>placar exato da final</b>: +15<br><br>
+        <b>⭐ Aposta da rodada (x2):</b> em cada fase você elege <b>um</b> jogo pra valer <b>dobro</b> no placar — escolha até aquele jogo começar.<br><br>
+        <b>🏅 Selos no ranking:</b> 👑 cravou o campeão · 🧠 acertou os 2 finalistas · 🎯 placares cravados · 🔥 sequência de vencedores certos.<br><br>
+        Cada jogo <b>trava no apito inicial</b> dele. Monte o chaveamento inteiro agora se quiser e ajuste cada jogo até ele começar.
       </div>
     </details>
 
@@ -723,74 +726,139 @@ function novoPalpite(){
 
 // ===== BOLÃO MATA-MATA (separado, jogo a jogo, coleção própria) =====
 const PKKEY="wc26_predk";
-let PREDK=JSON.parse(localStorage.getItem(PKKEY)||"{}"); PREDK.r=PREDK.r||{};
+let PREDK=JSON.parse(localStorage.getItem(PKKEY)||"{}"); PREDK.r=PREDK.r||{}; PREDK.k=PREDK.k||{}; PREDK.j=PREDK.j||{}; // r=placares, k=pênaltis(quem passa), j=joker x2 por coluna
 function saveK(){localStorage.setItem(PKKEY,JSON.stringify(PREDK));}
 let PLAYERSK=[]; // {uid,nome,r}
-const KO_ROUNDS=[["Rodada de 32",73,88],["Oitavas de final",89,96],["Quartas de final",97,100],["Semifinais",101,102],["Final e 3º lugar",103,104]];
-function koTeams(m){const b=ACT.bracket[m.m]||{};return [b.home||null,b.away||null];}
-function koLocked(m){ // editável só com os 2 times definidos, antes do apito e sem resultado
-  const [h,a]=koTeams(m);
-  if(!h||!a)return true;
-  if(ACT.results[m.m])return true;
-  return Date.now()>=new Date(m.utc).getTime();
+const KO_COLS_K=[["Rodada de 32",73,88],["Oitavas de final",89,96],["Quartas de final",97,100],["Semifinais",101,102],["Final e 3º lugar",103,104]];
+const KO_COL_OF={}; KO_COLS_K.forEach(([n,lo,hi],ci)=>{for(let x=lo;x<=hi;x++)KO_COL_OF[x]=ci;});
+// engine do SEU chaveamento: a Rodada de 32 vem dos times REAIS (ACT.bracket); daí propaga pelos seus vencedores
+function koEng(pred){
+  pred=pred||{}; const R=pred.r||{}, K=pred.k||{};
+  const realPair=mn=>{const b=ACT.bracket[mn]||{};return [b.home||null,b.away||null];};
+  function teamsOf(mn){
+    if(mn>=73&&mn<=88)return realPair(mn);
+    return [resolve(KO_HOME_LABEL[mn]),resolve(KO_AWAY_LABEL[mn])];
+  }
+  function resolve(label){let m;if(!label)return null;
+    if(m=label.match(/^W Match (\d+)$/))return winner(+m[1]);
+    if(m=label.match(/^L Match (\d+)$/))return loser(+m[1]);
+    return null;}
+  function scoreOf(mn){const r=R[mn];return (r&&r.h!=null&&r.a!=null&&r.h!==""&&r.a!=="")?{h:+r.h,a:+r.a}:null;}
+  function winner(mn){const [h,a]=teamsOf(mn);if(!h||!a)return null;const s=scoreOf(mn);if(!s)return null;
+    if(s.h>s.a)return h;if(s.a>s.h)return a;return (K[mn]===h||K[mn]===a)?K[mn]:null;}
+  function loser(mn){const w=winner(mn);if(!w)return null;const [h,a]=teamsOf(mn);return w===h?a:(w===a?h:null);}
+  function setIn(lo,hi){const s=new Set();for(let n=lo;n<=hi;n++){const[h,a]=teamsOf(n);if(h)s.add(h);if(a)s.add(a);}return s;}
+  function stages(){return{R16:setIn(89,96),QF:setIn(97,100),SF:setIn(101,102),FIN:setIn(104,104),champ:winner(104),vice:loser(104),third:winner(103)};}
+  return {teamsOf,winner,loser,stages};
 }
-function scoreKO(pred){let pts=0;MATCHES.forEach(m=>{if(m.round.startsWith("Group"))return;const a=ACT.results[m.m];if(!a)return;pts+=scoreGroup((pred.r||{})[m.m],a);});return pts;}
+function koKick(m){return new Date(m.utc).getTime();}
+function koGameLocked(m){return !!ACT.results[m.m] || Date.now()>=koKick(m);} // trava no apito (ou com resultado)
+// placar de um jogo do mata-mata, COM consolação (mais gente pontua)
+function koMatchPts(p,a){
+  if(!p||!a||p.h==null||p.a==null||p.h===""||p.a==="")return 0;
+  p={h:+p.h,a:+p.a};
+  if(p.h===a.h&&p.a===a.a)return 10;                 // placar exato
+  const po=Math.sign(p.h-p.a),ao=Math.sign(a.h-a.a);
+  const totMatch=(p.h+p.a)===(a.h+a.a);              // acertou o total de gols da partida
+  const teamMatch=(p.h===a.h)||(p.a===a.a);         // acertou os gols de um dos times
+  if(po===ao){                                      // acertou o vencedor (ou empate)
+    if((p.h-p.a)===(a.h-a.a))return 7;              // + saldo de gols
+    if(teamMatch)return 6;                          // + gols de um time
+    return totMatch?6:5;                            // só vencedor (+1 se acertou o total)
+  }
+  // errou o vencedor -> só consolação
+  let s=0; if(teamMatch)s+=1; if(totMatch)s+=1; return s;
+}
+// ===== PONTUAÇÃO em 3 camadas + joker =====
+function scoreKO(pred){
+  pred=pred||{}; const eng=koEng(pred); let pts=0; const J=pred.j||{};
+  // 1) PLACAR de cada jogo (vale quando o confronto previsto bate com o real) — joker dobra
+  MATCHES.forEach(m=>{ if(m.round.startsWith("Group"))return; const real=ACT.results[m.m]; const rb=ACT.bracket[m.m];
+    if(!real||!rb||!rb.home||!rb.away)return; const [ph,pa]=eng.teamsOf(m.m);
+    if(ph===rb.home&&pa===rb.away){ let s=koMatchPts((pred.r||{})[m.m],real); if(J[KO_COL_OF[m.m]]===m.m)s*=2; pts+=s; } });
+  // 2) AVANÇO escalonado (cada seleção sua que chegou de verdade a cada fase)
+  const ps=eng.stages(), as=actStages();
+  const aw=(pset,aset,per)=>{aset.forEach(t=>{if(pset.has(t))pts+=per;});};
+  aw(ps.R16,as.R16,2); aw(ps.QF,as.QF,4); aw(ps.SF,as.SF,7);
+  as.FIN.forEach(t=>{if(ps.FIN.has(t))pts+=12;});
+  if(ps.champ&&as.champ&&ps.champ===as.champ)pts+=25;
+  // 3) BÔNUS de craque
+  if(as.SF.size===4){let all=true;as.SF.forEach(t=>{if(!ps.SF.has(t))all=false;});if(all)pts+=10;}           // 4 semifinalistas
+  if(ps.champ&&as.champ&&ps.champ===as.champ&&ps.vice&&as.vice&&ps.vice===as.vice)pts+=10;                    // campeão E vice
+  const fb=ACT.bracket[104], fr=ACT.results[104];
+  if(fb&&fb.home&&fb.away&&fr){const [ph,pa]=eng.teamsOf(104);if(ph===fb.home&&pa===fb.away&&koMatchPts((pred.r||{})[104],fr)>=10)pts+=15;} // placar da final
+  return pts;
+}
 function updateMyPtsK(){const e=$("#myPtsK");if(e)e.textContent=scoreKO(PREDK);
   const started=MATCHES.some(m=>!m.round.startsWith("Group")&&ACT.results[m.m]);
-  const hh=$("#myPtsKHint");if(hh)hh.textContent=started?"Atualiza ao vivo conforme os jogos do mata-mata terminam.":"O mata-mata ainda não começou — seus pontos aparecem quando as eliminatórias rolarem.";}
+  const hh=$("#myPtsKHint");if(hh)hh.textContent=started?"Atualiza ao vivo conforme os jogos do mata-mata terminam.":"O mata-mata ainda não começou — monte seu chaveamento e ajuste cada jogo até ele começar.";}
+// conquistas pra zoeira no grupo
+function koAch(pred){const eng=koEng(pred),as=actStages();let exact=0;const seq=[];
+  MATCHES.filter(m=>!m.round.startsWith("Group")&&ACT.results[m.m]).sort((a,b)=>koKick(a)-koKick(b)).forEach(m=>{
+    const rb=ACT.bracket[m.m];if(!rb||!rb.home||!rb.away){seq.push(false);return;}const [ph,pa]=eng.teamsOf(m.m);
+    if(ph===rb.home&&pa===rb.away){const sc=koMatchPts((pred.r||{})[m.m],ACT.results[m.m]);if(sc>=10)exact++;seq.push(sc>=5);}else seq.push(false);});
+  let streak=0;for(let i=seq.length-1;i>=0;i--){if(seq[i])streak++;else break;}
+  const ps=eng.stages();
+  const finalists=(as.FIN.size===2)&&[...as.FIN].every(t=>ps.FIN.has(t));
+  const champ=!!(ps.champ&&as.champ&&ps.champ===as.champ);
+  return {exact,streak,finalists,champ};
+}
 function renderMatamata(){
   $("#nomeK").value=NOME;
   const body=$("#matamataBody");
-  const anyDef=MATCHES.some(m=>!m.round.startsWith("Group")&&ACT.bracket[m.m]&&ACT.bracket[m.m].home&&ACT.bracket[m.m].away);
-  let h="";
-  if(!anyDef){
-    h='<div class="card" style="padding:18px"><b>A fase de grupos está terminando.</b><br>Assim que os confrontos do mata-mata forem definidos, os jogos vão aparecendo aqui — fase por fase — para você cravar os placares. Já pode deixar seu nome salvo abaixo. 👇</div>';
-  } else {
-    KO_ROUNDS.forEach(([name,lo,hi])=>{
-      const ms=MATCHES.filter(m=>m.m>=lo&&m.m<=hi);
-      const show=ms.some(m=>{const b=ACT.bracket[m.m]||{};return b.home||b.away;});
-      if(!show)return;
-      h+=`<h3 style="margin:14px 2px 8px;font-size:15px">${name}</h3><div class="groupgrid" style="grid-template-columns:repeat(auto-fill,minmax(290px,1fr))">`;
-      ms.forEach(m=>{
-        const [th,ta]=koTeams(m);const known=th&&ta;
-        const r=PREDK.r[m.m]||{};const act=ACT.results[m.m];const locked=koLocked(m);
-        const ds=new Intl.DateTimeFormat('pt-BR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit',timeZone:"America/New_York"}).format(new Date(m.utc));
-        const nameH=known?`${flag(th)} ${nm(th)}`:ptLabel(KO_HOME_LABEL[m.m]);
-        const nameA=known?`${flag(ta)} ${nm(ta)}`:ptLabel(KO_AWAY_LABEL[m.m]);
-        const pts=(act&&known)?scoreGroup(r,act):null;
-        const mine=(r.h!=null&&r.a!=null&&r.h!==""&&r.a!=="")?r.h+'–'+r.a:'—';
-        let inner=`<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
-            <div style="font-weight:750;font-size:13px">${nameH} <span class="v" style="color:var(--muted)">x</span> ${nameA}</div>
-            ${act?`<span class="tag ${pts>0?'live':''}" style="white-space:nowrap">${act.h}–${act.a}${pts!=null?' · +'+pts:''}</span>`:''}
-          </div>
-          <div class="hint" style="font-size:11.5px;margin:3px 0 7px">Jogo ${m.m} · ${ds}</div>`;
-        if(known&&!act){
-          inner+=`<div style="display:flex;align-items:center;gap:8px;justify-content:center">
-              <span style="font-size:15px">${flag(th)}</span>
-              <input type="number" min="0" max="29" value="${r.h??""}" data-mk="${m.m}" data-sk="h" ${locked?'disabled':''} style="width:44px;text-align:center;padding:6px 2px">
-              <span class="vs" style="color:var(--muted)">–</span>
-              <input type="number" min="0" max="29" value="${r.a??""}" data-mk="${m.m}" data-sk="a" ${locked?'disabled':''} style="width:44px;text-align:center;padding:6px 2px">
-              <span style="font-size:15px">${flag(ta)}</span>
-            </div>`+(locked?`<div class="hint" style="text-align:center;font-size:11px;margin-top:5px">🔒 fechado · seu palpite: <b>${mine}</b></div>`:`<div class="hint" style="text-align:center;font-size:11px;margin-top:5px">seu palpite: <b>${mine}</b></div>`);
-        } else if(known&&act){
-          inner+=`<div class="hint" style="text-align:center">Seu palpite: <b>${mine}</b> · resultado <b>${act.h}–${act.a}</b></div>`;
-        } else {
-          inner+=`<div class="hint" style="text-align:center;font-style:italic">Aguardando as seleções deste jogo…</div>`;
-        }
-        h+=`<div class="card" style="padding:11px 13px">${inner}</div>`;
-      });
-      h+="</div>";
-    });
+  const anyR32=MATCHES.some(m=>m.m>=73&&m.m<=88&&ACT.bracket[m.m]&&ACT.bracket[m.m].home&&ACT.bracket[m.m].away);
+  if(!anyR32){
+    body.innerHTML='<div class="card" style="padding:18px"><b>A fase de grupos está terminando.</b><br>Assim que os confrontos da Rodada de 32 forem definidos, o <b>seu chaveamento</b> aparece aqui — você crava tudo, da Rodada de 32 até a final, e ajusta cada jogo até ele começar. Já pode deixar seu nome salvo abaixo. 👇</div>';
+    updateMyPtsK();renderRankingK();return;
   }
+  const eng=koEng(PREDK);
+  let h='<div class="hint" style="margin:2px 2px 10px">Monte o <b>seu</b> chaveamento: crave o placar e <b>quem você faz vencer avança</b>. Pode ir até a final agora e <b>mudar cada jogo até ele começar</b>. Toque em <b>⭐ x2</b> pra eleger a sua <b>aposta da rodada</b> (vale dobro). 🔒 = já começou.</div>';
+  h+='<div class="bwrap"><div class="bracket">';
+  KO_COLS_K.forEach(([name,lo,hi],ci)=>{
+    h+=`<div class="bcol"><h4>${name}</h4>`;
+    MATCHES.filter(m=>m.m>=lo&&m.m<=hi).forEach(m=>{
+      const [th,ta]=eng.teamsOf(m.m);const known=th&&ta;const r=PREDK.r[m.m]||{};
+      const real=ACT.results[m.m];const rb=ACT.bracket[m.m]||{};const locked=koGameLocked(m);
+      const w=eng.winner(m.m);const isJoker=PREDK.j[ci]===m.m;
+      const ds=new Intl.DateTimeFormat('pt-BR',{day:'numeric',month:'short',timeZone:"America/New_York"}).format(new Date(m.utc));
+      let ptsTag="";
+      if(real&&rb.home&&rb.away){ if(th===rb.home&&ta===rb.away){let s=koMatchPts(r,real);if(isJoker)s*=2;ptsTag=`<span class="tag ${s>0?'live':''}">${real.h}–${real.a} · +${s}${isJoker&&s>0?' x2':''}</span>`;} else ptsTag=`<span class="tag">${real.h}–${real.a}</span>`; }
+      const mkTeam=(side,team)=>{
+        const lbl=team?nm(team):ptLabel(side==='h'?KO_HOME_LABEL[m.m]:KO_AWAY_LABEL[m.m]);
+        const win=team&&w===team;const cls="bteam"+(team?"":" ph")+(win?" win":"");
+        const val=(side==='h'?r.h:r.a)??"";const dis=(!team||locked)?"disabled":"";
+        return `<div class="${cls}"><span class="flag">${team?flag(team):"•"}</span><span class="nmx">${lbl}</span><input type="number" min="0" max="29" value="${val}" data-mk="${m.m}" data-sk="${side}" ${dis}></div>`;
+      };
+      h+=`<div class="bmatch" style="${isJoker?'outline:2px solid var(--accent);outline-offset:1px':''}">${mkTeam('h',th)}${mkTeam('a',ta)}`;
+      const sc=(r.h!=null&&r.a!=null&&r.h!==""&&r.a!=="")?{h:+r.h,a:+r.a}:null;
+      if(known&&sc&&sc.h===sc.a&&!real){
+        h+=`<div class="bmeta"><select data-pk="${m.m}" ${locked?'disabled':''}><option value="">Quem passa? (pênaltis)</option><option value="${th}" ${PREDK.k[m.m]===th?'selected':''}>${nm(th)}</option><option value="${ta}" ${PREDK.k[m.m]===ta?'selected':''}>${nm(ta)}</option></select></div>`;
+      }
+      const canJoker=known&&!locked;
+      h+=`<div class="bmeta"><span>${locked?'🔒 ':''}${ds}${ptsTag?' '+ptsTag:''}</span><span class="jk-btn" data-jk="${m.m}" data-ci="${ci}" title="Aposta da rodada: vale dobro" style="cursor:${canJoker?'pointer':'default'};opacity:${canJoker||isJoker?1:.4};font-weight:800;color:${isJoker?'var(--accent)':'var(--muted)'}">⭐ x2</span></div>`;
+      h+=`</div>`;
+    });
+    h+=`</div>`;
+  });
+  h+='</div></div>';
   body.innerHTML=h;
   body.querySelectorAll("input[data-mk]").forEach(inp=>inp.addEventListener("input",()=>{
     const m=inp.dataset.mk,s=inp.dataset.sk,v=inp.value;PREDK.r[m]=PREDK.r[m]||{};
     if(v==="")delete PREDK.r[m][s];else PREDK.r[m][s]=Math.max(0,Math.min(29,parseInt(v)||0));
     if(PREDK.r[m]&&Object.keys(PREDK.r[m]).length===0)delete PREDK.r[m];
-    saveK();updateMyPtsK();
+    saveK();renderMatamata();
+  }));
+  body.querySelectorAll("select[data-pk]").forEach(sel=>sel.addEventListener("change",()=>{
+    const m=sel.dataset.pk;if(sel.value)PREDK.k[m]=sel.value;else delete PREDK.k[m];saveK();renderMatamata();
+  }));
+  body.querySelectorAll(".jk-btn").forEach(b=>b.addEventListener("click",()=>{
+    const mn=+b.dataset.jk,ci=+b.dataset.ci,mm=BYNUM[mn];if(!mm)return;
+    const [th,ta]=koEng(PREDK).teamsOf(mn);if(!th||!ta||koGameLocked(mm))return;
+    const cur=PREDK.j[ci];if(cur!=null&&BYNUM[cur]&&koGameLocked(BYNUM[cur]))return; // não tira o joker de um jogo já iniciado
+    if(cur===mn)delete PREDK.j[ci];else PREDK.j[ci]=mn;saveK();renderMatamata();
   }));
   updateMyPtsK();renderRankingK();
-  $("#matamataStatus").innerHTML=ONLINE?"Vários amigos podem jogar neste aparelho: cada <b>nome</b> tem o seu palpite. Cada jogo trava no apito inicial — dá pra editar até o jogo começar."
+  $("#matamataStatus").innerHTML=ONLINE?"Vários amigos jogam neste aparelho: cada <b>nome</b> tem o seu chaveamento. Cada jogo trava no apito inicial."
     :"Modo local — configure o bolão online (o mesmo do bolão dos grupos) para o ranking compartilhado.";
 }
 async function enviarK(){
@@ -799,13 +867,13 @@ async function enviarK(){
   localStorage.setItem(NKEY,NOME);
   if(!NOME){toast("Digite seu nome primeiro 🙂");return;}
   const id=myId();
-  const doc={uid:id,nome:NOME,r:PREDK.r,ts:Date.now()};
+  const doc={uid:id,nome:NOME,r:PREDK.r,k:PREDK.k,j:PREDK.j,ts:Date.now()};
   if(ONLINE&&DB){try{await DB.collection("palpites_mata").doc(id).set(doc);toast("Palpite de "+NOME+" enviado! 🏆 Confira o Ranking do Mata-mata.");}catch(e){toast("Erro ao enviar: "+e.message);}}
   else{const arr=JSON.parse(localStorage.getItem("wc26_localk")||"[]").filter(p=>p.uid!==id);PLAYERSK=[doc,...arr];localStorage.setItem("wc26_localk",JSON.stringify(arr));renderRankingK();toast("Salvo neste dispositivo.");}
 }
 function novoPalpiteK(){
   if(!confirm("Começar um palpite novo do mata-mata para outra pessoa?\n\nIsto limpa o formulário. O palpite que você já enviou continua salvo no ranking.")) return;
-  NOME="";PREDK.r={};saveK();localStorage.setItem(NKEY,"");
+  NOME="";PREDK.r={};PREDK.k={};PREDK.j={};saveK();localStorage.setItem(NKEY,"");
   $("#nomeK").value="";$("#nome").value="";if($("#nome2"))$("#nome2").value="";
   renderMatamata();window.scrollTo({top:0,behavior:"smooth"});$("#nomeK").focus();
   toast("Pronto! Digite o nome do próximo jogador e crave os placares. 🏆");
@@ -818,19 +886,24 @@ function loadCloudPalpiteK(force){
     const data=s.data();const hasLocal=Object.keys(PREDK.r||{}).length;
     if(hasLocal&&!force)return;
     if(hasLocal&&force&&!confirm("Substituir o palpite atual neste aparelho pelo seu palpite salvo na nuvem?"))return;
-    PREDK.r=data.r||{};saveK();renderMatamata();
+    PREDK.r=data.r||{};PREDK.k=data.k||{};PREDK.j=data.j||{};saveK();renderMatamata();
     toast("Palpite de "+(data.nome||NOME)+" carregado da nuvem ☁️");
   }).catch(e=>{if(force)toast("Erro ao carregar: "+e.message);});
 }
 function renderRankingK(){
   const tbl=$("#rankKTable");if(!tbl)return;const tb=tbl.querySelector("tbody");tb.innerHTML="";
-  const rows=PLAYERSK.map(p=>({nome:p.nome||"(sem nome)",uid:p.uid,pts:scoreKO({r:p.r||{}})})).sort((a,b)=>b.pts-a.pts||(a.nome||"").localeCompare(b.nome||""));
+  const rows=PLAYERSK.map(p=>({nome:p.nome||"(sem nome)",uid:p.uid,pts:scoreKO({r:p.r||{},k:p.k||{},j:p.j||{}}),p:p})).sort((a,b)=>b.pts-a.pts||(a.nome||"").localeCompare(b.nome||""));
   const started=MATCHES.some(m=>!m.round.startsWith("Group")&&ACT.results[m.m]);
   if(!rows.length){$("#rankKHint").innerHTML=ONLINE?"Ninguém entrou no bolão do mata-mata ainda. Seja o primeiro! 🏆":"Modo local: o ranking online aparece com o bolão configurado.";}
   else{$("#rankKHint").innerHTML=(ONLINE?`🟢 Ao vivo · ${rows.length} participante(s).`:`Modo local · ${rows.length} participante(s).`)+(started?"":" A pontuação começa no Round of 32.");}
   const medals=["🥇","🥈","🥉"];const me=NOME.trim()?myId():"--none--";
   rows.forEach((r,i)=>{const tr=el("tr",r.uid===me?"me":"");
-    tr.innerHTML=`<td class="pos">${i<3?'<span class="medal">'+medals[i]+'</span>':(i+1)}</td><td><b>${r.nome}</b>${r.uid===me?' <span class="tag live">voc&ecirc;</span>':''}</td><td class="pts">${r.pts}</td>`;
+    const ac=koAch({r:(r.p.r)||{},k:(r.p.k)||{},j:(r.p.j)||{}});let bd="";
+    if(ac.champ)bd+='<span class="badge" title="cravou o campeão">👑</span>';
+    if(ac.finalists)bd+='<span class="badge" title="acertou os 2 finalistas">🧠</span>';
+    if(ac.exact>0)bd+=`<span class="badge" title="placares cravados">🎯${ac.exact}</span>`;
+    if(ac.streak>1)bd+=`<span class="badge" title="vencedores certos seguidos">🔥${ac.streak}</span>`;
+    tr.innerHTML=`<td class="pos">${i<3?'<span class="medal">'+medals[i]+'</span>':(i+1)}</td><td><b>${r.nome}</b>${r.uid===me?' <span class="tag live">voc&ecirc;</span>':''}${bd}</td><td class="pts">${r.pts}</td>`;
     tb.append(tr);});
   $("#rankKShare").innerHTML=rows.length?`<button class="btn" id="shareRankK">📋 Copiar ranking pro WhatsApp</button>`:"";
   const sb=$("#shareRankK");if(sb)sb.onclick=()=>{const txt="🏆 Bolão do Mata-mata — Ranking\n"+rows.map((r,i)=>`${i<3?medals[i]:(i+1)+"º"} ${r.nome} — ${r.pts} pts`).join("\n")+"\n👉 https://gutoassumpcao.github.io/worldcup-2026/";copy(txt);};
