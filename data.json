@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-27 00:19 ET (Miami)",
+ "updated": "2026-06-27 03:30 ET (Miami)",
  "results": {
   "1": {
    "h": 2,
@@ -256,6 +256,14 @@
   "63": {
    "h": 0,
    "a": 0
+  },
+  "65": {
+   "h": 1,
+   "a": 5
+  },
+  "66": {
+   "h": 1,
+   "a": 1
   }
  },
  "standings": {
@@ -537,47 +545,47 @@
   ],
   "G": [
    {
-    "t": "Egypt",
-    "P": 2,
+    "t": "Belgium",
+    "P": 3,
     "W": 1,
-    "D": 1,
+    "D": 2,
     "L": 0,
-    "GF": 4,
+    "GF": 6,
     "GA": 2,
+    "GD": 4,
+    "Pts": 5
+   },
+   {
+    "t": "Egypt",
+    "P": 3,
+    "W": 1,
+    "D": 2,
+    "L": 0,
+    "GF": 5,
+    "GA": 3,
     "GD": 2,
-    "Pts": 4
+    "Pts": 5
    },
    {
     "t": "Iran",
-    "P": 2,
+    "P": 3,
     "W": 0,
-    "D": 2,
+    "D": 3,
     "L": 0,
-    "GF": 2,
-    "GA": 2,
+    "GF": 3,
+    "GA": 3,
     "GD": 0,
-    "Pts": 2
-   },
-   {
-    "t": "Belgium",
-    "P": 2,
-    "W": 0,
-    "D": 2,
-    "L": 0,
-    "GF": 1,
-    "GA": 1,
-    "GD": 0,
-    "Pts": 2
+    "Pts": 3
    },
    {
     "t": "New Zealand",
-    "P": 2,
+    "P": 3,
     "W": 0,
     "D": 1,
-    "L": 1,
-    "GF": 3,
-    "GA": 5,
-    "GD": -2,
+    "L": 2,
+    "GF": 4,
+    "GA": 10,
+    "GD": -6,
     "Pts": 1
    }
   ],
@@ -859,7 +867,7 @@
    "winner": null
   },
   "82": {
-   "home": null,
+   "home": "Belgium",
    "away": "South Korea",
    "winner": null
   },
@@ -875,7 +883,7 @@
   },
   "85": {
    "home": "Switzerland",
-   "away": null,
+   "away": "Iran",
    "winner": null
   },
   "86": {
@@ -890,7 +898,7 @@
   },
   "88": {
    "home": "Australia",
-   "away": null,
+   "away": "Egypt",
    "winner": null
   },
   "89": {
