@@ -6,14 +6,18 @@ Enable it by adding a GitHub repository secret FOOTBALL_DATA_TOKEN
 (Settings -> Secrets and variables -> Actions -> New repository secret).
 Get a free token at https://www.football-data.org/client/register .
 
-It merges any FINISHED match scores into results.json, matching by team names
-and date against fixtures.json. If the token is missing or the competition
-isn't available on your plan, it exits quietly and the hand-edited results.json
-is used instead — so nothing breaks either way.
+It merges any FINISHED match scores into results.json.
+- GROUP games are matched by team names against fixtures.json.
+- KNOCKOUT games are matched by the REAL teams resolved in data.json's bracket
+  (fixtures.json only carries placeholder labels like "RU Group A" for those,
+  so they can't be matched by name until the bracket is known). That's why the
+  workflow runs build.py BEFORE this script: it resolves the bracket first.
 
-NOTE: free-tier coverage of the men's World Cup and exact team-name spellings
-can vary. After the first matches kick off, open an Action run log and confirm
-results.json is filling in; if names don't match, extend NAME_MAP below.
+If the token is missing or the competition isn't on your plan, it exits quietly
+and the hand-edited results.json is used instead — so nothing breaks either way.
+
+NOTE: if a name doesn't match, extend NAME_MAP below; the run log prints any
+UNMATCHED finished games so you can spot new spellings fast.
 """
 import json, os, sys, datetime, urllib.request
 
@@ -51,8 +55,21 @@ except Exception as e:
     print("Fetch failed (plan may not include the World Cup):", e)
     sys.exit(0)
 
-# index our fixtures by (home, away)
-idx = {frozenset((m["home"], m["away"])): m for m in FIXTURES}
+# GROUP games: match by real team names from fixtures.json
+GROUP_IDX = {frozenset((m["home"], m["away"])): m
+             for m in FIXTURES if m["round"].startswith("Group")}
+
+# KNOCKOUT games: match by the REAL teams resolved in data.json's bracket
+KO_IDX = {}
+try:
+    data = json.load(open(os.path.join(HERE, "data.json"), encoding="utf-8"))
+    for mn, b in (data.get("bracket") or {}).items():
+        h, a = b.get("home"), b.get("away")
+        if h and a:
+            KO_IDX[frozenset((h, a))] = {"m": int(mn), "home": h, "away": a}
+except Exception:
+    pass
+
 results = {}
 p = os.path.join(HERE, "results.json")
 if os.path.exists(p):
@@ -70,10 +87,14 @@ for m in payload.get("matches", []):
     hg, ag = ft.get("home"), ft.get("away")
     if hg is None or ag is None:
         continue
-    fx = idx.get(frozenset((h, a)))
+    key = frozenset((h, a))
+    stage = (m.get("stage") or "")
+    is_group = ("GROUP" in stage) or bool(m.get("group"))
+    # route by stage; fall back to the other index if stage info is odd/missing
+    fx = (GROUP_IDX.get(key) if is_group else KO_IDX.get(key)) or GROUP_IDX.get(key) or KO_IDX.get(key)
     if fx is None:
-        unmatched.append(f"{h} x {a}"); continue
-    results[str(fx["m"])] = f"{hg}-{ag}" if (h==fx["home"] and a==fx["away"]) else f"{ag}-{hg}"
+        unmatched.append(f"{h} x {a} [{stage or '?'}]"); continue
+    results[str(fx["m"])] = f"{hg}-{ag}" if (h == fx["home"] and a == fx["away"]) else f"{ag}-{hg}"
     added += 1
 
 json.dump(results, open(p, "w"), ensure_ascii=False, indent=0)
