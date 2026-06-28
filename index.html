@@ -497,7 +497,10 @@ function renderSchedule(){
     const tm=fmtTime(mt,mode),r=ACT.results[mt.m];
     let th;
     if(grp){th=`<span class="flag">${flag(mt.home)}</span> ${nm(mt.home)} `+(r?`<span class="score">${r.h}–${r.a}</span>`:`<span class="v">x</span>`)+` ${nm(mt.away)} <span class="flag">${flag(mt.away)}</span>`;}
-    else{th=`${homeR} <span class="v">x</span> ${awayR}`;}
+    else{const b=ACT.bracket[mt.m]||{};
+      const hh=b.home?`<span class="flag">${flag(b.home)}</span> ${homeR}`:homeR;
+      const aa=b.away?`${awayR} <span class="flag">${flag(b.away)}</span>`:awayR;
+      th=`${hh} `+(r?`<span class="score">${r.h}–${r.a}</span>`:`<span class="v">x</span>`)+` ${aa}`;}
     const row=el("div","match");
     row.innerHTML=`<div class="tm">${tm.t}<span class="z">${tm.z}</span></div>
       <div><div class="teams">${th}</div><div class="meta"><span class="stage">${ptRound(mt.round)}</span>Jogo ${mt.m}</div></div>
