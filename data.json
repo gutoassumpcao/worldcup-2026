@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-28 17:15 ET (Miami)",
+ "updated": "2026-06-28 17:24 ET (Miami)",
  "results": {
   "1": {
    "h": 2,
@@ -288,6 +288,10 @@
   "71": {
    "h": 3,
    "a": 3
+  },
+  "73": {
+   "h": 0,
+   "a": 1
   }
  },
  "standings": {
@@ -848,7 +852,7 @@
   "73": {
    "home": "South Africa",
    "away": "Canada",
-   "winner": null
+   "winner": "Canada"
   },
   "74": {
    "home": "Germany",
@@ -931,7 +935,7 @@
    "winner": null
   },
   "90": {
-   "home": null,
+   "home": "Canada",
    "away": null,
    "winner": null
   },
