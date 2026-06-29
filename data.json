@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-29 14:21 ET (Miami)",
+ "updated": "2026-06-29 15:10 ET (Miami)",
  "results": {
   "1": {
    "h": 2,
@@ -291,6 +291,10 @@
   },
   "73": {
    "h": 0,
+   "a": 1
+  },
+  "76": {
+   "h": 2,
    "a": 1
   }
  },
@@ -867,7 +871,7 @@
   "76": {
    "home": "Brazil",
    "away": "Japan",
-   "winner": null
+   "winner": "Brazil"
   },
   "77": {
    "home": "France",
@@ -940,7 +944,7 @@
    "winner": null
   },
   "91": {
-   "home": null,
+   "home": "Brazil",
    "away": null,
    "winner": null
   },
