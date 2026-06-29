@@ -880,6 +880,11 @@ async function enviarK(){
   $("#nomeK").value=NOME;$("#nome").value=NOME;if($("#nome2"))$("#nome2").value=NOME;
   localStorage.setItem(NKEY,NOME);
   if(!NOME){toast("Digite seu nome primeiro 🙂");return;}
+  // ⚠️ proteção: não sobrescrever na nuvem com um formulário vazio (evita apagar palpite sem querer)
+  if(!Object.keys(PREDK.r||{}).length){
+    toast("⚠️ Formulário vazio — nada pra enviar. Use ☁️ Carregar meu palpite para recuperar o seu.");
+    return;
+  }
   const id=myId();
   const doc={uid:id,nome:NOME,r:PREDK.r,k:PREDK.k,j:PREDK.j,ts:Date.now()};
   if(ONLINE&&DB){try{await DB.collection("palpites_mata").doc(id).set(doc);toast("Palpite de "+NOME+" enviado! 🏆 Confira o Ranking do Mata-mata.");}catch(e){toast("Erro ao enviar: "+e.message);}}
