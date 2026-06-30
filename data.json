@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-30 18:38 ET (Miami)",
+ "updated": "2026-06-30 19:01 ET (Miami)",
  "results": {
   "1": {
    "h": 2,
@@ -308,6 +308,10 @@
   "78": {
    "h": 1,
    "a": 2
+  },
+  "77": {
+   "h": 3,
+   "a": 0
   }
  },
  "standings": {
@@ -888,7 +892,7 @@
   "77": {
    "home": "France",
    "away": "Sweden",
-   "winner": null
+   "winner": "France"
   },
   "78": {
    "home": "Ivory Coast",
@@ -947,7 +951,7 @@
   },
   "89": {
    "home": "Paraguay",
-   "away": null,
+   "away": "France",
    "winner": null
   },
   "90": {
