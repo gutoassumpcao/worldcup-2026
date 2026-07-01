@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-01 17:51 ET (Miami)",
+ "updated": "2026-07-01 19:06 ET (Miami)",
  "results": {
   "1": {
    "h": 2,
@@ -320,6 +320,10 @@
   "80": {
    "h": 2,
    "a": 1
+  },
+  "82": {
+   "h": 3,
+   "a": 2
   }
  },
  "standings": {
@@ -925,7 +929,7 @@
   "82": {
    "home": "Belgium",
    "away": "Senegal",
-   "winner": null
+   "winner": "Belgium"
   },
   "83": {
    "home": "Portugal",
@@ -984,7 +988,7 @@
   },
   "94": {
    "home": null,
-   "away": null,
+   "away": "Belgium",
    "winner": null
   },
   "95": {
