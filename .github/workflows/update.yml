@@ -1,13 +1,13 @@
 name: Update World Cup feed
 
-# Runs on a schedule, on manual click, and whenever you edit results.json.
+# Atualiza sozinho no schedule, e no clique manual (Actions -> Run workflow).
+# OBS: NÃO usamos mais o gatilho "push em results.json" — ele criava uma cascata
+# (o robô se re-disparava a cada placar salvo), gerando deploys do GitHub Pages
+# a cada ~2 min. O Pages nao aguenta esse ritmo e recusa alguns ("try again later").
 on:
   schedule:
-    - cron: "*/5 * * * *"        # a cada 5 min — pega o placar logo apos cada jogo terminar.
-  workflow_dispatch:              # lets you run it manually from the Actions tab
-  push:
-    paths:
-      - "results.json"            # rebuild instantly when you edit scores by hand
+    - cron: "*/10 * * * *"       # a cada 10 min — rapido o bastante e sem sobrecarregar o Pages
+  workflow_dispatch:              # rodar manualmente quando quiser (ex.: apos editar results.json na mao)
 
 permissions:
   contents: write                 # allow the action to commit the regenerated files
