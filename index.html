@@ -758,6 +758,15 @@ function koEng(pred){
 }
 function koKick(m){return new Date(m.utc).getTime();}
 function koGameLocked(m){return !!ACT.results[m.m] || Date.now()>=koKick(m);} // trava no apito (ou com resultado)
+// Placar do TEMPO NORMAL (90 min) dos jogos que foram para prorrogação/pênaltis.
+// A API football-data.org guarda o placar SOMANDO os pênaltis (ex.: Austrália x Egito 1-1,
+// pênaltis 2-4 -> guardado 3-5). No bolão vale o placar do tempo normal. Fontes conferidas
+// (worldcupwiki, CBS, Sky, ESPN, Olympics) — todos esses 5 jogos terminaram 1-1 no tempo normal.
+const KO_REG={74:{h:1,a:1},75:{h:1,a:1},82:{h:1,a:1},86:{h:1,a:1},88:{h:1,a:1}};
+function placarReal(m){return KO_REG[m]||ACT.results[m];}
+// pontos do placar: "só somar" — vale o MELHOR entre o placar guardado e o de 90 min.
+// Assim quem cravou o empate do tempo normal ganha, e NINGUÉM perde os pontos que já tinha.
+function koScore(p,m){const st=ACT.results[m];if(!st)return 0;const rg=KO_REG[m];const a=koMatchPts(p,st);return rg?Math.max(a,koMatchPts(p,rg)):a;}
 // placar de um jogo do mata-mata, COM consolação (mais gente pontua)
 function koMatchPts(p,a){
   if(!p||!a||p.h==null||p.a==null||p.h===""||p.a==="")return 0;
@@ -780,7 +789,7 @@ function scoreKO(pred){
   // 1) PLACAR de cada jogo (vale quando o confronto previsto bate com o real) — joker dobra
   MATCHES.forEach(m=>{ if(m.round.startsWith("Group"))return; const real=ACT.results[m.m]; const rb=ACT.bracket[m.m];
     if(!real||!rb||!rb.home||!rb.away)return; const [ph,pa]=eng.teamsOf(m.m);
-    if(ph===rb.home&&pa===rb.away){ let s=koMatchPts((pred.r||{})[m.m],real); if(J[KO_COL_OF[m.m]]===m.m)s*=2; pts+=s; } });
+    if(ph===rb.home&&pa===rb.away){ let s=koScore((pred.r||{})[m.m],m.m); if(J[KO_COL_OF[m.m]]===m.m)s*=2; pts+=s; } });
   // 2) AVANÇO escalonado (cada seleção sua que chegou de verdade a cada fase)
   const ps=eng.stages(), as=actStages();
   const aw=(pset,aset,per)=>{aset.forEach(t=>{if(pset.has(t))pts+=per;});};
@@ -791,7 +800,7 @@ function scoreKO(pred){
   if(as.SF.size===4){let all=true;as.SF.forEach(t=>{if(!ps.SF.has(t))all=false;});if(all)pts+=10;}           // 4 semifinalistas
   if(ps.champ&&as.champ&&ps.champ===as.champ&&ps.vice&&as.vice&&ps.vice===as.vice)pts+=10;                    // campeão E vice
   const fb=ACT.bracket[104], fr=ACT.results[104];
-  if(fb&&fb.home&&fb.away&&fr){const [ph,pa]=eng.teamsOf(104);if(ph===fb.home&&pa===fb.away&&koMatchPts((pred.r||{})[104],fr)>=10)pts+=15;} // placar da final
+  if(fb&&fb.home&&fb.away&&fr){const [ph,pa]=eng.teamsOf(104);if(ph===fb.home&&pa===fb.away&&koScore((pred.r||{})[104],104)>=10)pts+=15;} // placar da final
   return pts;
 }
 function updateMyPtsK(){const e=$("#myPtsK");if(e)e.textContent=scoreKO(PREDK);
@@ -801,7 +810,7 @@ function updateMyPtsK(){const e=$("#myPtsK");if(e)e.textContent=scoreKO(PREDK);
 function koAch(pred){const eng=koEng(pred),as=actStages();let exact=0;const seq=[];
   MATCHES.filter(m=>!m.round.startsWith("Group")&&ACT.results[m.m]).sort((a,b)=>koKick(a)-koKick(b)).forEach(m=>{
     const rb=ACT.bracket[m.m];if(!rb||!rb.home||!rb.away){seq.push(false);return;}const [ph,pa]=eng.teamsOf(m.m);
-    if(ph===rb.home&&pa===rb.away){const sc=koMatchPts((pred.r||{})[m.m],ACT.results[m.m]);if(sc>=10)exact++;seq.push(sc>=5);}else seq.push(false);});
+    if(ph===rb.home&&pa===rb.away){const sc=koScore((pred.r||{})[m.m],m.m);if(sc>=10)exact++;seq.push(sc>=5);}else seq.push(false);});
   let streak=0;for(let i=seq.length-1;i>=0;i--){if(seq[i])streak++;else break;}
   const ps=eng.stages();
   const finalists=(as.FIN.size===2)&&[...as.FIN].every(t=>ps.FIN.has(t));
@@ -836,7 +845,7 @@ function renderMatamata(){
       const w=eng.winner(m.m);const isJoker=PREDK.j[ci]===m.m;
       const ds=new Intl.DateTimeFormat('pt-BR',{day:'numeric',month:'short',timeZone:"America/New_York"}).format(new Date(m.utc));
       let ptsTag="";
-      if(real&&rb.home&&rb.away){ if(th===rb.home&&ta===rb.away){let s=koMatchPts(r,real);if(isJoker)s*=2;ptsTag=`<span class="tag ${s>0?'live':''}">${real.h}–${real.a} · +${s}${isJoker&&s>0?' x2':''}</span>`;} else ptsTag=`<span class="tag">${real.h}–${real.a}</span>`; }
+      if(real&&rb.home&&rb.away){ const isReg=!!KO_REG[m.m]; const shown=isReg?KO_REG[m.m]:real; if(th===rb.home&&ta===rb.away){let s=koScore(r,m.m);if(isJoker)s*=2;ptsTag=`<span class="tag ${s>0?'live':''}">${shown.h}–${shown.a}${isReg?' <span style="opacity:.7">(90′)</span>':''} · +${s}${isJoker&&s>0?' x2':''}</span>`;} else ptsTag=`<span class="tag">${real.h}–${real.a}</span>`; }
       const mkTeam=(side,team)=>{
         const lbl=team?nm(team):ptLabel(side==='h'?KO_HOME_LABEL[m.m]:KO_AWAY_LABEL[m.m]);
         const win=team&&w===team;const cls="bteam"+(team?"":" ph")+(win?" win":"");
@@ -886,8 +895,17 @@ async function enviarK(){
     return;
   }
   const id=myId();
-  const doc={uid:id,nome:NOME,r:PREDK.r,k:PREDK.k,j:PREDK.j,ts:Date.now()};
-  if(ONLINE&&DB){try{await DB.collection("palpites_mata").doc(id).set(doc);toast("Palpite de "+NOME+" enviado! 🏆 Confira o Ranking do Mata-mata.");}catch(e){toast("Erro ao enviar: "+e.message);}}
+  if(ONLINE&&DB){try{
+      // preserva os jogos JÁ TRAVADOS que estejam salvos na nuvem (não dá pra editar, então não pode perder)
+      try{const snap=await DB.collection("palpites_mata").doc(id).get();
+        if(snap.exists){const cd=snap.data()||{},cr=cd.r||{},ck=cd.k||{};
+          Object.keys(cr).forEach(mn=>{const mm=BYNUM[+mn];if(mm&&koGameLocked(mm)&&!PREDK.r[mn]){PREDK.r[mn]=cr[mn];}});
+          Object.keys(ck).forEach(mn=>{const mm=BYNUM[+mn];if(mm&&koGameLocked(mm)&&!PREDK.k[mn]){PREDK.k[mn]=ck[mn];}});
+          saveK();
+        }}catch(e){}
+      const doc={uid:id,nome:NOME,r:PREDK.r,k:PREDK.k,j:PREDK.j,ts:Date.now()};
+      await DB.collection("palpites_mata").doc(id).set(doc);toast("Palpite de "+NOME+" enviado! 🏆 Confira o Ranking do Mata-mata.");
+    }catch(e){toast("Erro ao enviar: "+e.message);}}
   else{const arr=JSON.parse(localStorage.getItem("wc26_localk")||"[]").filter(p=>p.uid!==id);PLAYERSK=[doc,...arr];localStorage.setItem("wc26_localk",JSON.stringify(arr));renderRankingK();toast("Salvo neste dispositivo.");}
 }
 function novoPalpiteK(){
@@ -919,7 +937,7 @@ function koDiaPodium(){
   const dayMatches=fin.filter(m=>dayOf(m)===lastDay).sort((a,b)=>koKick(a)-koKick(b));
   const dayPtsOf=p=>{let s=0;const eng=koEng({r:p.r||{},k:p.k||{}});const J=p.j||{};
     dayMatches.forEach(m=>{const rb=ACT.bracket[m.m];if(!rb||!rb.home||!rb.away)return;const [ph,pa]=eng.teamsOf(m.m);
-      if(ph===rb.home&&pa===rb.away){let g=koMatchPts((p.r||{})[m.m],ACT.results[m.m]);if(J[KO_COL_OF[m.m]]===m.m)g*=2;s+=g;}});return s;};
+      if(ph===rb.home&&pa===rb.away){let g=koScore((p.r||{})[m.m],m.m);if(J[KO_COL_OF[m.m]]===m.m)g*=2;s+=g;}});return s;};
   const dayRows=PLAYERSK.map(p=>({nome:p.nome||"(sem nome)",gain:dayPtsOf(p)})).sort((a,b)=>b.gain-a.gain);
   const overall=PLAYERSK.map(p=>({nome:p.nome||"(sem nome)",pts:scoreKO({r:p.r||{},k:p.k||{},j:p.j||{}})})).sort((a,b)=>b.pts-a.pts);
   return {lastDay,dayMatches,dayRows,overall};
