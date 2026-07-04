@@ -762,7 +762,7 @@ function koGameLocked(m){return !!ACT.results[m.m] || Date.now()>=koKick(m);} //
 // A API football-data.org guarda o placar SOMANDO os pênaltis (ex.: Austrália x Egito 1-1,
 // pênaltis 2-4 -> guardado 3-5). No bolão vale o placar do tempo normal. Fontes conferidas
 // (worldcupwiki, CBS, Sky, ESPN, Olympics) — todos esses 5 jogos terminaram 1-1 no tempo normal.
-const KO_REG={74:{h:1,a:1},75:{h:1,a:1},82:{h:1,a:1},86:{h:1,a:1},88:{h:1,a:1}};
+let KO_REG={74:{h:1,a:1},75:{h:1,a:1},82:{h:1,a:1},86:{h:1,a:1},88:{h:1,a:1}}; // padrão de segurança; a lista viva vem de ko_reg.json
 function placarReal(m){return KO_REG[m]||ACT.results[m];}
 // pontos do placar: "só somar" — vale o MELHOR entre o placar guardado e o de 90 min.
 // Assim quem cravou o empate do tempo normal ganha, e NINGUÉM perde os pontos que já tinha.
@@ -1134,6 +1134,13 @@ async function loadActual(){
     refreshActiveViews();
   }catch(e){}
 }
+async function loadKoReg(){ // placares de 90 min dos jogos de pênaltis/prorrogação — lista viva (ko_reg.json)
+  try{const res=await fetch("./ko_reg.json",{cache:"no-store"});if(res.ok){const d=await res.json();const m={};
+    Object.entries(d||{}).forEach(([k,v])=>{const s=(""+v).split("-");if(s.length===2&&s[0]!==""&&s[1]!=="")m[k]={h:+s[0],a:+s[1]};});
+    if(Object.keys(m).length)KO_REG=m;}
+  }catch(e){}
+  try{refreshActiveViews();}catch(e){}
+}
 function refreshActiveViews(){const s=document.querySelector(".section.active").id;
   renderSchedule();if(s==="groups")renderGroups();if(s==="bracket")renderBracket();if(s==="teams")renderTeam();if(s==="bolao")updateMyPts();if(s==="ranking")renderRanking();if(s==="meus")renderMeus();if(s==="palpites")renderPalpites();if(s==="matamata")renderMatamata();}
 
@@ -1141,7 +1148,7 @@ function refreshActiveViews(){const s=document.querySelector(".section.active").
   $("#subUrl").textContent=ics;
   $("#subApple").href="webcal://"+ics.replace(/^https?:\/\//,"");
   $("#subGoogle").href="https://calendar.google.com/calendar/r?cid="+encodeURIComponent(ics);})();
-initFilters();initFirebase();renderSchedule();renderRiv();countdown();setInterval(countdown,30000);loadActual();
+initFilters();initFirebase();renderSchedule();renderRiv();countdown();setInterval(countdown,30000);loadActual();loadKoReg();
 if(typeof ONLINE!=="undefined"&&ONLINE&&NOME&&!Object.keys(PRED.r).length)setTimeout(()=>loadCloudPalpite(false),600);
 if(typeof ONLINE!=="undefined"&&ONLINE&&NOME&&!Object.keys(PREDK.r).length)setTimeout(()=>loadCloudPalpiteK(false),750);
 $("#bolaoStatus").innerHTML = "Seu palpite fica salvo automaticamente neste navegador. Clique em <b>Enviar</b> para entrar no ranking.";
