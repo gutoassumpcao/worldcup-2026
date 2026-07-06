@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-06 17:03 ET (Miami)",
+ "updated": "2026-07-06 17:21 ET (Miami)",
  "results": {
   "1": {
    "h": 2,
@@ -368,6 +368,10 @@
   "92": {
    "h": 2,
    "a": 3
+  },
+  "93": {
+   "h": 0,
+   "a": 1
   }
  },
  "standings": {
@@ -1028,7 +1032,7 @@
   "93": {
    "home": "Portugal",
    "away": "Spain",
-   "winner": null
+   "winner": "Spain"
   },
   "94": {
    "home": "United States",
@@ -1051,7 +1055,7 @@
    "winner": null
   },
   "98": {
-   "home": null,
+   "home": "Spain",
    "away": null,
    "winner": null
   },
