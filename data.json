@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-15 16:29 ET (Miami)",
+ "updated": "2026-07-15 17:31 ET (Miami)",
  "results": {
   "1": {
    "h": 2,
@@ -403,6 +403,10 @@
   },
   "101": {
    "h": 0,
+   "a": 2
+  },
+  "102": {
+   "h": 1,
    "a": 2
   }
  },
@@ -1109,16 +1113,16 @@
   "102": {
    "home": "England",
    "away": "Argentina",
-   "winner": null
+   "winner": "Argentina"
   },
   "103": {
    "home": "France",
-   "away": null,
+   "away": "England",
    "winner": null
   },
   "104": {
    "home": "Spain",
-   "away": null,
+   "away": "Argentina",
    "winner": null
   }
  }
